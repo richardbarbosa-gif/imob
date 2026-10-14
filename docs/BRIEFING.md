@@ -69,6 +69,11 @@
 **Fase atual (protótipo da Home)**: HTML5 + CSS + JavaScript puro, entregue como arquivo único que abre com dois cliques.
 Código em `prototipo/` (ver `prototipo/README.md`).
 
+**Ticker de mercado (v2 do protótipo):** Ibovespa, moedas, Selic, CDI e IPCA. No protótipo o navegador chama APIs públicas
+(AwesomeAPI, Banco Central e brapi). Em produção, um processo no servidor (n8n ou Edge Function) publica um JSON próprio a cada
+minuto e o site lê só esse arquivo: protege o token da brapi, respeita os limites das APIs e evita depender delas ao vivo.
+Dados com atraso e sinalizados como informativos (tempo real da B3 é licenciado).
+
 **Fase do sistema (propostas, dependem da conversa com o cliente sobre banco de dados e hospedagem):**
 
 | Tema | Proposta | Motivo |

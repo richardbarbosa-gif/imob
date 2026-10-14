@@ -24,7 +24,7 @@ const brandIcons = {
   linkedin: 'M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z',
 };
 
-function sprite(html) {
+function sprite(html, arts = []) {
   const used = [...new Set([...html.matchAll(/href="#i-([a-z0-9-]+)"/g)].map(m => m[1]))].sort();
   const symbols = used.map(name => {
     if (brandIcons[name]) {
@@ -40,7 +40,7 @@ function sprite(html) {
       .replace(/\s\/>/g, '/>');
     return `<symbol id="i-${name}" viewBox="0 0 24 24">${inner}</symbol>`;
   });
-  return `<svg class="sprite" aria-hidden="true" focusable="false">${symbols.join('')}</svg>`;
+  return `<svg class="sprite" aria-hidden="true" focusable="false">${symbols.join('')}${arts.join('')}</svg>`;
 }
 
 /* ------------------------------------------------------------------ */
@@ -206,8 +206,7 @@ function seal() {
   branch(62, -16);
   const stars = [78, 90, 102].map((a, i) => { const [x, y] = at(112, a); return star(x, y, i === 1 ? 7 : 5.2); }).join('');
 
-  return `<svg class="seal" viewBox="0 0 320 320" role="img" aria-labelledby="seal-t">
-<title id="seal-t">Selo comemorativo: Sincor SC, 65 anos</title>
+  return `<symbol id="art-seal" viewBox="0 0 320 320">
 <defs>
 <linearGradient id="seal-gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7e7bd"/><stop offset=".38" stop-color="#d6b46e"/><stop offset=".62" stop-color="#a98339"/><stop offset="1" stop-color="#ecd29a"/></linearGradient>
 <radialGradient id="seal-disc" cx=".5" cy=".38" r=".7"><stop offset="0" stop-color="#21407a"/><stop offset="1" stop-color="#0d1f3f"/></radialGradient>
@@ -216,11 +215,49 @@ function seal() {
 <circle cx="${C}" cy="${C}" r="154" fill="none" stroke="url(#seal-gold)" stroke-width="3"/>
 <circle cx="${C}" cy="${C}" r="146" fill="url(#seal-disc)" stroke="url(#seal-gold)" stroke-width="1.2"/>
 <circle cx="${C}" cy="${C}" r="136" fill="none" stroke="url(#seal-gold)" stroke-width="1.4" stroke-dasharray=".1 7" stroke-linecap="round" opacity=".8"/>
-<text class="seal-arc-text" fill="url(#seal-gold)"><textPath href="#seal-arc" startOffset="50%" text-anchor="middle">ANIVERSÁRIO</textPath></text>
+<text fill="url(#seal-gold)" font-size="15" font-weight="700" letter-spacing="5"><textPath href="#seal-arc" startOffset="50%" text-anchor="middle">ANIVERSÁRIO</textPath></text>
 <g fill="url(#seal-gold)">${leaves}<path d="${stars}"/></g>
-<text class="seal-num" x="${C}" y="186" text-anchor="middle" fill="url(#seal-gold)">65</text>
-<text class="seal-sub" x="${C}" y="220" text-anchor="middle" fill="url(#seal-gold)">ANOS</text>
-</svg>`;
+<text x="${C}" y="186" text-anchor="middle" fill="url(#seal-gold)" font-size="116" font-weight="800" letter-spacing="-5">65</text>
+<text x="${C + 5}" y="220" text-anchor="middle" fill="url(#seal-gold)" font-size="20" font-weight="700" letter-spacing="10">ANOS</text>
+</symbol>`;
+}
+
+/* ------------------------------------------------------------------ */
+/* Arte do certificado digital (documento + cartão com chip)         */
+/* ------------------------------------------------------------------ */
+function certArt() {
+  const mark = '<path d="M2.5 27.5C9.6 13.6 24 5.2 45.5 3.5 33 7.6 21.7 14.7 13.6 27.5Z"/><path d="M15.4 29.5c5.2-7.6 13.6-13.2 25.2-16-8.3 4-14.4 9.3-18.6 16Z"/>';
+  return `<symbol id="art-cert" viewBox="0 0 400 300">
+<defs>
+<linearGradient id="cert-card" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#24427a"/><stop offset="1" stop-color="#0b1a33"/></linearGradient>
+<linearGradient id="cert-gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3dfab"/><stop offset=".5" stop-color="#c6a15b"/><stop offset="1" stop-color="#9c7a37"/></linearGradient>
+<filter id="cert-shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="14" stdDeviation="12" flood-color="#06142b" flood-opacity=".45"/></filter>
+</defs>
+<g transform="rotate(-7 190 135)" filter="url(#cert-shadow)">
+<rect x="64" y="34" width="250" height="186" rx="6" fill="#fbf9f4"/>
+<rect x="76" y="46" width="226" height="162" rx="3" fill="none" stroke="#c6a15b" stroke-width="1.2"/>
+<rect x="81" y="51" width="216" height="152" rx="2" fill="none" stroke="#c6a15b" stroke-width=".6" opacity=".6"/>
+<rect x="124" y="70" width="130" height="8" rx="4" fill="#13264a"/>
+<rect x="144" y="86" width="90" height="5" rx="2.5" fill="#a9b2c2"/>
+<rect x="104" y="106" width="170" height="5" rx="2.5" fill="#d9dee6"/>
+<rect x="104" y="117" width="152" height="5" rx="2.5" fill="#d9dee6"/>
+<rect x="104" y="128" width="162" height="5" rx="2.5" fill="#d9dee6"/>
+<circle cx="268" cy="176" r="17" fill="url(#cert-gold)"/>
+<circle cx="268" cy="176" r="12" fill="none" stroke="#fbf9f4" stroke-width="1" opacity=".7"/>
+<path d="M104 182h70" stroke="#13264a" stroke-width="1.2" opacity=".55"/>
+</g>
+<g transform="rotate(5 250 205)" filter="url(#cert-shadow)">
+<rect x="132" y="128" width="236" height="148" rx="14" fill="url(#cert-card)"/>
+<rect x="132.5" y="128.5" width="235" height="147" rx="13.5" fill="none" stroke="#c6a15b" stroke-opacity=".55"/>
+<text x="152" y="155" fill="#d7b878" font-size="10.5" font-weight="700" letter-spacing="1.8">CERTIFICADO DIGITAL</text>
+<g transform="translate(330 140) scale(.62)" fill="#c6a15b">${mark}</g>
+<rect x="152" y="172" width="40" height="30" rx="5" fill="url(#cert-gold)"/>
+<path d="M152 182h13M152 192h13M179 182h13M179 192h13M172 172v30" stroke="#7d5f22" stroke-width="1" opacity=".55" fill="none"/>
+<rect x="152" y="222" width="126" height="7" rx="3.5" fill="#fff" opacity=".88"/>
+<rect x="152" y="237" width="84" height="6" rx="3" fill="#fff" opacity=".4"/>
+<text x="350" y="260" text-anchor="end" fill="#fff" fill-opacity=".72" font-size="10" font-weight="600" letter-spacing=".6">ICP-Brasil</text>
+</g>
+</symbol>`;
 }
 
 /* ------------------------------------------------------------------ */
@@ -270,7 +307,7 @@ function scMap() {
 <title id="scmap-t">Mapa de Santa Catarina com a sede do Sincor SC em Blumenau</title>
 <path class="sc-map__state" d="${sc.path}"/>
 <g class="sc-map__ref"><circle cx="${r(fx)}" cy="${r(fy)}" r="1.1"/><text x="${r(fx - 3)}" y="${r(fy + 1.1)}" text-anchor="end">Florianópolis</text></g>
-<g class="sc-map__pin"><circle class="sc-map__pulse" cx="${r(bx)}" cy="${r(by)}" r="1.7"/><circle class="sc-map__dot" cx="${r(bx)}" cy="${r(by)}" r="1.7"/><text x="${r(bx - 3.2)}" y="${r(by - 2.6)}" text-anchor="end">Blumenau · sede</text></g>
+<g class="sc-map__pin"><circle class="sc-map__halo" cx="${r(bx)}" cy="${r(by)}" r="4"/><circle class="sc-map__dot" cx="${r(bx)}" cy="${r(by)}" r="1.7"/><text x="${r(bx - 3.2)}" y="${r(by - 2.6)}" text-anchor="end">Blumenau · sede</text></g>
 </svg>`;
 }
 
@@ -290,9 +327,9 @@ async function qr() {
 }
 
 /* ------------------------------------------------------------------ */
-const blocks = { bridge: bridge(), seal: seal(), map: scMap(), qr: await qr() };
+const blocks = { bridge: bridge(), map: scMap(), qr: await qr() };
 let html = fs.readFileSync(SRC, 'utf8');
-blocks.sprite = sprite(html);
+blocks.sprite = sprite(html, [seal(), certArt()]);
 for (const [name, content] of Object.entries(blocks)) {
   const re = new RegExp(`(<!-- gen:${name} -->)[\\s\\S]*?(<!-- /gen:${name} -->)`);
   if (!re.test(html)) { console.warn(`marcador ausente: ${name}`); continue; }

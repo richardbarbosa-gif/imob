@@ -37,7 +37,8 @@ const csp = [
   `script-src ${sha256(js)}`,
   'img-src data:',
   'font-src data:',
-  "connect-src 'none'",
+  // Cotações: moedas (AwesomeAPI), indicadores (Banco Central) e Ibovespa (brapi)
+  'connect-src https://economia.awesomeapi.com.br https://api.bcb.gov.br https://brapi.dev',
   "form-action 'none'",
   "base-uri 'none'",
   "object-src 'none'",
@@ -49,7 +50,7 @@ const replaceOnce = (input, search, replacement) => {
 };
 
 html = replaceOnce(html, '<meta charset="utf-8">', `<meta charset="utf-8">\n<meta http-equiv="Content-Security-Policy" content="${csp}">`);
-html = replaceOnce(html, '<link rel="preload" href="assets/fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>\n', '');
+html = replaceOnce(html, '<link rel="preload" href="assets/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>\n', '');
 html = replaceOnce(html, '<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">', `<link rel="icon" href="${faviconUri}" type="image/svg+xml">`);
 html = replaceOnce(html, '<link rel="stylesheet" href="assets/css/styles.css">', `<style>${css}</style>`);
 html = replaceOnce(html, '<script src="assets/js/main.js" defer></script>', `<script>${js}</script>`);
