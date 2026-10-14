@@ -9,9 +9,20 @@
 - **Site atual**: https://sincor-sc.com.br/ — pesado, escuro, aparência amadora.
 - **Benchmark**: Sincor SP — https://sincor.org.br/ (usabilidade e design limpo).
 - **Objetivo**: ficar no nível do Sincor SP **e superá-lo** em estética, UX, performance e SEO.
-- **Ordem de execução**: começar pela Home.
+- **Ordem de execução**: começar pela Home (protótipo para aprovação). As demais páginas vêm depois.
+- **Textos**: usar os do site atual do Sincor SC.
 
-> Pendente: análise direta dos dois sites (bloqueada pela política de rede do ambiente de desenvolvimento).
+### Dados reais levantados (prints de 14/10/2026)
+
+- **Sede**: R. Dr. Luiz de Freitas Melro, 395, salas 902 a 904, Centro, **Blumenau/SC**, 89010-921.
+- **Contato**: (47) 3326-8894 · administrativo@sincor-sc.com.br.
+- **Nome jurídico**: Sindicato dos Corretores de Seguros e de Resseguros e das Empresas Corretoras de Seguros e de Resseguros no Estado de Santa Catarina.
+- **Paleta**: azul-marinho + dourado (HEX estimados: `#13264a` / `#c6a15b`, a confirmar no manual da marca).
+- **Evento em destaque**: Melhores do Ano 2026, jantar de 65 anos do Sincor-SC, 05/11/26, 19:30, Teatro Carlos Gomes, traje esporte fino.
+- **Site atual**: desenvolvido pela Guerra Comunicação; banner é imagem com texto embutido (ilegível no celular, invisível ao Google);
+  a seção "Últimas Notícias" está vazia e repete o subtítulo de Benefícios; botão dourado com texto branco reprova em contraste.
+- **Sincor SP (benchmark)**: destaques em carrossel, faixa "seja associado", agenda com evento principal, revista, notícias,
+  TV, cursos, depoimentos, app do associado, newsletter e rodapé completo.
 
 ## 2. Páginas (11 listadas)
 
@@ -53,11 +64,16 @@
 - Votação autenticada por código
 - CMS para blog, painel admin
 
-## 5. Decisões propostas (aguardando aprovação)
+## 5. Decisões
+
+**Fase atual (protótipo da Home)**: HTML5 + CSS + JavaScript puro, entregue como arquivo único que abre com dois cliques.
+Código em `prototipo/` (ver `prototipo/README.md`).
+
+**Fase do sistema (propostas, dependem da conversa com o cliente sobre banco de dados e hospedagem):**
 
 | Tema | Proposta | Motivo |
 |------|----------|--------|
-| Front-end | Astro (HTML estático por padrão, componentes interativos só onde necessário) | Performance e SEO máximos; páginas públicas saem como HTML puro |
+| Front-end | Astro (HTML estático por padrão, componentes interativos só onde necessário); o protótipo migra sem retrabalho | Performance e SEO máximos; páginas públicas saem como HTML puro |
 | Back-end | Supabase (PostgreSQL + Auth + Storage + RLS) | Login, votação, inscrições e cadastro único sem servidor próprio |
 | Hospedagem | Vercel ou Cloudflare Pages (domínio do cliente mantido) | Preview por versão, CDN global, HTTPS; hospedagem compartilhada não roda o sistema |
 | Votação | Login + código único, 1 voto por categoria garantido no banco, trilha de auditoria | Anti-fraude verificável |
@@ -66,10 +82,11 @@
 
 ## 6. Pendências do cliente
 
-1. Paleta de cores / manual de marca / logo em vetor (SVG)
+1. Confirmar os HEX da paleta e enviar o logo em vetor (SVG)
 2. Imagens (fotos de diretoria, eventos, sede)
-3. Acesso ao painel da hospedagem atual e ao DNS do domínio
-4. Conteúdo textual das páginas (ou autorização para reaproveitar o atual)
-5. Lista de delegados por região, comissões, seguradoras parceiras
-6. Regras da votação (categorias, período, quem vota, quem apura)
-7. Base atual de associados (formato, campos) para importação
+3. Acesso ao painel da hospedagem atual e ao DNS do domínio (hoje com a Guerra Comunicação)
+4. URLs oficiais das redes sociais (Facebook, Instagram, LinkedIn)
+5. Conteúdo textual das páginas (ou autorização para reaproveitar o atual)
+6. Lista de delegados por região, comissões, seguradoras parceiras
+7. Regras da votação (categorias, período, quem vota, quem apura)
+8. Base atual de associados (formato, campos) para importação

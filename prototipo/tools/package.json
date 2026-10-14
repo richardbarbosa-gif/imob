@@ -1,0 +1,17 @@
+{
+  "name": "sincor-sc-prototipo-tools",
+  "private": true,
+  "type": "module",
+  "description": "Geradores dos SVGs embutidos no protótipo (ícones, ilustrações, mapa, QR) e build do arquivo único.",
+  "scripts": {
+    "generate": "node generate.mjs",
+    "build": "node ../build.mjs"
+  },
+  "devDependencies": {
+    "@fontsource-variable/plus-jakarta-sans": "5.3.0",
+    "@svg-maps/brazil": "2.0.0",
+    "lucide-static": "1.56.0",
+    "qrcode": "1.5.4",
+    "simple-icons": "16.35.0"
+  }
+}
