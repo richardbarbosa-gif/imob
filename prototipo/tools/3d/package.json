@@ -1,0 +1,12 @@
+{
+  "name": "sincor-sc-3d",
+  "private": true,
+  "description": "Maquetes 3D da versão Telão: cenas em Three.js fotografadas no Chromium sem tela.",
+  "scripts": {
+    "render": "node shoot.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.56.1",
+    "three": "0.170.0"
+  }
+}

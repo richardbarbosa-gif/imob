@@ -1,7 +1,7 @@
 # Briefing do projeto — Sincor SC
 
 > Registro vivo dos requisitos. Toda decisão de arquitetura deve rastrear até aqui.
-> Última atualização: 2026-10-14
+> Última atualização: 2026-10-15
 
 ## 1. Contexto
 
@@ -69,10 +69,19 @@
 **Fase atual (protótipo da Home)**: HTML5 + CSS + JavaScript puro, entregue como arquivo único que abre com dois cliques.
 Código em `prototipo/` (ver `prototipo/README.md`).
 
-**Ticker de mercado (v2 do protótipo):** Ibovespa, moedas, Selic, CDI e IPCA. No protótipo o navegador chama APIs públicas
+**Duas propostas de layout para o cliente comparar (mesmo texto, mesma paleta, mesmas abas):**
+
+- **Clássica** (`prototipo/src/`): clara, institucional, inspirada no Sincor SP.
+- **Telão** (`prototipo/src-telao/`, pedido de 15/10/2026): escura, com preto somado ao azul e ao branco; parede curva de
+  telas com maquetes 3D de imobiliária e escritório (inspiração: onovomercado, sem copiar); canhões de luz; barra superior
+  só com Dólar e Selic, em verde. As maquetes 3D foram criadas para o projeto e são ilustrativas (código em
+  `prototipo/tools/3d/`).
+
+**Ticker de mercado (versão Clássica):** Ibovespa, moedas, Selic, CDI e IPCA. No protótipo o navegador chama APIs públicas
 (AwesomeAPI, Banco Central e brapi). Em produção, um processo no servidor (n8n ou Edge Function) publica um JSON próprio a cada
 minuto e o site lê só esse arquivo: protege o token da brapi, respeita os limites das APIs e evita depender delas ao vivo.
 Dados com atraso e sinalizados como informativos (tempo real da B3 é licenciado).
+Na versão Telão, só Dólar (AwesomeAPI) e Selic (Banco Central, com a BrasilAPI de reserva); mesmo contrato de JSON.
 
 **Fase do sistema (propostas, dependem da conversa com o cliente sobre banco de dados e hospedagem):**
 

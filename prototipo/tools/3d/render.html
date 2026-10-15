@@ -1,0 +1,10 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Render 3D</title>
+<style>body { margin: 0; background: #000; }</style>
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as scenes from './scenes.js';
+const name = new URLSearchParams(location.search).get('scene');
+try { await scenes[name](); } catch (e) { console.error(e.stack || e); window.done = true; }
+</script>

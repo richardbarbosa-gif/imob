@@ -1,4 +1,4 @@
-// Gera os SVGs embutidos no protótipo e injeta em src/index.html,
+// Gera os SVGs embutidos no protótipo e injeta em src/index.html e src-telao/index.html,
 // entre os marcadores <!-- gen:nome --> e <!-- /gen:nome -->.
 // Uso: cd prototipo/tools && npm install && npm run generate
 import fs from 'node:fs';
@@ -9,7 +9,6 @@ import brazil from '@svg-maps/brazil';
 import { siFacebook, siInstagram, siYoutube, siWhatsapp } from 'simple-icons';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const SRC = path.resolve(here, '../src/index.html');
 const r = n => Math.round(n * 10) / 10;
 
 /* ------------------------------------------------------------------ */
@@ -327,13 +326,69 @@ async function qr() {
 }
 
 /* ------------------------------------------------------------------ */
-const blocks = { bridge: bridge(), map: scMap(), qr: await qr() };
-let html = fs.readFileSync(SRC, 'utf8');
-blocks.sprite = sprite(html, [seal(), certArt()]);
-for (const [name, content] of Object.entries(blocks)) {
-  const re = new RegExp(`(<!-- gen:${name} -->)[\\s\\S]*?(<!-- /gen:${name} -->)`);
-  if (!re.test(html)) { console.warn(`marcador ausente: ${name}`); continue; }
-  html = html.replace(re, (_, a, b) => `${a}\n${content}\n${b}`);
+/* Versão "Telão": parede de telas (dados num só lugar)               */
+/* ------------------------------------------------------------------ */
+// id da imagem: [primeira linha, destaque dourado, rótulo inferior]
+const SCREENS = {
+  torre: ['Seguro', 'empresarial', 'Seguros'],
+  escritorio: ['Benefícios em', 'Convênios', 'Associado'],
+  casa: ['Seguro', 'de Vida', 'Seguros'],
+  enxaimel: ['Patrimônio', 'catarinense', 'Santa Catarina'],
+  condominio: ['Seguro', 'condomínio', 'Seguros'],
+  skyline: ['Notícias', 'do mercado', 'Notícias'],
+  chave: ['Seja', 'associado', 'Associe-se'],
+  escudo: ['Benefício', 'padrão', 'Benefícios'],
+  planta: ['Planejamento', 'sucessório', 'Palestra'],
+  'planta-b': ['Seguro', 'residencial', 'Seguros'],
+  documento: ['Certificado', 'Digital', 'Benefícios'],
+  reuniao: ['Comissões', 'de trabalho', 'Sobre Nós'],
+  'reuniao-b': ['Cursos para', 'corretores', 'Capacitação'],
+  monitor: ['Área do', 'Associado', 'Carteira digital'],
+  trofeu: ['Melhores', 'do Ano', 'Premiação 2026'],
+  redoma: ['Benefícios em', 'Seguros', 'Benefícios'],
+  auditorio: ['Jantar de', '65 anos', '05/11 · Blumenau'],
+  'auditorio-b': ['Sincor SC', 'TV', 'Vídeos'],
+  clinica: ['Benefícios em', 'Saúde', 'Benefícios'],
+};
+// 7 colunas, da esquerda para a direita; nenhuma imagem se repete em colunas vizinhas
+const WALL = [
+  ['casa', 'reuniao', 'torre', 'clinica', 'planta-b'],
+  ['auditorio', 'escudo', 'condominio', 'monitor', 'enxaimel'],
+  ['skyline', 'chave', 'reuniao-b', 'trofeu', 'documento'],
+  ['planta', 'redoma', 'escritorio', 'auditorio-b', 'casa'],
+  ['trofeu', 'enxaimel', 'documento', 'clinica', 'skyline'],
+  ['monitor', 'condominio', 'auditorio', 'chave', 'reuniao'],
+  ['escudo', 'planta-b', 'redoma', 'torre', 'reuniao-b'],
+];
+function wall() {
+  const card = (id) => {
+    const [a, b, tag] = SCREENS[id];
+    return `<div class="screen shot-${id}"><span class="screen__brand"><svg viewBox="0 0 48 32"><use href="#sincor-mark"/></svg>Sincor SC</span><p class="screen__title">${a} <b>${b}</b></p><span class="screen__tag">${tag}</span></div>`;
+  };
+  return WALL.map(col => `<div class="wall__col"><div class="wall__track">\n${col.map(card).join('\n')}\n</div></div>`).join('\n');
 }
-fs.writeFileSync(SRC, html);
-console.log('OK', Object.fromEntries(Object.entries(blocks).map(([k, v]) => [k, v.length])));
+const MARK = '<symbol id="sincor-mark" viewBox="0 0 48 32"><path d="M2.5 27.5C9.6 13.6 24 5.2 45.5 3.5 33 7.6 21.7 14.7 13.6 27.5Z"/><path d="M15.4 29.5c5.2-7.6 13.6-13.2 25.2-16-8.3 4-14.4 9.3-18.6 16Z"/></symbol>';
+
+/* ------------------------------------------------------------------ */
+/* Injeção nas duas versões da Home                                   */
+/* ------------------------------------------------------------------ */
+const TARGETS = [
+  { file: '../src/index.html', arts: () => [seal(), certArt()] },
+  { file: '../src-telao/index.html', arts: () => [MARK] },
+];
+const shared = { bridge: bridge(), map: scMap(), qr: await qr(), wall: wall() };
+for (const target of TARGETS) {
+  const file = path.resolve(here, target.file);
+  let html = fs.readFileSync(file, 'utf8');
+  const inject = (name, content) => {
+    const re = new RegExp(`(<!-- gen:${name} -->)[\\s\\S]*?(<!-- /gen:${name} -->)`);
+    if (!re.test(html)) return false;
+    html = html.replace(re, (_, a, b) => `${a}\n${content}\n${b}`);
+    return true;
+  };
+  const done = Object.entries(shared).filter(([name, content]) => inject(name, content)).map(([name]) => name);
+  // O sprite vem por último: só entram os ícones que o HTML final usa
+  if (inject('sprite', sprite(html, target.arts()))) done.push('sprite');
+  fs.writeFileSync(file, html);
+  console.log('OK', target.file, done.join(', '));
+}
