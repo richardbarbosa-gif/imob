@@ -21,6 +21,7 @@ const VARIANTS = {
     dir: 'src-telao', css: 'assets/css/telao.css', js: 'assets/js/telao.js', out: 'sincor-sc-home-telao.html',
     // Dólar (AwesomeAPI) e Selic (Banco Central, com a BrasilAPI de reserva)
     connect: 'https://economia.awesomeapi.com.br https://api.bcb.gov.br https://brasilapi.com.br',
+    frame: 'https://www.google.com https://maps.google.com', // mapa do Google na seção Visite
   },
 };
 
@@ -65,6 +66,7 @@ function build(name) {
     'img-src data:',
     'font-src data:',
     `connect-src ${v.connect}`,
+    ...(v.frame ? [`frame-src ${v.frame}`] : []),
     "form-action 'none'",
     "base-uri 'none'",
     "object-src 'none'",

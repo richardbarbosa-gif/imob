@@ -332,7 +332,7 @@
     // então a animação anda meia trilha e recomeça sem emenda, sem ler medidas do layout.
     const start = () => {
       wall.classList.add('is-lit');
-      if (reduceMotion.matches) return;
+      // O telão corre sempre (com "reduzir movimento" ele anda mais devagar) e tem botão de pausa
       $$('.wall__track', wall).forEach((track) => {
         const cards = [...track.children];
         for (let k = 1; k < 4; k += 1) cards.forEach((card) => track.append(card.cloneNode(true)));
@@ -341,6 +341,13 @@
     };
     if ('requestIdleCallback' in window) requestIdleCallback(start, { timeout: 1200 });
     else setTimeout(start, 400);
+  
+    const wallToggle = $('[data-wall-toggle]');
+    wallToggle?.addEventListener('click', () => {
+      const paused = wall.classList.toggle('is-paused');
+      wallToggle.setAttribute('aria-pressed', String(paused));
+      wallToggle.setAttribute('aria-label', paused ? 'Retomar o movimento do telão' : 'Pausar o movimento do telão');
+    });
   }
 
   /* ---------- Carrossel de destaques ---------- */

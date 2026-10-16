@@ -76,6 +76,8 @@ Código em `prototipo/` (ver `prototipo/README.md`).
   telas com maquetes 3D de imobiliária e escritório (inspiração: onovomercado, sem copiar); canhões de luz; barra superior
   só com Dólar e Selic, em verde. As maquetes 3D foram criadas para o projeto e são ilustrativas (código em
   `prototipo/tools/3d/`).
+  Ajuste de 16/10/2026: fundo branco intercalado com azul (o preto saiu), título do telão em serifada, banners com setas
+  laterais (inclui Brasesul 2027), mapa do Google na seção Visite e telão sempre em movimento, com botão de pausa.
 
 **Ticker de mercado (versão Clássica):** Ibovespa, moedas, Selic, CDI e IPCA. No protótipo o navegador chama APIs públicas
 (AwesomeAPI, Banco Central e brapi). Em produção, um processo no servidor (n8n ou Edge Function) publica um JSON próprio a cada

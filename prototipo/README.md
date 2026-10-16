@@ -6,7 +6,7 @@ mesmo texto (o do site atual do Sincor SC), a mesma paleta e as mesmas abas, par
 | Versão | Arquivo para testar | Linguagem |
 |---|---|---|
 | **Clássica** | `dist/sincor-sc-home.html` | Clara, institucional, inspirada no Sincor SP. Destaques em carrossel, ticker com Ibovespa, moedas, Selic, CDI e IPCA |
-| **Telão** | `dist/sincor-sc-home-telao.html` | Escura (preto + azul-marinho + dourado + branco). Parede curva de telas com maquetes 3D, canhões de luz, barra superior só com Dólar e Selic |
+| **Telão** | `dist/sincor-sc-home-telao.html` | Branca com faixas em azul-marinho. Telão de abertura com parede curva de maquetes 3D e canhões de luz, banners com setas, barra superior só com Dólar e Selic |
 
 ## Como testar no seu PC
 
@@ -32,16 +32,21 @@ mesmo texto (o do site atual do Sincor SC), a mesma paleta e as mesmas abas, par
 Só na versão Telão:
 
 - **Telão**: as colunas de telas correm em sentidos alternados, como um painel de LED curvo. O telão "liga" logo depois
-  que o título aparece (o título nunca espera pelas imagens).
+  que o título aparece (o título nunca espera pelas imagens). Botão de pausa no canto inferior direito.
+- **Banners** com setas laterais (anterior/próximo), 4 destaques: Melhores do Ano, Brasesul 2027, Certificado Digital e Associe-se.
+- **Mapa do Google** na seção "Visite o Sincor SC" (precisa de internet).
 - **Benefícios**: ao passar o mouse (ou o foco do teclado) por um benefício, a tela ao lado troca a maquete.
 - **Sincor SC TV** em um monitor curvo.
 
-Com "reduzir movimento" ativado no sistema, o telão, os canhões de luz e a troca automática dos destaques ficam parados.
+Com "reduzir movimento" ativado no sistema (comum no Windows), os canhões de luz e a troca automática dos banners ficam
+parados; o telão continua correndo, bem mais devagar, porque é a assinatura da página, e tem botão de pausa.
 
 ## Versão Telão: decisões de design
 
-- **Paleta**: o azul-marinho (`#13264a`) e o dourado (`#c6a15b`) da marca, sobre um preto azulado (`#05070b`, nunca
-  `#000`). O verde aparece só nos indicadores de mercado, como pedido.
+- **Paleta**: fundo branco, intercalado com faixas em azul-marinho (`#0b1a33`/`#13264a`: telão, banners, benefícios,
+  revista e rodapé) e o dourado (`#c6a15b`) da marca. O verde aparece só nos indicadores de mercado.
+- **Título do telão** em Source Serif 4 (serifada de livro, recortada no tamanho display, 27 KB): tom institucional, menos
+  "página de vendas". O resto do site segue na Schibsted Grotesk.
 - **Assinatura**: a parede de telas curva. É geometria 3D de verdade (CSS `perspective` + colunas girando em torno do
   espectador), por isso as colunas laterais ficam maiores e as bordas formam o arco de um monitor curvo. Cada tela é uma
   miniatura com título, como uma vitrine de conteúdo, e todos os títulos vêm de seções, produtos e eventos do próprio site.
@@ -102,10 +107,10 @@ IDs aceitos: `IBOV`, `USD`, `EUR`, `GBP`, `ARS`, `BTC`, `SELIC`, `CDI`, `IPCA` (
 |---|---|---|
 | Lighthouse celular (Desempenho / Acessibilidade / Boas práticas / SEO)* | 100 / 100 / 100 / 100 | 99 / 100 / 100 / 100 |
 | Lighthouse desktop* | 100 / 100 / 100 / 100 | 99 / 100 / 100 / 100 |
-| LCP celular / TBT / CLS (4G simulado, mediana de 3 rodadas) | 1,5 s / 20–40 ms / 0 | 1,8 s / 70–100 ms / 0,002 |
-| Peso transferido no celular | 91 KB | 294 KB (inclui as maquetes 3D visíveis) |
+| LCP celular / TBT / CLS (4G simulado, mediana de 3 rodadas) | 1,5 s / 20–40 ms / 0 | 2,0 s / 0–60 ms / 0,002 |
+| Peso transferido no celular | 91 KB | 355 KB (inclui as maquetes 3D visíveis e as duas fontes) |
 | axe-core (WCAG 2.2 AA) | 0 violações | 0 violações |
-| Arquivo único de `dist/` | 227 KB | 595 KB (imagens embutidas) |
+| Arquivo único de `dist/` | 227 KB | 676 KB (imagens embutidas) |
 
 \*Medido no modo produção (arquivos separados, com compressão, cotações lendo o JSON próprio, sem o `noindex` do protótipo).
 
@@ -169,8 +174,9 @@ Contribuição e Convenções Coletivas; os links do rodapé.
 
 Ideal: fotos horizontais com pelo menos 1600 px de largura. Eu converto para AVIF/WebP e gero os tamanhos certos.
 
-A ilustração do slide 3 da Clássica é original, inspirada na Ponte Hercílio Luz. O mapa de SC usa a base
-[svg-maps](https://github.com/VictorCazanave/svg-maps) (CC BY 4.0), com crédito exibido na página.
+A ilustração do slide 3 da Clássica é original, inspirada na Ponte Hercílio Luz. O mapa de SC da Clássica usa a base
+[svg-maps](https://github.com/VictorCazanave/svg-maps) (CC BY 4.0), com crédito exibido na página. O Telão usa o mapa
+incorporado do Google Maps (sem chave de API).
 
 ## Antes de publicar (checklist técnico)
 
@@ -179,5 +185,6 @@ A ilustração do slide 3 da Clássica é original, inspirada na Ponte Hercílio
 - [ ] Gerar `og-image.png` (1200×630) para o link aparecer bonito no WhatsApp.
 - [ ] Redirecionamentos 301 das URLs antigas para as novas, para não perder posições no Google.
 - [ ] GA4 com Consent Mode, disparando só após o aceite de cookies (o banner já existe).
-- [ ] Enviar a CSP por cabeçalho HTTP no servidor, incluindo em `connect-src` só o domínio do JSON de cotações.
+- [ ] Enviar a CSP por cabeçalho HTTP no servidor, incluindo em `connect-src` só o domínio do JSON de cotações
+      (no Telão, também `frame-src https://www.google.com` para o mapa).
 - [ ] Servir imagens com cache longo e compressão (Brotli/gzip) para HTML, CSS e JS.
