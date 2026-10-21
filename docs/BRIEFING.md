@@ -85,6 +85,10 @@ minuto e o site lê só esse arquivo: protege o token da brapi, respeita os limi
 Dados com atraso e sinalizados como informativos (tempo real da B3 é licenciado).
 Na versão Telão, só Dólar (AwesomeAPI) e Selic (Banco Central, com a BrasilAPI de reserva); mesmo contrato de JSON.
 
+**Home escolhida pelo cliente (21/10/2026):** `site/index.html` (layout portal, HTML + Tailwind). O presidente pediu a barra
+de cotações correndo no topo, com dados reais: Ibovespa, dólar, Selic e bitcoin (mais Euro, Libra, CDI e IPCA), verde quando
+sobe e vermelho quando cai. Ibovespa depende de token da brapi (grátis); em produção, o JSON próprio via `data-feed`.
+
 **Fase do sistema (propostas, dependem da conversa com o cliente sobre banco de dados e hospedagem):**
 
 | Tema | Proposta | Motivo |

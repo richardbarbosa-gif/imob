@@ -80,6 +80,13 @@ zero complacência, apontar caminho melhor quando existir, antecipar falhas, ser
 > As versões Clássica e Telão abaixo ficam como histórico e como fonte de material (as maquetes 3D em
 > `prototipo/src-telao/assets/img/3d/` e as ilustrações SVG podem substituir as imagens de banco do novo código).
 > O `site/index.html` foi versionado exatamente como recebido; as regras deste arquivo valem para ele daqui em diante.
+>
+> Alterações já feitas no `site/index.html` (21/10): barra de cotações no topo, que corre em loop (Ibovespa, Dólar, Euro,
+> Libra, Bitcoin, Selic, CDI, IPCA; sobe = verde ▲, cai = vermelho ▼; código portado da Clássica). O Ibovespa só aparece
+> com `data-brapi-token` preenchido; em produção, `data-feed` com o JSON próprio. Selic do rodapé lê o mesmo dado.
+> Convenções Coletivas e Ouvidoria em dourado com brilho no hover. Menu no padrão Sobre Nós, Associe-se, Benefícios,
+> Eventos, Notícias, Revistas, Sincor SC TV, Contato, com painéis (hover, clique, teclado) e sanfona no celular. Favicon.
+> Corrigido também o cabeçalho, que no celular empurrava o botão do menu para fora da tela.
 
 Fase atual: **protótipo da Home** para aprovação, com **duas propostas de layout** que usam o **mesmo texto** (do site
 atual do Sincor SC), a mesma paleta e as mesmas abas. As páginas internas ainda não existem: links internos mostram o
