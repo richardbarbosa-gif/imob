@@ -148,7 +148,7 @@
     .ticker__viewport { flex: 1; min-width: 0; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 20px, #000 calc(100% - 20px), transparent); mask-image: linear-gradient(90deg, transparent, #000 20px, #000 calc(100% - 20px), transparent); }
     .ticker__status { padding-left: .5rem; white-space: nowrap; color: #9fb0cb; }
     .ticker__track { display: flex; width: max-content; }
-    .ticker.is-scrolling .ticker__track { animation: ticker-scroll var(--ticker-duration, 60s) linear infinite; }
+    .ticker.is-scrolling .ticker__track { animation: ticker-scroll var(--ticker-duration, 60s) linear infinite; will-change: transform; }
     .ticker:hover .ticker__track, .ticker:focus-within .ticker__track, .ticker.is-paused .ticker__track { animation-play-state: paused; }
     @keyframes ticker-scroll { to { transform: translateX(-50%); } }
     .ticker__list { display: flex; flex: none; }
@@ -175,10 +175,6 @@
     .ticker.is-paused .ticker__toggle .icon-play { display: block; }
     .ticker:not(.is-scrolling) .ticker__toggle { display: none; }
     @media (max-width: 767px) { .ticker__time { display: none; } }
-    @media (prefers-reduced-motion: reduce) {
-      .ticker .ticker__track { animation: none !important; }
-      .ticker__viewport { overflow-x: auto; scrollbar-width: none; }
-    }
 
     /* Convenções Coletivas e Ouvidoria: destaque dourado, brilho no hover */
     .topbar-highlight { display: inline-flex; align-items: center; gap: .4rem; font-size: 13px; font-weight: 700; color: #f1c266; transition: color .2s, text-shadow .2s; }
@@ -194,8 +190,7 @@
     .partners__kicker { font-size: 10.5px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #f1c266; }
     .partners__title { margin-top: 2px; font-size: 14px; font-weight: 700; color: #fff; white-space: nowrap; }
     .partners__viewport { flex: 1; min-width: 0; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 28px, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(90deg, transparent, #000 28px, #000 calc(100% - 28px), transparent); }
-    .partners__track { display: flex; width: max-content; }
-    .partners.is-scrolling .partners__track { animation: partners-scroll var(--partners-duration, 40s) linear infinite; }
+    .partners__track { display: flex; width: max-content; animation: partners-scroll var(--partners-duration, 40s) linear infinite; will-change: transform; }
     .partners:hover .partners__track, .partners:focus-within .partners__track, .partners.is-paused .partners__track, .partners.is-offscreen .partners__track { animation-play-state: paused; }
     @keyframes partners-scroll { to { transform: translateX(-50%); } }
     .partners__list { display: flex; flex: none; gap: .75rem; padding-right: .75rem; }
@@ -208,16 +203,11 @@
     .partners__toggle svg { width: 14px; height: 14px; }
     .partners__toggle .icon-play, .partners.is-paused .partners__toggle .icon-pause { display: none; }
     .partners.is-paused .partners__toggle .icon-play { display: block; }
-    .partners:not(.is-scrolling) .partners__toggle { display: none; }
     @media (max-width: 767px) {
       .partners { flex-wrap: wrap; gap: .75rem; padding: 1rem; }
       .partners__head { flex: 1; padding-right: 0; border-right: 0; }
       .partners__viewport { flex-basis: 100%; order: 3; }
       .partner { width: 140px; height: 56px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .partners .partners__track { animation: none !important; }
-      .partners__viewport { overflow-x: auto; scrollbar-width: none; }
     }
 
     /* Menu principal com painéis (desktop) */
@@ -538,7 +528,8 @@
   <!-- ===================================================================== -->
   <!-- Marcas autorizadas pelas empresas. Logos oficiais tratados em assets/parceiros/ (WebP sem perda, no dobro do tamanho
        de exibição; width/height = tamanho de exibição, equilibrado por área para todas as marcas terem o mesmo peso).
-       Marca sem logo ainda aparece com o nome em <span class="partner__name">. A cópia usada no loop é gerada pelo script. -->
+       Marca sem logo ainda aparece com o nome em <span class="partner__name">. A segunda lista (aria-hidden) é a cópia
+       que fecha o loop: ao mudar uma marca, mude nas duas. -->
   <section class="bg-white py-4 border-b border-slate-100" aria-label="Empresas parceiras do Sincor SC">
     <div class="max-w-5xl mx-auto px-4">
       <div class="partners" data-partners>
@@ -556,6 +547,15 @@
               <li class="partner"><img class="partner__logo" src="assets/parceiros/maxpar.webp" alt="Maxpar Assistências" width="81" height="33" decoding="async"></li>
               <li class="partner"><img class="partner__logo" src="assets/parceiros/ens.webp" alt="ENS: Escola de Negócios e Seguros" width="91" height="30" decoding="async"></li>
               <li class="partner"><img class="partner__logo" src="assets/parceiros/allianz.webp" alt="Allianz" width="101" height="27" decoding="async"></li>
+            </ul>
+            <ul class="partners__list" aria-hidden="true">
+              <li class="partner"><img class="partner__logo" src="assets/parceiros/porto.webp" alt="" width="108" height="25" decoding="async"></li>
+              <li class="partner"><img class="partner__logo" src="assets/parceiros/hdi-seguros.webp" alt="" width="64" height="40" decoding="async"></li>
+              <li class="partner"><img class="partner__logo" src="assets/parceiros/bradesco-seguros.webp" alt="" width="84" height="32" decoding="async"></li>
+              <li class="partner"><img class="partner__logo" src="assets/parceiros/tokio-marine.webp" alt="" width="107" height="25" decoding="async"></li>
+              <li class="partner"><img class="partner__logo" src="assets/parceiros/maxpar.webp" alt="" width="81" height="33" decoding="async"></li>
+              <li class="partner"><img class="partner__logo" src="assets/parceiros/ens.webp" alt="" width="91" height="30" decoding="async"></li>
+              <li class="partner"><img class="partner__logo" src="assets/parceiros/allianz.webp" alt="" width="101" height="27" decoding="async"></li>
             </ul>
           </div>
         </div>
@@ -1980,10 +1980,11 @@
         const group = track.firstElementChild;
         if (!group) return;
         const width = group.getBoundingClientRect().width;
-        const scroll = width > track.parentElement.clientWidth - 8 && !reduceMotion.matches;
+        const scroll = width > track.parentElement.clientWidth - 8;
         root.classList.toggle('is-scrolling', scroll);
         track.lastElementChild.hidden = !scroll;
-        if (scroll) track.style.setProperty('--ticker-duration', `${Math.round(width / SPEED)}s`);
+        // "Reduzir movimento" (comum no Windows de PCs antigos) deixa mais lento, sem parar: pedido do cliente; há botão de pausa
+        if (scroll) track.style.setProperty('--ticker-duration', `${Math.round(width / (reduceMotion.matches ? SPEED / 2 : SPEED))}s`);
       }
 
       toggle.addEventListener('click', () => {
@@ -1993,10 +1994,9 @@
       });
       // Remede quando o layout muda (CSS do Tailwind chegando, fonte trocada, janela redimensionada)
       let resizeFrame;
-      new ResizeObserver(() => {
-        cancelAnimationFrame(resizeFrame);
-        resizeFrame = requestAnimationFrame(setupScroll);
-      }).observe(track.parentElement);
+      const remeasure = () => { cancelAnimationFrame(resizeFrame); resizeFrame = requestAnimationFrame(setupScroll); };
+      if ('ResizeObserver' in window) new ResizeObserver(remeasure).observe(track.parentElement);
+      else window.addEventListener('resize', remeasure);
 
       const cached = readCache();
       if (cached) render(cached.items, new Date(cached.time), 'cached');
@@ -2007,39 +2007,38 @@
       });
     })(document.querySelector('[data-ticker]'));
 
-    // Faixa de parceiros: loop contínuo, pausa no hover, no foco, pelo botão e fora da tela
+    // Faixa de parceiros: o loop roda só com CSS; o script ajusta a velocidade, a pausa e para fora da tela
     (function initPartners(root) {
       if (!root) return;
       const track = root.querySelector('[data-partners-track]');
       const list = track.firstElementChild;
       const toggle = root.querySelector('[data-partners-toggle]');
-      const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
-      const SPEED = 32; // px por segundo: devagar, para a marca ser lida
-      const clone = list.cloneNode(true);
-      clone.setAttribute('aria-hidden', 'true');
-      clone.querySelectorAll('img').forEach(img => { img.alt = ''; });
-      track.append(clone);
+      const reduceMotion = window.matchMedia ? matchMedia('(prefers-reduced-motion: reduce)') : null;
+      // px por segundo: devagar, para a marca ser lida. "Reduzir movimento" (comum no Windows de PCs antigos) deixa
+      // ainda mais lento, sem parar: pedido do cliente; o botão de pausa atende quem precisa do conteúdo parado
+      const speed = () => (reduceMotion && reduceMotion.matches ? 18 : 32);
 
       function setup() {
         const width = list.getBoundingClientRect().width;
-        const scroll = width > track.parentElement.clientWidth && !reduceMotion.matches;
-        root.classList.toggle('is-scrolling', scroll);
-        clone.hidden = !scroll;
-        if (scroll) track.style.setProperty('--partners-duration', `${Math.round(width / SPEED)}s`);
+        if (width > 0) track.style.setProperty('--partners-duration', `${Math.round(width / speed())}s`);
       }
       toggle.addEventListener('click', () => {
         const paused = root.classList.toggle('is-paused');
         toggle.setAttribute('aria-pressed', String(paused));
         toggle.setAttribute('aria-label', paused ? 'Retomar o carrossel de parceiros' : 'Pausar o carrossel de parceiros');
       });
-      new IntersectionObserver(([entry]) => root.classList.toggle('is-offscreen', !entry.isIntersecting)).observe(root);
-      // Remede quando o layout muda (CSS do Tailwind chegando, fonte trocada, janela redimensionada)
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(([entry]) => root.classList.toggle('is-offscreen', !entry.isIntersecting)).observe(root);
+      }
+      // Remede quando o layout muda (CSS do Tailwind chegando, logo carregado, janela redimensionada)
       let frame;
       const remeasure = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(setup); };
-      const ro = new ResizeObserver(remeasure);
-      ro.observe(track.parentElement);
-      ro.observe(list);
-      reduceMotion.addEventListener('change', remeasure);
+      if ('ResizeObserver' in window) new ResizeObserver(remeasure).observe(list);
+      else { window.addEventListener('resize', remeasure); window.addEventListener('load', remeasure); }
+      if (reduceMotion) {
+        if (reduceMotion.addEventListener) reduceMotion.addEventListener('change', remeasure);
+        else if (reduceMotion.addListener) reduceMotion.addListener(remeasure);
+      }
       setup();
     })(document.querySelector('[data-partners]'));
 

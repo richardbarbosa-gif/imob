@@ -183,7 +183,9 @@ prototipo/
 - Mobile-first, testado de 360 a 1920 px, sem rolagem horizontal.
 - Menus com teclado (Enter abre, Tab entra, Esc fecha e devolve o foco), atalho `/` para busca, diálogos nativos `<dialog>`.
 - Tudo que se move sozinho tem pausa; troca automática pausa no hover e no foco; respeite `prefers-reduced-motion`
-  (exceção documentada: o telão continua, mais lento, com botão de pausa).
+  (exceção documentada, pedido do cliente: o telão, a barra de cotações e a faixa de parceiros continuam com
+  "reduzir movimento", mais lentos e com botão de pausa. PCs antigos com Windows em "melhor desempenho" ativam essa
+  preferência sem o usuário saber, e o carrossel parado pareceu defeito).
 - Links de páginas ainda inexistentes mostram aviso, nunca levam a página quebrada.
 - Formulários com rótulo visível, `autocomplete` correto, mensagens de status com `role="status"`.
 
