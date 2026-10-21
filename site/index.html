@@ -187,6 +187,39 @@
     .topbar-highlight:hover svg, .topbar-highlight:focus-visible svg { filter: drop-shadow(0 0 4px rgb(241 194 102 / .9)); }
     .topbar-highlight:focus-visible { outline: 2px solid #f1c266; outline-offset: 3px; border-radius: 4px; }
 
+    /* Faixa de empresas parceiras: marcas em cartões brancos (cores oficiais preservadas) sobre o azul da marca */
+    .partners { display: flex; align-items: center; gap: 1.25rem; padding: .875rem .75rem .875rem 1.5rem; border-radius: 14px; background: linear-gradient(100deg, #030d1f 0%, #071d49 55%, #0c2d6b 100%); border: 1px solid rgb(212 150 42 / .28); box-shadow: 0 14px 32px -18px rgba(7, 29, 73, .55); }
+    .partners [hidden] { display: none !important; }
+    .partners__head { flex: none; padding-right: 1.25rem; border-right: 1px solid rgb(255 255 255 / .12); }
+    .partners__kicker { font-size: 10.5px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #f1c266; }
+    .partners__title { margin-top: 2px; font-size: 14px; font-weight: 700; color: #fff; white-space: nowrap; }
+    .partners__viewport { flex: 1; min-width: 0; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 28px, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(90deg, transparent, #000 28px, #000 calc(100% - 28px), transparent); }
+    .partners__track { display: flex; width: max-content; }
+    .partners.is-scrolling .partners__track { animation: partners-scroll var(--partners-duration, 40s) linear infinite; }
+    .partners:hover .partners__track, .partners:focus-within .partners__track, .partners.is-paused .partners__track, .partners.is-offscreen .partners__track { animation-play-state: paused; }
+    @keyframes partners-scroll { to { transform: translateX(-50%); } }
+    .partners__list { display: flex; flex: none; gap: .75rem; padding-right: .75rem; }
+    .partner { display: grid; place-items: center; width: 164px; height: 60px; padding: .5rem 1rem; border-radius: 10px; background: #fff; box-shadow: inset 0 0 0 1px rgb(15 23 42 / .06); }
+    .partner__name { font-size: 12.5px; font-weight: 800; line-height: 1.15; letter-spacing: .08em; text-align: center; text-transform: uppercase; color: #071d49; }
+    .partner__logo { width: auto; height: auto; max-width: 124px; max-height: 34px; object-fit: contain; }
+    .partners__toggle { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 8px; color: #c9d3e6; transition: background-color .2s, color .2s; }
+    .partners__toggle:hover { background: rgb(255 255 255 / .1); color: #fff; }
+    .partners__toggle:focus-visible { outline: 2px solid #f1c266; outline-offset: -2px; }
+    .partners__toggle svg { width: 14px; height: 14px; }
+    .partners__toggle .icon-play, .partners.is-paused .partners__toggle .icon-pause { display: none; }
+    .partners.is-paused .partners__toggle .icon-play { display: block; }
+    .partners:not(.is-scrolling) .partners__toggle { display: none; }
+    @media (max-width: 767px) {
+      .partners { flex-wrap: wrap; gap: .75rem; padding: 1rem; }
+      .partners__head { flex: 1; padding-right: 0; border-right: 0; }
+      .partners__viewport { flex-basis: 100%; order: 3; }
+      .partner { width: 140px; height: 56px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .partners .partners__track { animation: none !important; }
+      .partners__viewport { overflow-x: auto; scrollbar-width: none; }
+    }
+
     /* Menu principal com painéis (desktop) */
     .nav-menu { display: flex; align-items: center; gap: .25rem; }
     .nav-item { position: relative; }
@@ -501,33 +534,38 @@
   </header>
 
   <!-- ===================================================================== -->
-  <!-- 3. BANNER PUBLICITÁRIO LEADERBOARD (TOPO DO PORTAL)                   -->
+  <!-- 3. FAIXA DE EMPRESAS PARCEIRAS (CARROSSEL CONTÍNUO DE MARCAS)         -->
   <!-- ===================================================================== -->
-  <div class="bg-white py-4 border-b border-slate-100">
+  <!-- Marcas autorizadas pelas empresas. Para trocar o nome pelo logo oficial, substitua o <span class="partner__name">
+       por <img class="partner__logo" src="assets/parceiros/ARQUIVO.svg" alt="NOME DA EMPRESA" width="124" height="34">
+       (SVG ou PNG oficial, fundo transparente). A cópia usada no loop é gerada pelo script. -->
+  <section class="bg-white py-4 border-b border-slate-100" aria-label="Empresas parceiras do Sincor SC">
     <div class="max-w-5xl mx-auto px-4">
-      <div class="relative rounded-xl overflow-hidden shadow-sm border border-slate-200 bg-gradient-to-r from-[#071d49] via-[#0c3c78] to-[#046a58] text-white px-6 py-3.5 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div class="flex items-center gap-4">
-          <div class="hidden sm:flex w-11 h-11 rounded-xl bg-white/10 border border-white/20 items-center justify-center shrink-0 font-extrabold text-sincor-goldLight text-xs">
-            AD
-          </div>
-          <div>
-            <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-300 block">Campanha Oficial Sincor-SC & Parceiros</span>
-            <p id="topLeaderboardText" class="text-xs sm:text-sm font-bold text-white">
-              Certificado Digital ICP-Brasil (e-CPF e e-CNPJ) com valores exclusivos para Corretores Associados em Santa Catarina.
-            </p>
+      <div class="partners" data-partners>
+        <div class="partners__head">
+          <p class="partners__kicker">Empresas parceiras</p>
+          <p class="partners__title">Parceiros do Sincor SC</p>
+        </div>
+        <div class="partners__viewport">
+          <div class="partners__track" data-partners-track>
+            <ul class="partners__list">
+              <li class="partner"><span class="partner__name">Porto</span></li>
+              <li class="partner"><span class="partner__name">Grupo HDI</span></li>
+              <li class="partner"><span class="partner__name">Bradesco Seguros</span></li>
+              <li class="partner"><span class="partner__name">Tokio Marine</span></li>
+              <li class="partner"><span class="partner__name">Maxpar</span></li>
+              <li class="partner"><span class="partner__name">ENS</span></li>
+              <li class="partner"><span class="partner__name">Allianz</span></li>
+            </ul>
           </div>
         </div>
-        <div class="flex items-center gap-3 shrink-0">
-          <a id="topLeaderboardBtn" href="#beneficios" class="px-4 py-2 rounded-lg text-xs font-extrabold bg-sincor-gold text-white hover:bg-sincor-goldDark transition shadow">
-            Saiba mais
-          </a>
-          <button onclick="cycleLeaderboard()" class="text-white/60 hover:text-white p-1" title="Alternar publicidade">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-          </button>
-        </div>
+        <button class="partners__toggle" type="button" data-partners-toggle aria-pressed="false" aria-label="Pausar o carrossel de parceiros">
+          <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+          <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        </button>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- ===================================================================== -->
   <!-- 4. SEÇÃO "O QUE TEMOS DE NOVO" (BENCHMARK SINCOR SP + BANNER SC 3D)   -->
@@ -1953,11 +1991,12 @@
         toggle.setAttribute('aria-pressed', String(paused));
         toggle.setAttribute('aria-label', paused ? 'Retomar a rolagem das cotações' : 'Pausar a rolagem das cotações');
       });
+      // Remede quando o layout muda (CSS do Tailwind chegando, fonte trocada, janela redimensionada)
       let resizeFrame;
-      window.addEventListener('resize', () => {
+      new ResizeObserver(() => {
         cancelAnimationFrame(resizeFrame);
         resizeFrame = requestAnimationFrame(setupScroll);
-      }, { passive: true });
+      }).observe(track.parentElement);
 
       const cached = readCache();
       if (cached) render(cached.items, new Date(cached.time), 'cached');
@@ -1968,17 +2007,41 @@
       });
     })(document.querySelector('[data-ticker]'));
 
-    // Leaderboard Rotativo
-    const leaderboards = [
-      { text: 'Certificado Digital ICP-Brasil (e-CPF e e-CNPJ) com valores exclusivos para Corretores Associados em Santa Catarina.', href: '#beneficios' },
-      { text: 'Jantar Melhores do Ano & 65 Anos Sincor-SC: Dia 05/11/26 às 19h30 no Teatro Carlos Gomes (Blumenau/SC).', href: '#eventos' }
-    ];
-    let lbIdx = 0;
-    function cycleLeaderboard() {
-      lbIdx = (lbIdx + 1) % leaderboards.length;
-      document.getElementById('topLeaderboardText').textContent = leaderboards[lbIdx].text;
-      document.getElementById('topLeaderboardBtn').setAttribute('href', leaderboards[lbIdx].href);
-    }
+    // Faixa de parceiros: loop contínuo, pausa no hover, no foco, pelo botão e fora da tela
+    (function initPartners(root) {
+      if (!root) return;
+      const track = root.querySelector('[data-partners-track]');
+      const list = track.firstElementChild;
+      const toggle = root.querySelector('[data-partners-toggle]');
+      const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+      const SPEED = 32; // px por segundo: devagar, para a marca ser lida
+      const clone = list.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.querySelectorAll('img').forEach(img => { img.alt = ''; });
+      track.append(clone);
+
+      function setup() {
+        const width = list.getBoundingClientRect().width;
+        const scroll = width > track.parentElement.clientWidth && !reduceMotion.matches;
+        root.classList.toggle('is-scrolling', scroll);
+        clone.hidden = !scroll;
+        if (scroll) track.style.setProperty('--partners-duration', `${Math.round(width / SPEED)}s`);
+      }
+      toggle.addEventListener('click', () => {
+        const paused = root.classList.toggle('is-paused');
+        toggle.setAttribute('aria-pressed', String(paused));
+        toggle.setAttribute('aria-label', paused ? 'Retomar o carrossel de parceiros' : 'Pausar o carrossel de parceiros');
+      });
+      new IntersectionObserver(([entry]) => root.classList.toggle('is-offscreen', !entry.isIntersecting)).observe(root);
+      // Remede quando o layout muda (CSS do Tailwind chegando, fonte trocada, janela redimensionada)
+      let frame;
+      const remeasure = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(setup); };
+      const ro = new ResizeObserver(remeasure);
+      ro.observe(track.parentElement);
+      ro.observe(list);
+      reduceMotion.addEventListener('change', remeasure);
+      setup();
+    })(document.querySelector('[data-partners]'));
 
     // Carrossel Hero
     const slides = [

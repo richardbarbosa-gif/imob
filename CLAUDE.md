@@ -87,6 +87,10 @@ zero complacência, apontar caminho melhor quando existir, antecipar falhas, ser
 > Convenções Coletivas e Ouvidoria em dourado com brilho no hover. Menu no padrão Sobre Nós, Associe-se, Benefícios,
 > Eventos, Notícias, Revistas, Sincor SC TV, Contato, com painéis (hover, clique, teclado) e sanfona no celular. Favicon.
 > Corrigido também o cabeçalho, que no celular empurrava o botão do menu para fora da tela.
+> Faixa de empresas parceiras logo abaixo do menu (substituiu o banner "AD"): carrossel contínuo com Porto, Grupo HDI,
+> Bradesco Seguros, Tokio Marine, Maxpar, ENS e Allianz, marcas autorizadas pelas empresas. **Logos só oficiais**, enviados
+> pelo cliente ou pelas empresas: nunca redesenhar marca. Enquanto não chegam, o cartão mostra o nome em texto neutro;
+> o comentário no HTML explica como trocar pelo `<img>` (arquivos em `site/assets/parceiros/`).
 
 Fase atual: **protótipo da Home** para aprovação, com **duas propostas de layout** que usam o **mesmo texto** (do site
 atual do Sincor SC), a mesma paleta e as mesmas abas. As páginas internas ainda não existem: links internos mostram o
