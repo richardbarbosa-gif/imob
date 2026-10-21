@@ -8,11 +8,13 @@ from PIL import Image
 SRC, OUT = sys.argv[1], sys.argv[2]
 # arquivo de origem, nome do arquivo final, nome oficial (alt), recorte opcional (x0, x1) antes do trim
 LOGOS = [
+    ('11.webp', 'porto',            'Porto',                None),
     ('6.webp',  'allianz',          'Allianz',              None),
     ('7.webp',  'bradesco-seguros', 'Bradesco Seguros',     None),
     ('8.png',   'ens',              'ENS',                  (0, 640)),   # sem o slogan: ilegível no tamanho do cartão
     ('9.png',   'hdi-seguros',      'HDI Seguros',          None),
     ('10.png',  'maxpar',           'Maxpar Assistências',  None),
+    ('12.png',  'tokio-marine',     'Tokio Marine Seguradora', None),
 ]
 AREA = 2700          # área visual igual para todas as marcas (px² CSS)
 MAX_W, MAX_H = 124, 40
@@ -43,7 +45,8 @@ for src, slug, name, crop in LOGOS:
     w, h = (AREA * ratio) ** .5, (AREA / ratio) ** .5
     k = min(1, MAX_W / w, MAX_H / h)
     w, h = round(w * k), round(h * k)
-    final = im.resize((w * SCALE, h * SCALE), Image.LANCZOS)
+    # Redimensiona com alfa pré-multiplicado: a cor escondida nos pixels transparentes não vaza como contorno escuro
+    final = im.convert('RGBa').resize((w * SCALE, h * SCALE), Image.LANCZOS).convert('RGBA')
     path = f'{OUT}/{slug}.webp'
     final.save(path, 'WEBP', lossless=True, method=6, quality=100)
     meta.append({'slug': slug, 'name': name, 'w': w, 'h': h, 'file_kb': round(os.path.getsize(path) / 1024, 1), 'src_px': f'{im.width}x{im.height}'})

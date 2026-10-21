@@ -91,8 +91,8 @@ zero complacência, apontar caminho melhor quando existir, antecipar falhas, ser
 > Bradesco Seguros, Tokio Marine, Maxpar, ENS e Allianz, marcas autorizadas pelas empresas. **Logos só oficiais**, enviados
 > pelo cliente ou pelas empresas: nunca redesenhar marca. Enquanto não chegam, o cartão mostra o nome em texto neutro;
 > Logos tratados por `site/tools/logos.py` (fundo transparente, recorte, mesma área visual, WebP sem perda em 2x; o
-> script imprime o width/height para o `<img>`). Já entraram Allianz, Bradesco Seguros, ENS (sem o slogan), HDI Seguros
-> e Maxpar Assistências; faltam Porto e Tokio Marine.
+> script imprime o width/height para o `<img>`). As 7 marcas estão com logo oficial: Porto, HDI Seguros, Bradesco
+> Seguros, Tokio Marine Seguradora, Maxpar Assistências, ENS (sem o slogan) e Allianz.
 
 Fase atual: **protótipo da Home** para aprovação, com **duas propostas de layout** que usam o **mesmo texto** (do site
 atual do Sincor SC), a mesma paleta e as mesmas abas. As páginas internas ainda não existem: links internos mostram o
