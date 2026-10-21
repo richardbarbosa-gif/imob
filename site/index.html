@@ -201,7 +201,7 @@
     .partners__list { display: flex; flex: none; gap: .75rem; padding-right: .75rem; }
     .partner { display: grid; place-items: center; width: 164px; height: 60px; padding: .5rem 1rem; border-radius: 10px; background: #fff; box-shadow: inset 0 0 0 1px rgb(15 23 42 / .06); }
     .partner__name { font-size: 12.5px; font-weight: 800; line-height: 1.15; letter-spacing: .08em; text-align: center; text-transform: uppercase; color: #071d49; }
-    .partner__logo { width: auto; height: auto; max-width: 124px; max-height: 34px; object-fit: contain; }
+    .partner__logo { display: block; max-width: 100%; height: auto; }
     .partners__toggle { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 8px; color: #c9d3e6; transition: background-color .2s, color .2s; }
     .partners__toggle:hover { background: rgb(255 255 255 / .1); color: #fff; }
     .partners__toggle:focus-visible { outline: 2px solid #f1c266; outline-offset: -2px; }
@@ -536,9 +536,9 @@
   <!-- ===================================================================== -->
   <!-- 3. FAIXA DE EMPRESAS PARCEIRAS (CARROSSEL CONTÍNUO DE MARCAS)         -->
   <!-- ===================================================================== -->
-  <!-- Marcas autorizadas pelas empresas. Para trocar o nome pelo logo oficial, substitua o <span class="partner__name">
-       por <img class="partner__logo" src="assets/parceiros/ARQUIVO.svg" alt="NOME DA EMPRESA" width="124" height="34">
-       (SVG ou PNG oficial, fundo transparente). A cópia usada no loop é gerada pelo script. -->
+  <!-- Marcas autorizadas pelas empresas. Logos oficiais tratados em assets/parceiros/ (WebP sem perda, no dobro do tamanho
+       de exibição; width/height = tamanho de exibição, equilibrado por área para todas as marcas terem o mesmo peso).
+       Marca sem logo ainda aparece com o nome em <span class="partner__name">. A cópia usada no loop é gerada pelo script. -->
   <section class="bg-white py-4 border-b border-slate-100" aria-label="Empresas parceiras do Sincor SC">
     <div class="max-w-5xl mx-auto px-4">
       <div class="partners" data-partners>
@@ -550,12 +550,12 @@
           <div class="partners__track" data-partners-track>
             <ul class="partners__list">
               <li class="partner"><span class="partner__name">Porto</span></li>
-              <li class="partner"><span class="partner__name">Grupo HDI</span></li>
-              <li class="partner"><span class="partner__name">Bradesco Seguros</span></li>
+              <li class="partner"><img class="partner__logo" src="assets/parceiros/hdi-seguros.webp" alt="HDI Seguros" width="64" height="40" decoding="async"></li>
+              <li class="partner"><img class="partner__logo" src="assets/parceiros/bradesco-seguros.webp" alt="Bradesco Seguros" width="84" height="32" decoding="async"></li>
               <li class="partner"><span class="partner__name">Tokio Marine</span></li>
-              <li class="partner"><span class="partner__name">Maxpar</span></li>
-              <li class="partner"><span class="partner__name">ENS</span></li>
-              <li class="partner"><span class="partner__name">Allianz</span></li>
+              <li class="partner"><img class="partner__logo" src="assets/parceiros/maxpar.webp" alt="Maxpar Assistências" width="81" height="33" decoding="async"></li>
+              <li class="partner"><img class="partner__logo" src="assets/parceiros/ens.webp" alt="ENS: Escola de Negócios e Seguros" width="91" height="30" decoding="async"></li>
+              <li class="partner"><img class="partner__logo" src="assets/parceiros/allianz.webp" alt="Allianz" width="101" height="27" decoding="async"></li>
             </ul>
           </div>
         </div>

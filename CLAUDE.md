@@ -90,7 +90,9 @@ zero complacência, apontar caminho melhor quando existir, antecipar falhas, ser
 > Faixa de empresas parceiras logo abaixo do menu (substituiu o banner "AD"): carrossel contínuo com Porto, Grupo HDI,
 > Bradesco Seguros, Tokio Marine, Maxpar, ENS e Allianz, marcas autorizadas pelas empresas. **Logos só oficiais**, enviados
 > pelo cliente ou pelas empresas: nunca redesenhar marca. Enquanto não chegam, o cartão mostra o nome em texto neutro;
-> o comentário no HTML explica como trocar pelo `<img>` (arquivos em `site/assets/parceiros/`).
+> Logos tratados por `site/tools/logos.py` (fundo transparente, recorte, mesma área visual, WebP sem perda em 2x; o
+> script imprime o width/height para o `<img>`). Já entraram Allianz, Bradesco Seguros, ENS (sem o slogan), HDI Seguros
+> e Maxpar Assistências; faltam Porto e Tokio Marine.
 
 Fase atual: **protótipo da Home** para aprovação, com **duas propostas de layout** que usam o **mesmo texto** (do site
 atual do Sincor SC), a mesma paleta e as mesmas abas. As páginas internas ainda não existem: links internos mostram o
