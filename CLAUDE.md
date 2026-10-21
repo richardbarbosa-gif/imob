@@ -75,6 +75,12 @@ zero complacência, apontar caminho melhor quando existir, antecipar falhas, ser
 
 ## 3. O que já foi feito (estado atual)
 
+> **Atualização de 21/10/2026: o cliente escolheu outro código.** A Home oficial passa a ser `site/index.html`
+> (HTML + Tailwind, layout "portal" no estilo Sincor SP, enviado pelo Richard). **Todo trabalho novo é nele.**
+> As versões Clássica e Telão abaixo ficam como histórico e como fonte de material (as maquetes 3D em
+> `prototipo/src-telao/assets/img/3d/` e as ilustrações SVG podem substituir as imagens de banco do novo código).
+> O `site/index.html` foi versionado exatamente como recebido; as regras deste arquivo valem para ele daqui em diante.
+
 Fase atual: **protótipo da Home** para aprovação, com **duas propostas de layout** que usam o **mesmo texto** (do site
 atual do Sincor SC), a mesma paleta e as mesmas abas. As páginas internas ainda não existem: links internos mostram o
 aviso "disponível na próxima etapa".

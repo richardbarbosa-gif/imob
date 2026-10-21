@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sincor SC | Sindicato dos Corretores de Seguros de Santa Catarina — 65 Anos</title>
+  <meta name="description" content="Portal Oficial do Sincor SC — Sindicato dos Corretores de Seguros e de Resseguros no Estado de Santa Catarina. Benefícios PF e PJ, Certificado Digital, Eventos, TV Sincor SC e Área do Associado." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://sincor-sc.com.br/" />
+
+  <!-- Schema.org JSON-LD para SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Sincor SC - Sindicato dos Corretores de Seguros de Santa Catarina",
+    "url": "https://sincor-sc.com.br/",
+    "telephone": "+55-47-3326-8894",
+    "email": "administrativo@sincor-sc.com.br",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Dr. Luiz de Freitas Melro, 395 - salas 902 à 904 - Centro",
+      "addressLocality": "Blumenau",
+      "addressRegion": "SC",
+      "postalCode": "89010-921",
+      "addressCountry": "BR"
+    }
+  }
+  </script>
+
+  <!-- Fontes Corporativas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Cinzel"', 'serif'],
+          },
+          colors: {
+            sincor: {
+              950: '#030d1f',
+              900: '#071d49',
+              800: '#0c2d6b',
+              700: '#154294',
+              gold: '#d4962a',
+              goldLight: '#f1c266',
+              goldDark: '#a87214',
+              cream: '#f9f6f0'
+            }
+          },
+          boxShadow: {
+            'editorial': '0 12px 40px -12px rgba(7, 29, 73, 0.10)',
+            'editorial-hover': '0 22px 50px -12px rgba(7, 29, 73, 0.18)',
+            'gold-glow': '0 10px 30px -5px rgba(212, 150, 42, 0.40)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Canhão de Luzes Cênico (Volumetric Stage Lighting) */
+    .stage-spotlight {
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at 18% 0%, rgba(21, 66, 148, 0.55) 0%, transparent 55%),
+                  radial-gradient(circle at 85% 15%, rgba(212, 150, 42, 0.25) 0%, transparent 50%),
+                  linear-gradient(180deg, #030d1f 0%, #071d49 100%);
+    }
+    .light-beam-gold {
+      position: absolute;
+      top: -30%;
+      left: 12%;
+      width: 520px;
+      height: 720px;
+      background: conic-gradient(from 155deg at 50% 0%, rgba(241, 194, 102, 0.22), transparent 65%);
+      filter: blur(42px);
+      transform: rotate(-12deg);
+      pointer-events: none;
+    }
+    .light-beam-blue {
+      position: absolute;
+      top: -25%;
+      right: 8%;
+      width: 560px;
+      height: 680px;
+      background: conic-gradient(from 200deg at 50% 0%, rgba(56, 189, 248, 0.18), transparent 65%);
+      filter: blur(48px);
+      transform: rotate(10deg);
+      pointer-events: none;
+    }
+
+    /* Física 3D Real nos Cards e Banners */
+    .scene-3d {
+      perspective: 1400px;
+    }
+    .card-3d {
+      transform-style: preserve-3d;
+      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease;
+      will-change: transform;
+    }
+    .layer-z-20 {
+      transform: translateZ(24px);
+    }
+    .layer-z-40 {
+      transform: translateZ(44px);
+    }
+
+    /* Gradiente Metálico Dourado Oficial */
+    .gold-foil-text {
+      background: linear-gradient(135deg, #fff5d6 0%, #f1c266 35%, #d4962a 70%, #ffeaad 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-foil-btn {
+      background: linear-gradient(135deg, #e0a43b 0%, #c4851c 55%, #e8b454 100%);
+    }
+
+    /* Marca d'água Geométrica Sincor SP */
+    .sincor-watermark {
+      background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 60 C0 26.86 26.86 0 60 0 L60 60 Z' fill='%23d4962a' fill-opacity='0.08'/%3E%3Cpath d='M60 60 C60 26.86 86.86 0 120 0 L120 60 Z' fill='%23071d49' fill-opacity='0.05'/%3E%3Cpath d='M60 120 C60 86.86 86.86 60 120 60 L120 120 Z' fill='%23d4962a' fill-opacity='0.08'/%3E%3C/svg%3E");
+      background-repeat: repeat-y;
+      background-position: right center;
+    }
+  </style>
+</head>
+
+<body class="bg-[#F8FAFC] text-slate-800 antialiased selection:bg-sincor-gold selection:text-white">
+
+  <!-- ===================================================================== -->
+  <!-- 1. TOPBAR EXECUTIVA (IDÊNTICA À IMAGEM 2 COM TAXA SELIC E MERCADO SC) -->
+  <!-- ===================================================================== -->
+  <div class="bg-[#040d1f] text-slate-300 text-xs border-b border-white/10 relative z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[42px] py-1.5 flex flex-wrap items-center justify-between gap-4">
+
+      <!-- Lado Esquerdo: Portal Sincor-SC + Telefone + E-mail + Pílulas Selic & Mercado SC -->
+      <div class="flex items-center gap-3.5 overflow-x-auto whitespace-nowrap">
+        <span class="inline-flex items-center gap-2 text-sincor-goldLight font-bold tracking-wide">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          PORTAL SINCOR-SC
+        </span>
+
+        <span class="text-white/20">|</span>
+
+        <a href="tel:554733268894" class="hover:text-white transition inline-flex items-center gap-1.5 font-medium text-slate-200">
+          <svg class="w-3.5 h-3.5 text-sincor-gold shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          <span>(47) 3326-8894</span>
+        </a>
+
+        <a href="mailto:administrativo@sincor-sc.com.br" class="hidden md:inline-flex hover:text-white transition items-center gap-1.5 font-medium text-slate-200">
+          <svg class="w-3.5 h-3.5 text-sincor-gold shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          <span>administrativo@sincor-sc.com.br</span>
+        </a>
+
+        <span class="hidden lg:inline text-white/20">|</span>
+
+        <!-- Pílulas Econômicas: Selic + Mercado Segurador SC (Exatamente como na Imagem 2) -->
+        <div class="hidden lg:flex items-center gap-2 text-[11px]">
+          <span class="bg-white/[0.07] border border-white/10 px-2.5 py-0.5 rounded-md text-slate-100 font-semibold">
+            Selic: 10,75%
+          </span>
+          <span class="bg-white/[0.07] border border-emerald-500/20 px-2.5 py-0.5 rounded-md text-emerald-400 font-semibold">
+            Mercado Segurador SC: +14,2% a.a.
+          </span>
+        </div>
+      </div>
+
+      <!-- Lado Direito: Convenções Coletivas + Ouvidoria + Redes Sociais -->
+      <div class="flex items-center gap-4 ml-auto shrink-0">
+        <a href="#convencoes" class="hover:text-sincor-goldLight transition font-semibold inline-flex items-center gap-1.5 text-slate-200">
+          <svg class="w-3.5 h-3.5 text-sincor-gold shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <span>Convenções Coletivas</span>
+        </a>
+
+        <a href="#visite" class="hidden sm:inline hover:text-sincor-goldLight transition font-semibold text-slate-200">
+          Ouvidoria
+        </a>
+
+        <span class="text-white/20 hidden sm:inline">|</span>
+
+        <!-- Mini Ícones Vetoriais Oficiais no Topo -->
+        <div class="flex items-center gap-3">
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook" class="text-slate-300 hover:text-sincor-goldLight transition">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+          </a>
+          <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="text-slate-300 hover:text-sincor-goldLight transition">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+          </a>
+          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="text-slate-300 hover:text-sincor-goldLight transition">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>
+          </a>
+          <a href="https://wa.me/554733268894" target="_blank" aria-label="WhatsApp" class="text-emerald-400 hover:text-emerald-300 transition">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 2. HEADER PRINCIPAL (MODELO SINCOR SP: LOGO + SELO AO LADO + BUSCA)   -->
+  <!-- ===================================================================== -->
+  <header class="sticky top-0 z-40 bg-white shadow-sm border-b border-slate-200/90">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="flex items-center justify-between py-4 gap-4">
+
+        <!-- LOGO SINCOR SC + SELO 65 ANOS LADO A LADO -->
+        <a href="#home" class="flex items-center gap-4 group shrink-0">
+          <div class="flex items-center gap-3">
+            <svg class="w-12 h-11 shrink-0" viewBox="0 0 64 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 26C16 11 36 5 58 8" stroke="#c8963e" stroke-width="4" stroke-linecap="round"/>
+              <path d="M12 33C23 19 40 14 56 16" stroke="#071d49" stroke-width="4" stroke-linecap="round"/>
+              <path d="M4 37C17 29 33 27 46 30" stroke="#c8963e" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            <div class="leading-none">
+              <div class="flex items-baseline tracking-tight">
+                <span class="text-[26px] font-extrabold text-sincor-900">Sincor</span>
+                <span class="text-[26px] font-extrabold text-sincor-gold ml-1">SC</span>
+              </div>
+              <span class="block text-[10px] font-semibold uppercase tracking-wider text-slate-500 mt-0.5">
+                Santa Catarina
+              </span>
+            </div>
+          </div>
+
+          <div class="h-10 w-px bg-slate-200 hidden sm:block"></div>
+
+          <!-- Selo Comemorativo 65 Anos Independente ao Lado -->
+          <div class="hidden sm:flex items-center gap-2 bg-sincor-cream border border-sincor-gold/40 rounded-full px-3 py-1.5 shadow-sm">
+            <div class="w-7 h-7 rounded-full gold-foil-btn text-sincor-950 flex items-center justify-center font-display font-extrabold text-xs shadow-inner">
+              65
+            </div>
+            <div class="leading-tight pr-1">
+              <span class="block text-[10px] font-extrabold uppercase tracking-wider text-sincor-900">Anos</span>
+              <span class="block text-[9px] font-medium text-slate-500">1961 – 2026</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Barra de Busca Editorial -->
+        <div class="hidden lg:flex flex-1 max-w-md mx-6">
+          <div class="relative w-full">
+            <input
+              type="text"
+              id="globalSearchInput"
+              placeholder="O que você procura no Sincor-SC?"
+              class="w-full pl-4 pr-10 py-2.5 text-xs sm:text-sm bg-slate-50 hover:bg-slate-100/80 focus:bg-white rounded-lg border border-slate-200 focus:border-sincor-gold outline-none transition text-slate-700"
+            />
+            <svg class="w-4 h-4 text-sincor-gold absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Botões de Ação do Topo -->
+        <div class="flex items-center gap-3 sm:gap-4">
+          <button
+            onclick="openAuthModal('login')"
+            class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs sm:text-sm font-bold text-sincor-900 hover:bg-slate-100 transition"
+          >
+            <svg class="w-4 h-4 text-sincor-gold shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+            <span>Área do Associado</span>
+          </button>
+
+          <a
+            href="#associe-se"
+            class="inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-xs sm:text-sm font-extrabold text-white gold-foil-btn hover:brightness-105 shadow-md transition"
+          >
+            Associe-se
+          </a>
+
+          <button id="mobileMenuBtn" class="xl:hidden p-2 rounded-lg text-sincor-900 hover:bg-slate-100" aria-label="Abrir Menu">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Menu Horizontal com as 10 Abas do Projeto -->
+      <nav class="hidden xl:flex items-center justify-between border-t border-slate-100 py-2.5 text-[13px] font-semibold text-slate-700">
+        <a href="#home" class="text-sincor-900 font-extrabold hover:text-sincor-gold transition py-1">Home</a>
+
+        <a href="#sobre-nos" class="hover:text-sincor-gold transition py-1 inline-flex items-center gap-1">
+          <span>Sobre Nós</span>
+          <svg class="w-3.5 h-3.5 text-sincor-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+
+        <a href="#associe-se" class="hover:text-sincor-gold transition py-1 inline-flex items-center gap-1">
+          <span>Seja Corretor Associado</span>
+          <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-amber-100 text-amber-900">PF / PJ</span>
+        </a>
+
+        <a href="#diretoria-mapa" class="hover:text-sincor-gold transition py-1 inline-flex items-center gap-1">
+          <span>Diretoria e Delegados</span>
+          <svg class="w-3.5 h-3.5 text-sincor-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+
+        <a href="#comissoes" class="hover:text-sincor-gold transition py-1">Comissões</a>
+
+        <a href="#eventos" class="hover:text-sincor-gold transition py-1 inline-flex items-center gap-1">
+          <span>Calendário de Eventos</span>
+          <svg class="w-3.5 h-3.5 text-sincor-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+
+        <a href="#noticias" class="hover:text-sincor-gold transition py-1">Notícias do Mercado</a>
+
+        <a href="#seguradoras" class="hover:text-sincor-gold transition py-1">Seguradoras Parceiras</a>
+
+        <a href="#beneficios" class="hover:text-sincor-gold transition py-1">Certificado Digital & Vida</a>
+
+        <a href="#revistas" class="hover:text-sincor-gold transition py-1">Revistas</a>
+      </nav>
+
+    </div>
+
+    <!-- Menu Mobile -->
+    <div id="mobileMenu" class="hidden xl:hidden bg-white border-t border-slate-200 px-4 py-4">
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs font-bold text-sincor-900">
+        <a href="#sobre-nos" class="p-2.5 rounded-lg bg-slate-50 hover:bg-amber-50">Sobre Nós</a>
+        <a href="#associe-se" class="p-2.5 rounded-lg bg-slate-50 hover:bg-amber-50">Seja Associado (PF/PJ)</a>
+        <a href="#diretoria-mapa" class="p-2.5 rounded-lg bg-slate-50 hover:bg-amber-50">Diretoria e Delegados</a>
+        <a href="#comissoes" class="p-2.5 rounded-lg bg-slate-50 hover:bg-amber-50">Comissões</a>
+        <a href="#eventos" class="p-2.5 rounded-lg bg-slate-50 hover:bg-amber-50">Calendário de Eventos</a>
+        <a href="#noticias" class="p-2.5 rounded-lg bg-slate-50 hover:bg-amber-50">Notícias do Mercado</a>
+        <a href="#seguradoras" class="p-2.5 rounded-lg bg-slate-50 hover:bg-amber-50">Seguradoras Parceiras</a>
+        <a href="#beneficios" class="p-2.5 rounded-lg bg-slate-50 hover:bg-amber-50">Certificado & Seguro Vida</a>
+        <a href="#revistas" class="p-2.5 rounded-lg bg-slate-50 hover:bg-amber-50">Revistas & Downloads</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- 3. BANNER PUBLICITÁRIO LEADERBOARD (TOPO DO PORTAL)                   -->
+  <!-- ===================================================================== -->
+  <div class="bg-white py-4 border-b border-slate-100">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="relative rounded-xl overflow-hidden shadow-sm border border-slate-200 bg-gradient-to-r from-[#071d49] via-[#0c3c78] to-[#046a58] text-white px-6 py-3.5 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-4">
+          <div class="hidden sm:flex w-11 h-11 rounded-xl bg-white/10 border border-white/20 items-center justify-center shrink-0 font-extrabold text-sincor-goldLight text-xs">
+            AD
+          </div>
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-300 block">Campanha Oficial Sincor-SC & Parceiros</span>
+            <p id="topLeaderboardText" class="text-xs sm:text-sm font-bold text-white">
+              Certificado Digital ICP-Brasil (e-CPF e e-CNPJ) com valores exclusivos para Corretores Associados em Santa Catarina.
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 shrink-0">
+          <a id="topLeaderboardBtn" href="#beneficios" class="px-4 py-2 rounded-lg text-xs font-extrabold bg-sincor-gold text-white hover:bg-sincor-goldDark transition shadow">
+            Saiba mais
+          </a>
+          <button onclick="cycleLeaderboard()" class="text-white/60 hover:text-white p-1" title="Alternar publicidade">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 4. SEÇÃO "O QUE TEMOS DE NOVO" (BENCHMARK SINCOR SP + BANNER SC 3D)   -->
+  <!-- ===================================================================== -->
+  <section id="home" class="py-8 sm:py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="flex items-center justify-between mb-5">
+      <div class="flex items-center gap-3">
+        <span class="text-[11px] font-bold uppercase tracking-widest text-slate-400">Novidades</span>
+        <span class="text-slate-300 font-light text-lg">|</span>
+        <h1 class="text-lg sm:text-xl font-extrabold text-sincor-900">O que temos de novo</h1>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="changeHeroSlide(-1)" class="w-9 h-9 rounded-full border border-slate-200 bg-white hover:border-sincor-gold text-sincor-900 flex items-center justify-center transition shadow-sm" aria-label="Slide Anterior">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <button onclick="changeHeroSlide(1)" class="w-9 h-9 rounded-full border border-slate-200 bg-white hover:border-sincor-gold text-sincor-900 flex items-center justify-center transition shadow-sm" aria-label="Próximo Slide">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+
+      <!-- BANNER PRINCIPAL LARGO COM CANHÃO DE LUZES E EFEITO 3D -->
+      <div class="lg:col-span-8 scene-3d">
+        <div id="heroStageCard" class="card-3d stage-spotlight rounded-3xl min-h-[430px] sm:min-h-[460px] p-6 sm:p-10 text-white flex flex-col justify-between relative border border-sincor-800 shadow-2xl">
+
+          <div class="light-beam-gold"></div>
+          <div class="light-beam-blue"></div>
+
+          <img
+            id="heroBgImg"
+            src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1400&q=85"
+            alt="Melhores do Ano Sincor SC"
+            class="absolute inset-0 w-full h-full object-cover opacity-25 mix-blend-luminosity pointer-events-none transition-all duration-700"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-sincor-950 via-sincor-950/65 to-transparent pointer-events-none"></div>
+
+          <div class="layer-z-20 relative z-10 flex items-start justify-between gap-4">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-sincor-gold/40">
+              <span class="w-2 h-2 rounded-full bg-sincor-goldLight animate-pulse"></span>
+              <span id="heroTag" class="text-[11px] font-extrabold uppercase tracking-wider text-sincor-goldLight">
+                Convite Oficial • Mercado Segurador Catarinense
+              </span>
+            </div>
+
+            <!-- Medalhão 65 Anos em SVG Puro -->
+            <div class="layer-z-40 hidden sm:flex flex-col items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-[#f6d786] via-[#c8963e] to-[#7c5612] p-1 shadow-gold-glow shrink-0">
+              <div class="w-full h-full rounded-full bg-sincor-950 flex flex-col items-center justify-center border border-sincor-goldLight/60 text-center">
+                <span class="text-[8px] uppercase tracking-widest text-sincor-goldLight font-bold">Aniversário</span>
+                <span class="font-display text-2xl font-extrabold gold-foil-text leading-none">65</span>
+                <span class="text-[9px] uppercase tracking-widest text-white font-bold">Anos</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="layer-z-20 relative z-10 my-auto py-4 max-w-2xl">
+            <p id="heroSubhead" class="text-xs sm:text-sm font-bold uppercase tracking-widest text-sincor-goldLight mb-1">
+              Prêmio Melhores do Ano 2026 • Jantar de Comemoração
+            </p>
+            <h2 id="heroTitle" class="text-2xl sm:text-4xl font-extrabold leading-[1.15] tracking-tight text-white">
+              Sincor-SC completa <span class="gold-foil-text">65 anos de história</span> com noite de gala no Teatro Carlos Gomes
+            </h2>
+
+            <div id="heroInfoPills" class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mt-5">
+              <div class="bg-gradient-to-r from-[#d4962a]/25 to-[#d4962a]/10 border border-sincor-gold/50 rounded-xl px-3.5 py-2.5 backdrop-blur-sm">
+                <span class="block text-[10px] uppercase tracking-wider text-sincor-goldLight font-bold">Data do Evento</span>
+                <span class="text-sm sm:text-base font-extrabold text-white">05/11/26</span>
+              </div>
+              <div class="bg-gradient-to-r from-[#d4962a]/25 to-[#d4962a]/10 border border-sincor-gold/50 rounded-xl px-3.5 py-2.5 backdrop-blur-sm">
+                <span class="block text-[10px] uppercase tracking-wider text-sincor-goldLight font-bold">Horário & Traje</span>
+                <span class="text-sm sm:text-base font-extrabold text-white">19:30 • Esporte Fino</span>
+              </div>
+              <div class="bg-gradient-to-r from-[#d4962a]/25 to-[#d4962a]/10 border border-sincor-gold/50 rounded-xl px-3.5 py-2.5 backdrop-blur-sm">
+                <span class="block text-[10px] uppercase tracking-wider text-sincor-goldLight font-bold">Local (Blumenau/SC)</span>
+                <span class="text-sm sm:text-base font-extrabold text-white">Teatro Carlos Gomes</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="layer-z-20 relative z-10 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex flex-wrap items-center gap-3">
+              <button
+                onclick="openEventModal('Jantar Melhores do Ano & 65 Anos Sincor-SC — 05/11/26 (Teatro Carlos Gomes)')"
+                class="px-6 py-3 rounded-full font-extrabold text-xs sm:text-sm text-sincor-950 bg-white hover:bg-sincor-goldLight transition shadow-lg inline-flex items-center gap-2"
+              >
+                <span id="heroBtnLabel">INSCREVA-SE AQUI!</span>
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              </button>
+              <button
+                onclick="openAuthModal('votacao')"
+                class="px-4 py-3 rounded-full font-bold text-xs text-white bg-white/10 hover:bg-white/20 border border-white/20 transition"
+              >
+                Votar com Código Único
+              </button>
+            </div>
+
+            <div class="flex items-center gap-2" id="heroDots">
+              <button onclick="setHeroSlide(0)" class="w-7 h-2 rounded-full bg-sincor-gold transition-all" aria-label="Slide 1"></button>
+              <button onclick="setHeroSlide(1)" class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all" aria-label="Slide 2"></button>
+              <button onclick="setHeroSlide(2)" class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all" aria-label="Slide 3"></button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PAINEL DE ACESSO AO SISTEMA (ESTILO PORTAL UOL/TERRA PARA MEMBROS) -->
+      <div class="lg:col-span-4 bg-white rounded-3xl border border-slate-200/90 shadow-editorial p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden sincor-watermark">
+        <div>
+          <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-100">
+            <div>
+              <span class="text-[10px] font-extrabold uppercase tracking-widest text-sincor-gold block">Sistema Integrado</span>
+              <h2 class="text-lg font-extrabold text-sincor-900">Portal do Associado</h2>
+            </div>
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-emerald-50 text-emerald-700 border border-emerald-200">
+              Base Única SC
+            </span>
+          </div>
+
+          <form onsubmit="handleQuickLogin(event)" class="space-y-3">
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-1">CPF, CNPJ ou Registro SUSEP</label>
+              <input
+                type="text"
+                required
+                placeholder="Digite seu documento ou e-mail"
+                class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 focus:bg-white focus:border-sincor-900 outline-none transition"
+              />
+            </div>
+            <div>
+              <div class="flex items-center justify-between text-[11px] mb-1">
+                <label class="font-bold text-slate-600">Senha de Acesso</label>
+                <button type="button" onclick="openAuthModal('login')" class="text-sincor-goldDark font-bold hover:underline">Recuperar senha</button>
+              </div>
+              <input
+                type="password"
+                required
+                placeholder="••••••••"
+                class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 focus:bg-white focus:border-sincor-900 outline-none transition"
+              />
+            </div>
+            <button type="submit" class="w-full py-3 rounded-xl font-extrabold text-xs text-white bg-sincor-900 hover:bg-sincor-800 transition shadow-sm">
+              Entrar na Área Restrita →
+            </button>
+          </form>
+
+          <div class="mt-5 pt-4 border-t border-slate-100">
+            <span class="block text-[10px] font-extrabold uppercase tracking-wider text-slate-400 mb-2.5">Acesso Rápido do Corretor</span>
+            <div class="grid grid-cols-2 gap-2">
+              <button onclick="openAuthModal('votacao')" class="p-2.5 rounded-xl bg-slate-50 hover:bg-amber-50/80 border border-slate-200/80 text-left transition">
+                <span class="block text-xs font-extrabold text-sincor-900">Votação 2026</span>
+                <span class="block text-[10px] text-slate-500">Código Único Auditado</span>
+              </button>
+              <button onclick="openAuthModal('carteira')" class="p-2.5 rounded-xl bg-slate-50 hover:bg-amber-50/80 border border-slate-200/80 text-left transition">
+                <span class="block text-xs font-extrabold text-sincor-900">Carteira Digital</span>
+                <span class="block text-[10px] text-slate-500">Credencial Mobile ID</span>
+              </button>
+              <a href="#convencoes" class="p-2.5 rounded-xl bg-slate-50 hover:bg-amber-50/80 border border-slate-200/80 text-left transition">
+                <span class="block text-xs font-extrabold text-sincor-900">Circulares & CCT</span>
+                <span class="block text-[10px] text-slate-500">Arquivos Exclusivos</span>
+              </a>
+              <a href="#beneficios" class="p-2.5 rounded-xl bg-slate-50 hover:bg-amber-50/80 border border-slate-200/80 text-left transition">
+                <span class="block text-xs font-extrabold text-sincor-900">Certificado ICP</span>
+                <span class="block text-[10px] text-slate-500">Desconto Associado</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+          <span class="text-slate-500 font-medium">Não possui cadastro?</span>
+          <a href="#associe-se" class="font-extrabold text-sincor-goldDark hover:underline">Associe-se agora →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 5. FAIXA DE IMPACTO NUMÉRICO (MODELO SINCOR SP)                       -->
+  <!-- ===================================================================== -->
+  <section class="py-4 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-sincor-cream rounded-2xl border border-amber-200/70 px-6 sm:px-10 py-6 sincor-watermark shadow-sm">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+
+        <div class="lg:col-span-4 space-y-2">
+          <a href="#associe-se" class="inline-block px-4 py-1.5 rounded-md text-xs font-extrabold text-white gold-foil-btn shadow-sm">
+            Seja um associado
+          </a>
+          <p class="text-sm sm:text-base font-extrabold text-sincor-900 leading-snug pt-1">
+            Não deixe para depois, faça parte do Sincor-SC e fortaleça sua corretora!
+          </p>
+        </div>
+
+        <div class="lg:col-span-3 border-l-0 lg:border-l border-amber-300/60 lg:pl-6">
+          <span class="text-[11px] font-semibold text-slate-500 block">Economia anual em convênios e serviços</span>
+          <p class="text-2xl sm:text-3xl font-black text-sincor-900 tracking-tight mt-0.5">+ R$ 4,8 Mil</p>
+          <span class="text-[11px] text-slate-600 block">Em benefícios para Corretor PF</span>
+        </div>
+
+        <div class="lg:col-span-3 border-l-0 lg:border-l border-amber-300/60 lg:pl-6">
+          <span class="text-[11px] font-semibold text-slate-500 block">Retorno estimado para Corretoras</span>
+          <p class="text-2xl sm:text-3xl font-black text-sincor-900 tracking-tight mt-0.5">+ R$ 9,5 Mil</p>
+          <span class="text-[11px] text-slate-600 block">Em vantagens para Associado PJ</span>
+        </div>
+
+        <div class="lg:col-span-2 flex justify-center lg:justify-end">
+          <img
+            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80"
+            alt="Corretora Associada Sincor SC"
+            class="w-20 h-20 rounded-2xl object-cover border-2 border-sincor-gold shadow-md"
+          />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 6. PILARES INSTITUCIONAIS DO SINCOR SC                                -->
+  <!-- ===================================================================== -->
+  <section id="sobre-nos" class="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between mb-6">
+      <div class="flex items-center gap-3">
+        <span class="text-[11px] font-bold uppercase tracking-widest text-slate-400">Institucional</span>
+        <span class="text-slate-300 font-light text-lg">|</span>
+        <h2 class="text-lg sm:text-xl font-extrabold text-sincor-900">Acesso Rápido Sincor-SC</h2>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 scene-3d">
+
+      <div class="card-3d bg-white rounded-2xl overflow-hidden border border-slate-200/90 shadow-editorial hover:shadow-editorial-hover group">
+        <div class="h-40 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80" alt="Diretoria Sincor SC" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+        </div>
+        <div class="p-5 text-center">
+          <h3 class="text-base font-extrabold text-sincor-900">Diretoria & Delegados</h3>
+          <p class="text-xs text-slate-500 mt-1 mb-4">Representatividade ativa em todas as regiões de Santa Catarina.</p>
+          <a href="#diretoria-mapa" class="inline-block px-5 py-2 rounded-lg text-xs font-bold text-white bg-sincor-900 hover:bg-sincor-800 transition">
+            Ver mais
+          </a>
+        </div>
+      </div>
+
+      <div id="convencoes" class="card-3d bg-white rounded-2xl overflow-hidden border border-slate-200/90 shadow-editorial hover:shadow-editorial-hover group">
+        <div class="h-40 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="Estatuto Sincor SC" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+        </div>
+        <div class="p-5 text-center">
+          <h3 class="text-base font-extrabold text-sincor-900">Estatuto & Convenções</h3>
+          <p class="text-xs text-slate-500 mt-1 mb-4">Consulte o Estatuto Social e as Convenções Coletivas da categoria.</p>
+          <button onclick="openAuthModal('login')" class="inline-block px-5 py-2 rounded-lg text-xs font-bold text-white bg-sincor-900 hover:bg-sincor-800 transition">
+            Ver mais
+          </button>
+        </div>
+      </div>
+
+      <div class="card-3d bg-white rounded-2xl overflow-hidden border border-slate-200/90 shadow-editorial hover:shadow-editorial-hover group">
+        <div class="h-40 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80" alt="Cursos Sincor SC" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+        </div>
+        <div class="p-5 text-center">
+          <h3 class="text-base font-extrabold text-sincor-900">Cursos & Qualificação</h3>
+          <p class="text-xs text-slate-500 mt-1 mb-4">Palestras técnicas, workshops e aprimoramento para corretores.</p>
+          <a href="#eventos" class="inline-block px-5 py-2 rounded-lg text-xs font-bold text-white bg-sincor-900 hover:bg-sincor-800 transition">
+            Ver mais
+          </a>
+        </div>
+      </div>
+
+      <div class="card-3d bg-white rounded-2xl overflow-hidden border border-slate-200/90 shadow-editorial hover:shadow-editorial-hover group">
+        <div class="h-40 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=600&q=80" alt="Contribuição Sincor SC" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+        </div>
+        <div class="p-5 text-center">
+          <h3 class="text-base font-extrabold text-sincor-900">Contribuição Associativa</h3>
+          <p class="text-xs text-slate-500 mt-1 mb-4">Emissão de guias, anuidade e regularização cadastral online.</p>
+          <button onclick="openAuthModal('login')" class="inline-block px-5 py-2 rounded-lg text-xs font-bold text-white bg-sincor-900 hover:bg-sincor-800 transition">
+            Ver mais
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 7. CALENDÁRIO DE EVENTOS E CURSOS                                     -->
+  <!-- ===================================================================== -->
+  <section id="eventos" class="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
+      <div class="flex items-center gap-3">
+        <span class="text-[11px] font-bold uppercase tracking-widest text-slate-400">Eventos</span>
+        <span class="text-slate-300 font-light text-lg">|</span>
+        <h2 class="text-lg sm:text-xl font-extrabold text-sincor-900">Confira os próximos eventos e cursos</h2>
+      </div>
+      <a href="#eventos" onclick="openEventModal('Calendário Anual de Eventos Sincor-SC')" class="px-4 py-2 rounded-lg text-xs font-extrabold text-white gold-foil-btn hover:brightness-105 transition self-start sm:self-auto">
+        Ver mais eventos
+      </a>
+    </div>
+
+    <div class="bg-white rounded-3xl border border-slate-200/90 shadow-editorial p-6 sm:p-8 mb-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center sincor-watermark">
+      <div class="lg:col-span-5 rounded-2xl overflow-hidden bg-gradient-to-br from-sincor-950 via-sincor-900 to-sincor-800 p-6 text-white relative min-h-[230px] flex flex-col justify-between shadow-lg">
+        <div class="flex items-center justify-between">
+          <span class="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase bg-sincor-gold text-sincor-950">05 NOV 2026 • 19h30</span>
+          <span class="text-xs font-display font-bold text-sincor-goldLight">65 ANOS SINCOR-SC</span>
+        </div>
+        <div class="my-4">
+          <p class="text-xs uppercase tracking-widest text-sincor-goldLight font-bold">Mercado Segurador Catarinense</p>
+          <h3 class="text-2xl sm:text-3xl font-display font-extrabold text-white mt-1">MELHORES DO ANO</h3>
+          <p class="text-xs text-slate-300 mt-1">Local: Teatro Carlos Gomes • Blumenau/SC</p>
+        </div>
+        <div class="text-[11px] text-slate-300 border-t border-white/10 pt-2 flex justify-between">
+          <span>Traje: Esporte Fino</span>
+          <span class="text-sincor-goldLight font-bold">Inscrições Abertas</span>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 space-y-3">
+        <span class="inline-block px-3 py-1 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600">
+          05 de novembro de 2026 • Presencial em Blumenau/SC
+        </span>
+        <h3 class="text-2xl font-extrabold text-sincor-900">
+          Jantar de Comemoração aos 65 Anos do Sincor-SC & Prêmio Melhores do Ano
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl">
+          O maior encontro de confraternização e reconhecimento das lideranças, corretores e seguradoras parceiras de Santa Catarina. Garanta sua reserva com confirmação imediata por e-mail.
+        </p>
+        <div class="pt-2 flex flex-wrap gap-3">
+          <button onclick="openEventModal('Jantar Melhores do Ano 65 Anos Sincor-SC (05/11/26)')" class="px-5 py-2.5 rounded-lg text-xs font-extrabold text-white gold-foil-btn hover:brightness-105 transition shadow">
+            Inscreva-se
+          </button>
+          <button onclick="openAuthModal('votacao')" class="px-5 py-2.5 rounded-lg text-xs font-bold text-sincor-900 bg-slate-100 hover:bg-slate-200 transition">
+            Votar nos Melhores do Ano
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+        <div>
+          <span class="inline-block px-3 py-1 rounded-full text-[11px] font-semibold bg-slate-100 text-slate-600 mb-3">
+            22 de outubro de 2026
+          </span>
+          <h4 class="text-base font-extrabold text-sincor-900 leading-snug">
+            Fórum Catarinense de Seguros Corporativos e Riscos Patrimoniais
+          </h4>
+          <p class="text-xs text-slate-500 mt-2">Florianópolis / Transmissão Híbrida — 14h00</p>
+        </div>
+        <div class="mt-5">
+          <button onclick="openEventModal('Fórum Catarinense de Seguros Corporativos — 22/10/26')" class="px-4 py-2 rounded-lg text-xs font-extrabold text-white gold-foil-btn hover:brightness-105 transition">
+            Inscreva-se no evento
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+        <div>
+          <span class="inline-block px-3 py-1 rounded-full text-[11px] font-semibold bg-slate-100 text-slate-600 mb-3">
+            12 de novembro de 2026
+          </span>
+          <h4 class="text-base font-extrabold text-sincor-900 leading-snug">
+            Encontro Regional Norte SC: Reforma Tributária para Corretoras PJ
+          </h4>
+          <p class="text-xs text-slate-500 mt-2">Joinville / Presencial — 09h00</p>
+        </div>
+        <div class="mt-5">
+          <button onclick="openEventModal('Encontro Regional Norte SC — 12/11/26')" class="px-4 py-2 rounded-lg text-xs font-extrabold text-white gold-foil-btn hover:brightness-105 transition">
+            Inscreva-se
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+        <div>
+          <span class="inline-block px-3 py-1 rounded-full text-[11px] font-semibold bg-slate-100 text-slate-600 mb-3">
+            26 de novembro de 2026
+          </span>
+          <h4 class="text-base font-extrabold text-sincor-900 leading-snug">
+            Workshop Comercial: Seguro de Vida Individual, Familiar e Sucessório
+          </h4>
+          <p class="text-xs text-slate-500 mt-2">Online Ao Vivo p/ Associados — 19h00</p>
+        </div>
+        <div class="mt-5">
+          <button onclick="openEventModal('Workshop Seguro de Vida — 26/11/26')" class="px-4 py-2 rounded-lg text-xs font-extrabold text-white gold-foil-btn hover:brightness-105 transition">
+            Inscreva-se
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 8. VITRINE REVISTA SINCOR-SC                                          -->
+  <!-- ===================================================================== -->
+  <section id="revistas" class="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-slate-100 rounded-3xl border border-slate-200/90 p-6 sm:p-10 sincor-watermark">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+        <div class="hidden lg:flex lg:col-span-1 justify-center">
+          <span class="text-5xl font-black tracking-tighter text-slate-300 select-none transform -rotate-90 whitespace-nowrap">
+            REVISTA SC
+          </span>
+        </div>
+
+        <div class="lg:col-span-6 space-y-3">
+          <span class="text-xs font-extrabold uppercase tracking-widest text-sincor-goldDark">Acervo Editorial • Download Gratuito</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-sincor-900 leading-tight">
+            Corretor preparado para o futuro: Edição Especial 65 Anos Sincor-SC
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Confira na revista e informativo oficial do Sincor-SC um panorama completo do mercado segurador catarinense, indicadores regionais, entrevistas com a Diretoria e orientações técnicas para sua corretora.
+          </p>
+          <div class="pt-2 flex flex-wrap gap-3">
+            <button onclick="alert('Baixando PDF da Revista Sincor-SC Edição 65 Anos...')" class="px-5 py-2.5 rounded-lg text-xs font-extrabold text-white gold-foil-btn hover:brightness-105 transition shadow">
+              Baixar Edição em PDF
+            </button>
+            <a href="#noticias" class="px-5 py-2.5 rounded-lg text-xs font-bold text-sincor-900 bg-white border border-slate-200 hover:bg-slate-50 transition">
+              Ver Edições Anteriores
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 scene-3d flex justify-center">
+          <div class="card-3d w-72 sm:w-80 h-52 rounded-2xl bg-gradient-to-br from-slate-200 to-slate-300 p-5 shadow-xl border border-white flex items-center justify-center relative">
+            <div class="w-48 h-40 rounded-xl bg-gradient-to-br from-sincor-900 via-sincor-800 to-sincor-950 p-4 text-white shadow-2xl transform -rotate-6 hover:rotate-0 transition duration-500 border border-sincor-gold/50 flex flex-col justify-between">
+              <div class="flex justify-between items-center border-b border-white/15 pb-1.5">
+                <span class="text-xs font-black">SINCOR<span class="text-sincor-gold">SC</span></span>
+                <span class="text-[9px] text-sincor-goldLight font-bold">ANO 65</span>
+              </div>
+              <div>
+                <span class="text-[9px] uppercase tracking-widest text-sincor-goldLight font-bold">Revista Oficial</span>
+                <p class="text-xs font-extrabold leading-snug mt-0.5">O Crescimento do Seguro em Santa Catarina</p>
+              </div>
+              <span class="text-[8px] text-slate-300">Blumenau • Florianópolis • Joinville • Chapecó</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 9. OS 6 BENEFÍCIOS DO SINCOR SC + TABELA COMPARATIVA PF vs. PJ        -->
+  <!-- ===================================================================== -->
+  <section id="beneficios" class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-4">
+      <div class="flex items-center gap-3">
+        <span class="text-[11px] font-bold uppercase tracking-widest text-slate-400">Vantagens</span>
+        <span class="text-slate-300 font-light text-lg">|</span>
+        <h2 class="text-lg sm:text-xl font-extrabold text-sincor-900">Benefícios do Associado Sincor-SC</h2>
+      </div>
+      <span class="text-xs text-slate-500 font-medium">Conheça os 6 pilares oficiais de benefícios para PF e PJ</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14 scene-3d">
+
+      <div class="card-3d bg-white rounded-2xl p-6 border border-slate-200/90 shadow-editorial hover:border-sincor-gold transition">
+        <div class="flex items-center gap-3.5 mb-3">
+          <div class="w-11 h-11 rounded-full bg-sincor-900 text-white flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          </div>
+          <div>
+            <span class="text-[10px] font-extrabold uppercase tracking-wider text-sincor-goldDark">Pilar 01</span>
+            <h3 class="text-base font-extrabold text-sincor-900">Benefícios Padrão</h3>
+          </div>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Representatividade institucional, suporte jurídico e trabalhista, Convenções Coletivas e defesa do corretor perante órgãos reguladores.
+        </p>
+      </div>
+
+      <div class="card-3d bg-white rounded-2xl p-6 border border-slate-200/90 shadow-editorial hover:border-sincor-gold transition">
+        <div class="flex items-center gap-3.5 mb-3">
+          <div class="w-11 h-11 rounded-full bg-sincor-gold text-white flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          </div>
+          <div>
+            <span class="text-[10px] font-extrabold uppercase tracking-wider text-sincor-goldDark">Pilar 02</span>
+            <h3 class="text-base font-extrabold text-sincor-900">Saúde & Odontologia</h3>
+          </div>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Condições diferenciadas na área da saúde do Sincor-SC para titulares, sócios, colaboradores de corretoras e dependentes.
+        </p>
+      </div>
+
+      <div class="card-3d bg-white rounded-2xl p-6 border border-slate-200/90 shadow-editorial hover:border-sincor-gold transition">
+        <div class="flex items-center gap-3.5 mb-3">
+          <div class="w-11 h-11 rounded-full bg-sincor-900 text-white flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <div>
+            <span class="text-[10px] font-extrabold uppercase tracking-wider text-sincor-goldDark">Pilar 03</span>
+            <h3 class="text-base font-extrabold text-sincor-900">Seguro de Vida & RC</h3>
+          </div>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Proteção financeira com Seguro de Vida em Grupo para corretores e condições exclusivas em RC Profissional (E&O).
+        </p>
+      </div>
+
+      <div class="card-3d bg-white rounded-2xl p-6 border border-slate-200/90 shadow-editorial hover:border-sincor-gold transition">
+        <div class="flex items-center gap-3.5 mb-3">
+          <div class="w-11 h-11 rounded-full bg-sincor-gold text-white flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div>
+            <span class="text-[10px] font-extrabold uppercase tracking-wider text-sincor-goldDark">Pilar 04</span>
+            <h3 class="text-base font-extrabold text-sincor-900">Rede de Convênios</h3>
+          </div>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Descontos em instituições de ensino, hotelaria em Santa Catarina, plataformas de multicálculo e serviços empresariais.
+        </p>
+      </div>
+
+      <div class="card-3d bg-sincor-900 text-white rounded-2xl p-6 border border-sincor-gold/50 shadow-lg">
+        <div class="flex items-center gap-3.5 mb-3">
+          <div class="w-11 h-11 rounded-full bg-sincor-gold text-sincor-950 flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
+          </div>
+          <div>
+            <span class="text-[10px] font-extrabold uppercase tracking-wider text-sincor-goldLight">Pilar 05 • Destaque</span>
+            <h3 class="text-base font-extrabold text-white">Certificado Digital</h3>
+          </div>
+        </div>
+        <p class="text-xs text-slate-200 leading-relaxed">
+          Corretores associados ao Sincor-SC contam com descontos exclusivos e validação ágil para emissão de e-CPF e e-CNPJ.
+        </p>
+      </div>
+
+      <div class="card-3d bg-white rounded-2xl p-6 border border-slate-200/90 shadow-editorial hover:border-sincor-gold transition">
+        <div class="flex items-center gap-3.5 mb-3">
+          <div class="w-11 h-11 rounded-full bg-sincor-gold text-white flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <div>
+            <span class="text-[10px] font-extrabold uppercase tracking-wider text-sincor-goldDark">Pilar 06</span>
+            <h3 class="text-base font-extrabold text-sincor-900">Empresas Parceiras</h3>
+          </div>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Integração comercial e institucional com as maiores seguradoras e prestadores de serviços do mercado catarinense.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- TABELA DE ADESÃO PF vs. PJ -->
+    <div id="associe-se" class="bg-white rounded-3xl border border-slate-200/90 shadow-editorial overflow-hidden">
+      <div class="bg-sincor-900 px-6 sm:px-8 py-6 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <span class="text-[11px] font-extrabold uppercase tracking-widest text-sincor-goldLight">Seja Corretor Associado</span>
+          <h3 class="text-xl sm:text-2xl font-extrabold">Comparativo de Benefícios: Pessoa Física (PF) vs. Pessoa Jurídica (PJ)</h3>
+        </div>
+        <button onclick="openEventModal('Proposta de Adesão Associativa Sincor-SC')" class="px-5 py-2.5 rounded-lg text-xs font-extrabold text-white gold-foil-btn hover:brightness-105 transition shrink-0">
+          Preencher Ficha de Adesão Online
+        </button>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-xs sm:text-sm">
+          <thead>
+            <tr class="bg-slate-50 border-b border-slate-200 text-slate-600 uppercase text-[11px] font-extrabold">
+              <th class="p-4 sm:p-5">Benefício / Serviço Sincor-SC</th>
+              <th class="p-4 sm:p-5 text-center w-56 text-sincor-900">Associado PF</th>
+              <th class="p-4 sm:p-5 text-center w-64 bg-amber-50/70 text-sincor-950 border-l border-amber-200/60">Corretora PJ</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200">
+            <tr>
+              <td class="p-4 sm:p-5 font-semibold text-slate-800">Carteira Digital Mobile ID + Voto Auditado "Melhores do Ano"</td>
+              <td class="p-4 sm:p-5 text-center font-bold text-emerald-600">Incluso</td>
+              <td class="p-4 sm:p-5 text-center font-extrabold text-emerald-700 bg-amber-50/30 border-l border-amber-200/40">Incluso p/ Sócios</td>
+            </tr>
+            <tr>
+              <td class="p-4 sm:p-5 font-semibold text-slate-800">Certificado Digital ICP-Brasil com Desconto Associado</td>
+              <td class="p-4 sm:p-5 text-center text-slate-700">e-CPF</td>
+              <td class="p-4 sm:p-5 text-center font-bold text-sincor-900 bg-amber-50/30 border-l border-amber-200/40">e-CNPJ + e-CPF Sócios</td>
+            </tr>
+            <tr>
+              <td class="p-4 sm:p-5 font-semibold text-slate-800">Acesso à Rede de Convênios, Saúde e Capacitação</td>
+              <td class="p-4 sm:p-5 text-center text-slate-700">Titular + Dependentes</td>
+              <td class="p-4 sm:p-5 text-center font-bold text-sincor-900 bg-amber-50/30 border-l border-amber-200/40">Sócios, Equipe CLT e Dependentes</td>
+            </tr>
+            <tr>
+              <td class="p-4 sm:p-5 font-semibold text-slate-800">Orientação Jurídica, Trabalhista e Convenções Coletivas (CCT)</td>
+              <td class="p-4 sm:p-5 text-center text-slate-700">Individual</td>
+              <td class="p-4 sm:p-5 text-center font-bold text-sincor-900 bg-amber-50/30 border-l border-amber-200/40">Completa p/ Corretora e RH</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 10. ÚLTIMAS NOTÍCIAS DO MERCADO                                       -->
+  <!-- ===================================================================== -->
+  <section id="noticias" class="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
+      <div class="flex items-center gap-3">
+        <span class="text-[11px] font-bold uppercase tracking-widest text-slate-400">Jornalismo</span>
+        <span class="text-slate-300 font-light text-lg">|</span>
+        <h2 class="text-lg sm:text-xl font-extrabold text-sincor-900">Últimas notícias</h2>
+      </div>
+      <div class="flex flex-wrap items-center gap-2">
+        <button onclick="filterNews('all')" class="news-tab-btn px-3 py-1.5 rounded-lg text-xs font-extrabold bg-sincor-900 text-white transition" data-cat="all">Todas</button>
+        <button onclick="filterNews('EVENTOS')" class="news-tab-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-200/70 text-slate-700 hover:bg-slate-300 transition" data-cat="EVENTOS">Eventos</button>
+        <button onclick="filterNews('MERCADO SC')" class="news-tab-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-200/70 text-slate-700 hover:bg-slate-300 transition" data-cat="MERCADO SC">Mercado SC</button>
+        <button onclick="filterNews('INSTITUCIONAL')" class="news-tab-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-200/70 text-slate-700 hover:bg-slate-300 transition" data-cat="INSTITUCIONAL">Institucional</button>
+      </div>
+    </div>
+
+    <div id="newsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Preenchido via JS -->
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 11. SEÇÃO MULTIMÍDIA "ÚLTIMOS DA TV SINCOR-SC"                        -->
+  <!-- ===================================================================== -->
+  <section class="stage-spotlight py-16 text-white my-8">
+    <div class="light-beam-gold"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+      <div class="flex items-center justify-between mb-8">
+        <div class="flex items-center gap-3">
+          <span class="text-[11px] font-bold uppercase tracking-widest text-slate-400">Assista</span>
+          <span class="text-white/25 font-light text-lg">|</span>
+          <h2 class="text-lg sm:text-xl font-extrabold text-white tracking-wide uppercase">Últimos da TV Sincor-SC</h2>
+        </div>
+        <a href="#tv" class="text-xs font-bold text-sincor-goldLight hover:underline">Ver todos os vídeos →</a>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 relative rounded-2xl overflow-hidden shadow-2xl border border-white/15 group cursor-pointer" onclick="alert('Iniciando reprodução do vídeo institucional TV Sincor-SC...')">
+          <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=1000&q=80" alt="TV Sincor SC" class="w-full h-72 sm:h-96 object-cover group-hover:scale-105 transition duration-500" />
+          <div class="absolute inset-0 bg-sincor-950/55 group-hover:bg-sincor-950/35 transition flex items-center justify-center">
+            <div class="w-16 h-16 rounded-full gold-foil-btn text-white flex items-center justify-center shadow-gold-glow group-hover:scale-110 transition">
+              <svg class="w-7 h-7 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 space-y-4">
+          <span class="inline-block px-3 py-1 rounded text-[11px] font-extrabold uppercase gold-foil-btn text-white">
+            TV Sincor-SC
+          </span>
+          <h3 class="text-2xl sm:text-3xl font-extrabold leading-tight">
+            65 Anos do Sincor-SC — Uma homenagem a quem proporciona um caminho mais seguro em Santa Catarina
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Assista aos debates técnicos, cobertura dos encontros nas delegacias regionais e orientações para o crescimento das corretoras catarinenses.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-10 pt-8 border-t border-white/10 text-xs">
+        <div class="p-3 rounded-xl hover:bg-white/5 transition cursor-pointer">
+          <p class="font-bold text-white leading-snug">Preparativos para o Jantar Melhores do Ano 2026 em Blumenau</p>
+        </div>
+        <div class="p-3 rounded-xl hover:bg-white/5 transition cursor-pointer">
+          <p class="font-bold text-white leading-snug">Como utilizar a Carteira Digital e os Convênios Sincor-SC</p>
+        </div>
+        <div class="p-3 rounded-xl hover:bg-white/5 transition cursor-pointer">
+          <p class="font-bold text-white leading-snug">Análise Jurídica: Convenção Coletiva de Trabalho SC 2026</p>
+        </div>
+        <div class="p-3 rounded-xl hover:bg-white/5 transition cursor-pointer">
+          <p class="font-bold text-white leading-snug">Oportunidades em Seguro de Vida e Previdência no Sul</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 12. DIRETORIA E DELEGADOS (MAPA REGIONAL SC) + COMISSÕES              -->
+  <!-- ===================================================================== -->
+  <section id="diretoria-mapa" class="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+      <div class="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-editorial">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-[11px] font-bold uppercase tracking-widest text-slate-400">Regiões SC</span>
+          <span class="text-slate-300">|</span>
+          <h3 class="text-lg font-extrabold text-sincor-900">Diretoria e Delegados Regionais</h3>
+        </div>
+        <p class="text-xs text-slate-600 mb-5">Selecione a região de Santa Catarina para exibir os dados da Delegacia Regional:</p>
+
+        <div class="flex flex-wrap gap-2 mb-5">
+          <button onclick="selectRegion('vale')" class="reg-pill px-3.5 py-2 rounded-lg text-xs font-extrabold bg-sincor-900 text-white transition" data-reg="vale">Vale do Itajaí (Blumenau)</button>
+          <button onclick="selectRegion('floripa')" class="reg-pill px-3.5 py-2 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-reg="floripa">Grande Florianópolis</button>
+          <button onclick="selectRegion('norte')" class="reg-pill px-3.5 py-2 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-reg="norte">Norte (Joinville)</button>
+          <button onclick="selectRegion('sul')" class="reg-pill px-3.5 py-2 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-reg="sul">Sul (Criciúma)</button>
+          <button onclick="selectRegion('oeste')" class="reg-pill px-3.5 py-2 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition" data-reg="oeste">Oeste (Chapecó)</button>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
+          <span id="regLabel" class="text-[10px] font-extrabold uppercase tracking-wider text-sincor-goldDark">Sede Estadual • Vale do Itajaí</span>
+          <h4 id="regCities" class="text-base font-extrabold text-sincor-900 mt-0.5">Blumenau, Itajaí, Balneário Camboriú, Brusque e Rio do Sul</h4>
+          <p id="regAddress" class="text-xs text-slate-600 mt-1">Rua Dr. Luiz de Freitas Melro, 395 - salas 902 à 904 - Centro, Blumenau - SC, 89010-921</p>
+          <p class="text-xs font-bold text-sincor-900 mt-2">Contato: (47) 3326-8894 • administrativo@sincor-sc.com.br</p>
+        </div>
+      </div>
+
+      <div id="comissoes" class="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-editorial">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-[11px] font-bold uppercase tracking-widest text-slate-400">Especialidades</span>
+          <span class="text-slate-300">|</span>
+          <h3 class="text-lg font-extrabold text-sincor-900">Comissões Técnicas</h3>
+        </div>
+        <select onchange="filterComm(this.value)" class="w-full p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs font-bold text-sincor-900 mb-4 outline-none">
+          <option value="all">Todas as Especialidades</option>
+          <option value="auto">Automóvel e Frota</option>
+          <option value="vida">Seguro de Vida e Benefícios</option>
+          <option value="ramos">Ramos Elementares e Transporte</option>
+        </select>
+        <div id="commContainer" class="space-y-2.5 text-xs">
+          <div data-c="auto" class="p-3 rounded-xl bg-slate-50 border border-slate-200/70 font-bold text-sincor-900">Comissão de Automóvel, Frota & Assistência 24h</div>
+          <div data-c="vida" class="p-3 rounded-xl bg-slate-50 border border-slate-200/70 font-bold text-sincor-900">Comissão de Seguro de Vida, Saúde & Previdência</div>
+          <div data-c="ramos" class="p-3 rounded-xl bg-slate-50 border border-slate-200/70 font-bold text-sincor-900">Comissão de Ramos Elementares, Transporte & Agro</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 13. BANNER AZUL: CARTEIRA DIGITAL / APP                               -->
+  <!-- ===================================================================== -->
+  <section class="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="stage-spotlight rounded-3xl p-8 sm:p-12 text-white shadow-2xl border border-sincor-800">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+        <div class="lg:col-span-4 space-y-4">
+          <span class="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-sincor-gold/20 text-sincor-goldLight border border-sincor-gold/40">
+            Identidade Digital do Associado
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold leading-tight">
+            Tenha o Sincor-SC e sua Carteira Digital na palma da sua mão!
+          </h2>
+          <div class="flex flex-wrap gap-3 pt-2">
+            <button onclick="openAuthModal('carteira')" class="px-4 py-2.5 rounded-xl bg-white text-sincor-950 font-extrabold text-xs flex items-center gap-2 hover:bg-sincor-goldLight transition shadow">
+              <svg class="w-4 h-4 text-sincor-goldDark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+              <span>Abrir Carteira Mobile ID</span>
+            </button>
+            <button onclick="openAuthModal('votacao')" class="px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white font-bold text-xs hover:bg-white/20 transition">
+              Urna Melhores do Ano
+            </button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4 flex justify-center scene-3d">
+          <div onclick="openAuthModal('carteira')" class="card-3d cursor-pointer w-56 rounded-[28px] bg-gradient-to-b from-sky-500 to-sincor-900 p-1.5 shadow-2xl border-2 border-white/20">
+            <div class="bg-sincor-950 rounded-[22px] p-4 text-center space-y-3">
+              <div class="w-12 h-1 bg-white/20 rounded-full mx-auto"></div>
+              <p class="text-sm font-extrabold text-white">Sincor <span class="text-sincor-gold">SC</span></p>
+              <div class="bg-white/10 rounded-xl p-3 text-left space-y-1 border border-white/10">
+                <span class="text-[9px] font-bold uppercase text-emerald-400">● Associado Ativo 2026</span>
+                <p class="text-xs font-extrabold text-white">Carlos E. Andrade</p>
+                <p class="text-[10px] text-sincor-goldLight">SUSEP: 20.491827-3</p>
+              </div>
+              <div class="grid grid-cols-3 gap-1.5 pt-1 text-[9px] text-slate-300">
+                <div class="p-1.5 rounded bg-white/5">Carteira ID</div>
+                <div class="p-1.5 rounded bg-white/5">Eventos</div>
+                <div class="p-1.5 rounded bg-white/5">Convênios</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4 space-y-3 text-xs sm:text-sm">
+          <div class="flex items-center gap-3">
+            <span class="w-6 h-6 rounded-full bg-sincor-gold/20 border border-sincor-gold text-sincor-goldLight flex items-center justify-center font-bold text-xs shrink-0">✓</span>
+            <span>Acesso exclusivo para corretores associados</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="w-6 h-6 rounded-full bg-sincor-gold/20 border border-sincor-gold text-sincor-goldLight flex items-center justify-center font-bold text-xs shrink-0">✓</span>
+            <span>Carteira Digital com preenchimento automático</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="w-6 h-6 rounded-full bg-sincor-gold/20 border border-sincor-gold text-sincor-goldLight flex items-center justify-center font-bold text-xs shrink-0">✓</span>
+            <span>Atendimento jurídico e plantão técnico</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="w-6 h-6 rounded-full bg-sincor-gold/20 border border-sincor-gold text-sincor-goldLight flex items-center justify-center font-bold text-xs shrink-0">✓</span>
+            <span>Notícias do mercado e circulares em tempo real</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="w-6 h-6 rounded-full bg-sincor-gold/20 border border-sincor-gold text-sincor-goldLight flex items-center justify-center font-bold text-xs shrink-0">✓</span>
+            <span>Inscrição em eventos e Votação Melhores do Ano</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 14. SEGURADORAS PARCEIRAS                                             -->
+  <!-- ===================================================================== -->
+  <section id="seguradoras" class="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-3 mb-5">
+      <span class="text-[11px] font-bold uppercase tracking-widest text-slate-400">Parceiros</span>
+      <span class="text-slate-300">|</span>
+      <h2 class="text-lg font-extrabold text-sincor-900">Seguradoras Parceiras</h2>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div class="h-16 rounded-xl bg-white border border-slate-200 flex items-center justify-center font-extrabold text-xs text-sincor-900 shadow-sm">PORTO SEGURO</div>
+      <div class="h-16 rounded-xl bg-white border border-slate-200 flex items-center justify-center font-extrabold text-xs text-sincor-900 shadow-sm">BRADESCO SEGUROS</div>
+      <div class="h-16 rounded-xl bg-white border border-slate-200 flex items-center justify-center font-extrabold text-xs text-sincor-900 shadow-sm">TOKIO MARINE</div>
+      <div class="h-16 rounded-xl bg-white border border-slate-200 flex items-center justify-center font-extrabold text-xs text-sincor-900 shadow-sm">ALLIANZ</div>
+      <div class="h-16 rounded-xl bg-white border border-slate-200 flex items-center justify-center font-extrabold text-xs text-sincor-900 shadow-sm">HDI / YELUM</div>
+      <div class="h-16 rounded-xl bg-white border border-slate-200 flex items-center justify-center font-extrabold text-xs text-sincor-900 shadow-sm">MAPFRE / SULAMÉRICA</div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 15. VISITE O SINCOR SC + BOTÃO WHATSAPP COM ÍCONE OFICIAL VAZADO!     -->
+  <!-- ===================================================================== -->
+  <section id="visite" class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-sincor-950 rounded-3xl overflow-hidden shadow-2xl border border-sincor-800 grid grid-cols-1 lg:grid-cols-12">
+
+      <div class="lg:col-span-5 p-8 sm:p-10 text-white flex flex-col justify-between">
+        <div class="space-y-4">
+          <span class="inline-block px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-sincor-gold/20 text-sincor-goldLight border border-sincor-gold/40">
+            Sede Estadual • Blumenau/SC
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold">Visite o Sincor SC</h2>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Sindicato dos Corretores de Seguros e de Resseguros e das Empresas Corretoras de Seguros e de Resseguros no Estado de Santa Catarina.
+          </p>
+
+          <div class="space-y-3.5 pt-3 text-xs sm:text-sm">
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-sincor-gold shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              <span>Rua Dr. Luiz de Freitas Melro, 395 - salas 902 à 904 - Centro, Blumenau/SC — CEP: 89010-921</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-sincor-gold shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+              <a href="tel:554733268894" class="font-extrabold text-white hover:text-sincor-goldLight transition">(47) 3326-8894</a>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-sincor-gold shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              <a href="mailto:administrativo@sincor-sc.com.br" class="text-slate-200 hover:text-sincor-goldLight transition">administrativo@sincor-sc.com.br</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CANAIS DE ATENDIMENTO DIRETO: ÍCONE WHATSAPP 100% VAZADO E NÍTIDO -->
+        <div class="pt-7 mt-7 border-t border-white/10">
+          <p class="text-[11px] font-extrabold uppercase tracking-widest text-slate-400 mb-3.5">Canais de Atendimento Direto</p>
+          <div class="flex flex-wrap items-center gap-3">
+
+            <!-- Botão Oficial WhatsApp (Vetor Oficial 448x512 com Monofone Vazado em Branco) -->
+            <a
+              href="https://wa.me/554733268894"
+              target="_blank"
+              class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-xs font-extrabold bg-[#25D366] hover:bg-[#1ebe5d] text-white shadow-md transition"
+            >
+              <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 448 512">
+                <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+              </svg>
+              <span>WhatsApp</span>
+            </a>
+
+            <!-- Botão Oficial Instagram -->
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-xs font-extrabold bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white shadow-md hover:brightness-110 transition"
+            >
+              <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 448 512">
+                <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+              </svg>
+              <span>Instagram</span>
+            </a>
+
+            <!-- Botão Oficial E-mail -->
+            <a
+              href="mailto:administrativo@sincor-sc.com.br"
+              class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-xs font-extrabold bg-white/10 hover:bg-white/20 border border-white/20 text-white transition"
+            >
+              <svg class="w-4 h-4 text-sincor-goldLight shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              <span>E-mail</span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Google Maps Integrado -->
+      <div class="lg:col-span-7 min-h-[380px] bg-slate-200">
+        <iframe
+          title="Localização Sincor SC Blumenau"
+          src="https://www.google.com/maps?q=Rua+Dr.+Luiz+de+Freitas+Melro,+395,+Centro,+Blumenau,+SC,+89010-921&output=embed"
+          class="w-full h-full min-h-[380px] border-0"
+          allowfullscreen=""
+          loading="lazy">
+        </iframe>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 16. NEWSLETTER (#SINCORSC NEWS) + RODAPÉ COM OS 4 ÍCONES CIRCULARES   -->
+  <!-- ===================================================================== -->
+  <section class="py-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-white rounded-2xl border border-slate-200/90 shadow-editorial p-6 sm:p-8 flex flex-col lg:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-4">
+        <div class="flex items-center">
+          <span class="text-4xl font-black text-sincor-gold mr-1.5">#</span>
+          <div class="leading-none">
+            <span class="block text-sm font-extrabold text-sincor-900">SincorSC</span>
+            <span class="block text-xl font-black text-sincor-gold tracking-tight">NEWS</span>
+          </div>
+        </div>
+        <div class="border-l border-slate-200 pl-4">
+          <h3 class="text-base font-extrabold text-sincor-900">Newsletter Oficial</h3>
+          <p class="text-xs text-slate-500">Receba circulares e novidades do mercado segurador catarinense.</p>
+        </div>
+      </div>
+
+      <form onsubmit="event.preventDefault(); alert('Inscrição confirmada no #SincorSC NEWS!');" class="flex flex-col sm:flex-row w-full lg:w-auto gap-2.5">
+        <input type="text" required placeholder="Nome completo" class="px-4 py-2.5 rounded-lg bg-slate-100 border border-slate-200 text-xs outline-none focus:bg-white focus:border-sincor-900" />
+        <input type="email" required placeholder="Seu e-mail profissional" class="px-4 py-2.5 rounded-lg bg-slate-100 border border-slate-200 text-xs outline-none focus:bg-white focus:border-sincor-900 sm:w-60" />
+        <button type="submit" class="px-5 py-2.5 rounded-lg font-extrabold text-xs text-white gold-foil-btn hover:brightness-105 transition">
+          Enviar →
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="bg-[#040d1f] text-slate-300 pt-12 mt-8 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-10 border-b border-white/10 text-xs">
+
+        <!-- Coluna 1: Marca + Texto Oficial + 4 ÍCONES CIRCULARES PROFISSIONAIS (IMAGEM 3 CORRIGIDA) -->
+        <div class="lg:col-span-4 space-y-4">
+          <div class="flex items-center gap-3">
+            <svg class="w-10 h-9 shrink-0" viewBox="0 0 64 52" fill="none">
+              <path d="M6 26C16 11 36 5 58 8" stroke="#f1c266" stroke-width="4" stroke-linecap="round"/>
+              <path d="M12 33C23 19 40 14 56 16" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+            <span class="text-2xl font-extrabold text-white">Sincor <span class="text-sincor-gold">SC</span></span>
+          </div>
+          <p class="text-slate-400 leading-relaxed">
+            Sindicato dos Corretores de Seguros e de Resseguros e das Empresas Corretoras de Seguros e de Resseguros no Estado de Santa Catarina.
+          </p>
+
+          <!-- OS 4 BOTÕES CIRCULARES DO RODAPÉ (FACEBOOK, INSTAGRAM, LINKEDIN, WHATSAPP) -->
+          <div class="pt-2">
+            <span class="block text-[10px] font-extrabold uppercase tracking-widest text-slate-400 mb-2.5">Conecte-se com o Sincor-SC</span>
+            <div class="flex items-center gap-3">
+
+              <!-- 1. Facebook -->
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                aria-label="Facebook Sincor SC"
+                class="w-10 h-10 rounded-full bg-white/[0.08] border border-white/15 text-white hover:bg-[#1877F2] hover:border-[#1877F2] hover:scale-110 flex items-center justify-center transition shadow-md"
+              >
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 320 512">
+                  <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/>
+                </svg>
+              </a>
+
+              <!-- 2. Instagram -->
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                aria-label="Instagram Sincor SC"
+                class="w-10 h-10 rounded-full bg-white/[0.08] border border-white/15 text-white hover:bg-gradient-to-tr hover:from-[#833ab4] hover:via-[#fd1d1d] hover:to-[#fcb045] hover:border-pink-500 hover:scale-110 flex items-center justify-center transition shadow-md"
+              >
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 448 512">
+                  <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+                </svg>
+              </a>
+
+              <!-- 3. LinkedIn -->
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                aria-label="LinkedIn Sincor SC"
+                class="w-10 h-10 rounded-full bg-white/[0.08] border border-white/15 text-white hover:bg-[#0A66C2] hover:border-[#0A66C2] hover:scale-110 flex items-center justify-center transition shadow-md"
+              >
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 448 512">
+                  <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/>
+                </svg>
+              </a>
+
+              <!-- 4. WhatsApp Oficial (Círculo Verde Esmeralda + Ícone Vazado Oficial) -->
+              <a
+                href="https://wa.me/554733268894"
+                target="_blank"
+                aria-label="WhatsApp Sincor SC"
+                class="w-10 h-10 rounded-full bg-[#25D366]/20 border border-[#25D366]/50 text-[#25D366] hover:bg-[#25D366] hover:text-white hover:scale-110 flex items-center justify-center transition shadow-md"
+              >
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 448 512">
+                  <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+                </svg>
+              </a>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4 space-y-2.5">
+          <h4 class="text-sm font-extrabold text-white mb-3">Contato Oficial</h4>
+          <p class="text-slate-400">Rua Dr. Luiz de Freitas Melro, 395 - salas 902 à 904 - Centro, Blumenau/SC - CEP: 89010-921</p>
+          <p class="text-white font-bold">(47) 3326-8894</p>
+          <p class="text-slate-300">administrativo@sincor-sc.com.br</p>
+        </div>
+
+        <div class="lg:col-span-4 space-y-2">
+          <h4 class="text-sm font-extrabold text-white mb-3">Navegação Rápida</h4>
+          <ul class="grid grid-cols-2 gap-2 text-slate-400">
+            <li><a href="#sobre-nos" class="hover:text-sincor-goldLight">› Quem somos</a></li>
+            <li><a href="#diretoria-mapa" class="hover:text-sincor-goldLight">› Diretoria</a></li>
+            <li><a href="#beneficios" class="hover:text-sincor-goldLight">› Benefícios</a></li>
+            <li><a href="#convencoes" class="hover:text-sincor-goldLight">› Convenções Coletivas</a></li>
+            <li><a href="#sobre-nos" class="hover:text-sincor-goldLight">› Estatuto Social</a></li>
+            <li><button onclick="openAuthModal('login')" class="hover:text-sincor-goldLight">› Área do Associado</button></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Barra Inferior do Rodapé com Indicadores Econômicos + Copyright -->
+      <div class="py-5 flex flex-col md:flex-row items-center justify-between text-[11px] text-slate-400 gap-4">
+        <p>Copyright © 2026 Sincor SC | Todos os direitos reservados.</p>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="bg-white/[0.06] border border-white/10 px-2.5 py-1 rounded text-slate-200 font-semibold">
+            Selic: 10,75%
+          </span>
+          <span class="bg-white/[0.06] border border-emerald-500/20 px-2.5 py-1 rounded text-emerald-400 font-semibold">
+            Mercado Segurador SC: +14,2% a.a.
+          </span>
+          <span class="mx-1 text-white/20">|</span>
+          <a href="#" class="hover:text-white transition">Política de Privacidade (LGPD)</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Botão Flutuante Oficial WhatsApp no Canto Inferior Direito -->
+  <a
+    href="https://wa.me/554733268894"
+    target="_blank"
+    aria-label="Atendimento via WhatsApp Sincor SC"
+    class="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#1ebe5d] text-white shadow-2xl flex items-center justify-center transition hover:scale-110"
+  >
+    <svg class="w-7 h-7 fill-current" viewBox="0 0 448 512">
+      <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+    </svg>
+  </a>
+
+  <!-- ===================================================================== -->
+  <!-- MODAIS DE LOGIN, VOTAÇÃO COM CÓDIGO ÚNICO E INSCRIÇÃO EM EVENTOS      -->
+  <!-- ===================================================================== -->
+  <div id="authModal" class="fixed inset-0 z-50 hidden bg-sincor-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-200">
+      <div class="bg-sincor-900 p-5 text-white flex items-center justify-between">
+        <span class="font-extrabold text-sm">Sistema Integrado Sincor-SC</span>
+        <button onclick="closeAuthModal()" class="text-slate-300 hover:text-white text-lg font-bold">✕</button>
+      </div>
+      <div class="flex border-b border-slate-200 bg-slate-50 text-xs font-extrabold">
+        <button onclick="switchAuthTab('login')" id="tabBtnLogin" class="flex-1 py-3 border-b-2 border-sincor-900 text-sincor-900">Login Associado</button>
+        <button onclick="switchAuthTab('votacao')" id="tabBtnVotacao" class="flex-1 py-3 border-b-2 border-transparent text-slate-500">Votação Melhores do Ano</button>
+        <button onclick="switchAuthTab('carteira')" id="tabBtnCarteira" class="flex-1 py-3 border-b-2 border-transparent text-slate-500">Carteira Digital</button>
+      </div>
+      <div class="p-6">
+        <div id="tabContentLogin" class="space-y-3">
+          <p class="text-xs text-slate-600">Acesse documentos restritos, Convenções Coletivas e seu painel cadastral.</p>
+          <form onsubmit="handleQuickLogin(event)" class="space-y-3">
+            <input type="text" required placeholder="CPF / CNPJ ou SUSEP" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm outline-none" />
+            <input type="password" required placeholder="Senha" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm outline-none" />
+            <button type="submit" class="w-full py-3 rounded-xl font-extrabold text-xs text-white bg-sincor-900">Entrar no Sistema</button>
+          </form>
+        </div>
+        <div id="tabContentVotacao" class="hidden space-y-3">
+          <div class="p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 font-medium">
+            Autenticação Anti-Fraude: Informe o Código Único recebido para registrar seu voto no Prêmio Melhores do Ano 2026.
+          </div>
+          <form onsubmit="event.preventDefault(); alert('Voto auditado registrado com sucesso!'); closeAuthModal();" class="space-y-3">
+            <input type="text" required placeholder="CPF do Corretor Associado" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm outline-none" />
+            <input type="text" required placeholder="Código Único (Ex: SC65-8921)" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm font-mono uppercase outline-none" />
+            <button type="submit" class="w-full py-3 rounded-xl font-extrabold text-xs text-white gold-foil-btn">Validar Código e Votar</button>
+          </form>
+        </div>
+        <div id="tabContentCarteira" class="hidden space-y-3">
+          <div class="rounded-2xl bg-sincor-950 text-white p-5 border border-sincor-gold">
+            <div class="flex justify-between items-center border-b border-white/10 pb-2 mb-3">
+              <span class="text-xs font-extrabold">SINCOR-SC • CARTEIRA DIGITAL</span>
+              <span class="text-[10px] text-emerald-400 font-bold">ATIVA 2026</span>
+            </div>
+            <p class="text-sm font-extrabold">Carlos Eduardo Andrade</p>
+            <p class="text-xs text-sincor-goldLight">Registro SUSEP: 20.491827-3 • Blumenau/SC</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="eventModal" class="fixed inset-0 z-50 hidden bg-sincor-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl">
+      <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+        <span class="text-xs font-extrabold uppercase text-sincor-goldDark">Inscrição Integrada Sincor-SC</span>
+        <button onclick="closeEventModal()" class="text-slate-400 hover:text-slate-800 font-bold">✕</button>
+      </div>
+      <h4 id="eventModalTitle" class="text-base font-extrabold text-sincor-900">Evento</h4>
+      <form onsubmit="event.preventDefault(); alert('Inscrição confirmada! Comprovante enviado por e-mail.'); closeEventModal();" class="space-y-3 text-xs">
+        <input type="text" required placeholder="Nome Completo / Corretora" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 outline-none" />
+        <input type="email" required placeholder="E-mail para confirmação" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 outline-none" />
+        <button type="submit" class="w-full py-3 rounded-xl font-extrabold text-white gold-foil-btn">Confirmar Inscrição</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- SCRIPTS INTERATIVOS                                                   -->
+  <!-- ===================================================================== -->
+  <script>
+    // Menu Mobile
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+
+    // Leaderboard Rotativo
+    const leaderboards = [
+      { text: 'Certificado Digital ICP-Brasil (e-CPF e e-CNPJ) com valores exclusivos para Corretores Associados em Santa Catarina.', href: '#beneficios' },
+      { text: 'Jantar Melhores do Ano & 65 Anos Sincor-SC: Dia 05/11/26 às 19h30 no Teatro Carlos Gomes (Blumenau/SC).', href: '#eventos' }
+    ];
+    let lbIdx = 0;
+    function cycleLeaderboard() {
+      lbIdx = (lbIdx + 1) % leaderboards.length;
+      document.getElementById('topLeaderboardText').textContent = leaderboards[lbIdx].text;
+      document.getElementById('topLeaderboardBtn').setAttribute('href', leaderboards[lbIdx].href);
+    }
+
+    // Carrossel Hero
+    const slides = [
+      {
+        tag: 'Convite Oficial • Mercado Segurador Catarinense',
+        sub: 'Prêmio Melhores do Ano 2026 • Jantar de Comemoração',
+        title: 'Sincor-SC completa <span class="gold-foil-text">65 anos de história</span> com noite de gala no Teatro Carlos Gomes',
+        img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1400&q=85',
+        btn: 'INSCREVA-SE AQUI!'
+      },
+      {
+        tag: 'Benefícios Exclusivos PF e PJ',
+        sub: 'Fortaleça sua Corretora em Santa Catarina',
+        title: 'Certificado Digital, Assessoria Jurídica e <span class="gold-foil-text">Carteira Digital Mobile ID</span>',
+        img: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1400&q=85',
+        btn: 'CONHECER BENEFÍCIOS'
+      },
+      {
+        tag: 'Capacitação & Eventos Regionais',
+        sub: 'Agenda Executiva Sincor-SC 2026',
+        title: 'Encontros presenciais em <span class="gold-foil-text">Blumenau, Florianópolis, Joinville, Criciúma e Chapecó</span>',
+        img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1400&q=85',
+        btn: 'VER AGENDA DE EVENTOS'
+      }
+    ];
+    let curSlide = 0;
+    function setHeroSlide(i) {
+      curSlide = (i + slides.length) % slides.length;
+      const s = slides[curSlide];
+      document.getElementById('heroTag').textContent = s.tag;
+      document.getElementById('heroSubhead').textContent = s.sub;
+      document.getElementById('heroTitle').innerHTML = s.title;
+      document.getElementById('heroBgImg').src = s.img;
+      document.getElementById('heroBtnLabel').textContent = s.btn;
+      const dots = document.getElementById('heroDots').children;
+      for (let d = 0; d < dots.length; d++) {
+        dots[d].className = d === curSlide
+          ? 'w-7 h-2 rounded-full bg-sincor-gold transition-all'
+          : 'w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all';
+      }
+    }
+    function changeHeroSlide(dir) { setHeroSlide(curSlide + dir); }
+
+    // Notícias Dinâmicas (CMS)
+    const newsItems = [
+      {
+        cat: 'EVENTOS',
+        date: '13/10/2026',
+        title: 'Jantar de 65 Anos do Sincor-SC e Prêmio Melhores do Ano reunirá mercado segurador no Teatro Carlos Gomes',
+        desc: 'Cerimônia acontece no dia 05/11/26 às 19h30 em Blumenau/SC. Corretores associados já podem realizar inscrição e votar.',
+        img: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=700&q=80'
+      },
+      {
+        cat: 'MERCADO SC',
+        date: '10/10/2026',
+        title: 'Procura por Seguros Corporativos, Vida e Responsabilidade Civil cresce em Santa Catarina em 2026',
+        desc: 'Corretores catarinenses ampliam consultoria especializada para pequenas, médias e grandes empresas do Estado.',
+        img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=80'
+      },
+      {
+        cat: 'INSTITUCIONAL',
+        date: '05/10/2026',
+        title: 'Sincor-SC disponibiliza Convenções Coletivas atualizadas e atendimento jurídico para corretoras associadas',
+        desc: 'Documentos oficiais podem ser consultados diretamente na Área do Associado ou solicitados à sede em Blumenau.',
+        img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=700&q=80'
+      }
+    ];
+
+    function renderNews(cat = 'all', q = '') {
+      const box = document.getElementById('newsContainer');
+      const list = newsItems.filter(n => (cat === 'all' || n.cat === cat) && n.title.toLowerCase().includes(q.toLowerCase()));
+      box.innerHTML = list.map(n => `
+        <article class="bg-white rounded-2xl overflow-hidden border border-slate-200/90 shadow-editorial hover:shadow-editorial-hover transition flex flex-col justify-between">
+          <div>
+            <div class="h-44 overflow-hidden">
+              <img src="${n.img}" alt="${n.title}" class="w-full h-full object-cover hover:scale-105 transition duration-500" />
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-2.5 mb-2">
+                <span class="px-2.5 py-0.5 rounded text-[10px] font-extrabold uppercase bg-sincor-900 text-white">${n.cat}</span>
+                <span class="text-[11px] font-semibold text-slate-400">${n.date}</span>
+              </div>
+              <h3 class="text-sm sm:text-base font-extrabold text-sincor-900 leading-snug">${n.title}</h3>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">${n.desc}</p>
+            </div>
+          </div>
+          <div class="px-5 pb-5">
+            <a href="#noticias" class="text-xs font-extrabold text-sincor-goldDark hover:underline">Ler notícia completa →</a>
+          </div>
+        </article>
+      `).join('');
+    }
+    renderNews();
+
+    function filterNews(cat) {
+      document.querySelectorAll('.news-tab-btn').forEach(b => {
+        b.className = b.dataset.cat === cat
+          ? 'news-tab-btn px-3 py-1.5 rounded-lg text-xs font-extrabold bg-sincor-900 text-white transition'
+          : 'news-tab-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-200/70 text-slate-700 hover:bg-slate-300 transition';
+      });
+      renderNews(cat);
+    }
+
+    document.getElementById('globalSearchInput')?.addEventListener('input', e => renderNews('all', e.target.value));
+
+    // Regiões SC
+    const regData = {
+      vale: { label: 'Sede Estadual • Vale do Itajaí', cities: 'Blumenau, Itajaí, Balneário Camboriú, Brusque e Rio do Sul', addr: 'Rua Dr. Luiz de Freitas Melro, 395 - salas 902 à 904 - Centro, Blumenau - SC, 89010-921' },
+      floripa: { label: 'Delegacia Regional • Grande Florianópolis', cities: 'Florianópolis, São José, Palhoça e Biguaçu', addr: 'Representação institucional e eventos técnicos na Capital.' },
+      norte: { label: 'Delegacia Regional • Norte SC', cities: 'Joinville, Jaraguá do Sul, São Francisco do Sul e Mafra', addr: 'Atendimento às corretoras da macrorregião Norte.' },
+      sul: { label: 'Delegacia Regional • Sul SC', cities: 'Criciúma, Tubarão, Araranguá e Laguna', addr: 'Encontros regionais e suporte sindical no Sul catarinense.' },
+      oeste: { label: 'Delegacia Regional • Oeste SC', cities: 'Chapecó, Concórdia, Joaçaba e São Miguel do Oeste', addr: 'Foco em agronegócio, transportes e desenvolvimento regional.' }
+    };
+    function selectRegion(r) {
+      document.getElementById('regLabel').textContent = regData[r].label;
+      document.getElementById('regCities').textContent = regData[r].cities;
+      document.getElementById('regAddress').textContent = regData[r].addr;
+      document.querySelectorAll('.reg-pill').forEach(b => {
+        b.className = b.dataset.reg === r
+          ? 'reg-pill px-3.5 py-2 rounded-lg text-xs font-extrabold bg-sincor-900 text-white transition'
+          : 'reg-pill px-3.5 py-2 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
+      });
+    }
+
+    function filterComm(v) {
+      document.querySelectorAll('#commContainer > div').forEach(d => {
+        d.classList.toggle('hidden', v !== 'all' && d.dataset.c !== v);
+      });
+    }
+
+    // Modais
+    function openAuthModal(tab) {
+      document.getElementById('authModal').classList.remove('hidden');
+      switchAuthTab(tab);
+    }
+    function closeAuthModal() { document.getElementById('authModal').classList.add('hidden'); }
+    function switchAuthTab(tab) {
+      ['login', 'votacao', 'carteira'].forEach(t => {
+        const cap = t.charAt(0).toUpperCase() + t.slice(1);
+        document.getElementById('tabContent' + cap).classList.toggle('hidden', t !== tab);
+        document.getElementById('tabBtn' + cap).className = t === tab
+          ? 'flex-1 py-3 border-b-2 border-sincor-900 text-sincor-900'
+          : 'flex-1 py-3 border-b-2 border-transparent text-slate-500';
+      });
+    }
+    function openEventModal(title) {
+      document.getElementById('eventModalTitle').textContent = title;
+      document.getElementById('eventModal').classList.remove('hidden');
+    }
+    function closeEventModal() { document.getElementById('eventModal').classList.add('hidden'); }
+    function handleQuickLogin(e) { e.preventDefault(); openAuthModal('carteira'); }
+
+    // Efeito 3D Suave nos Cards
+    document.querySelectorAll('.card-3d').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = ((e.clientX - r.left) / r.width - 0.5) * 6;
+        const y = ((e.clientY - r.top) / r.height - 0.5) * -6;
+        card.style.transform = `rotateX(${y}deg) rotateY(${x}deg)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+      });
+    });
+  </script>
+</body>
+</html>
