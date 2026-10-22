@@ -134,6 +134,9 @@
       background-position: right center;
     }
 
+    /* Selo de 65 anos ao lado do logo: mesma altura visual do logo, sem aumentar o cabeçalho */
+    .selo-65 { height: 66px; width: auto; margin-block: -11px; flex: none; filter: drop-shadow(0 3px 5px rgba(7, 29, 73, .22)); }
+
     /* Cabeçalho fixo: as âncoras do menu não param escondidas embaixo dele */
     html { scroll-padding-top: 6rem; }
     @media (min-width: 1024px) { html { scroll-padding-top: 9.5rem; } }
@@ -357,16 +360,28 @@
 
           <div class="h-10 w-px bg-slate-200 hidden sm:block"></div>
 
-          <!-- Selo Comemorativo 65 Anos Independente ao Lado -->
-          <div class="hidden sm:flex items-center gap-2 bg-sincor-cream border border-sincor-gold/40 rounded-full px-3 py-1.5 shadow-sm">
-            <div class="w-7 h-7 rounded-full gold-foil-btn text-sincor-950 flex items-center justify-center font-display font-extrabold text-xs shadow-inner">
-              65
-            </div>
-            <div class="leading-tight pr-1">
-              <span class="block text-[10px] font-extrabold uppercase tracking-wider text-sincor-900">Anos</span>
-              <span class="block text-[9px] font-medium text-slate-500">1961 – 2026</span>
-            </div>
-          </div>
+          <!-- Selo comemorativo de 65 anos: medalha com borda serrilhada, disco azul e fita dourada com as datas -->
+          <svg class="selo-65 hidden sm:block" viewBox="0 0 92 62" role="img" aria-label="Selo comemorativo: 65 anos do Sincor SC, 1961 a 2026">
+            <defs>
+              <linearGradient id="selo-ouro" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6d786"/><stop offset=".45" stop-color="#d4962a"/><stop offset=".75" stop-color="#e8b454"/><stop offset="1" stop-color="#8a6114"/></linearGradient>
+              <linearGradient id="selo-fita" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6d786"/><stop offset=".55" stop-color="#e0a43b"/><stop offset="1" stop-color="#b47d1c"/></linearGradient>
+              <linearGradient id="selo-num" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff1c4"/><stop offset=".55" stop-color="#f1c266"/><stop offset="1" stop-color="#c8963e"/></linearGradient>
+              <radialGradient id="selo-disco" cx=".5" cy=".3" r=".75"><stop offset="0" stop-color="#0c2d6b"/><stop offset="1" stop-color="#030d1f"/></radialGradient>
+            </defs>
+            <path fill="url(#selo-ouro)" d="M46.00 0.00L48.64 2.23L51.66 0.56L53.81 3.26L57.10 2.21L58.68 5.28L62.11 4.89L63.07 8.21L66.51 8.49L66.79 11.93L70.11 12.89L69.72 16.32L72.79 17.90L71.74 21.19L74.44 23.34L72.77 26.36L75.00 29.00L72.77 31.64L74.44 34.66L71.74 36.81L72.79 40.10L69.72 41.68L70.11 45.11L66.79 46.07L66.51 49.51L63.07 49.79L62.11 53.11L58.68 52.72L57.10 55.79L53.81 54.74L51.66 57.44L48.64 55.77L46.00 58.00L43.36 55.77L40.34 57.44L38.19 54.74L34.90 55.79L33.32 52.72L29.89 53.11L28.93 49.79L25.49 49.51L25.21 46.07L21.89 45.11L22.28 41.68L19.21 40.10L20.26 36.81L17.56 34.66L19.23 31.64L17.00 29.00L19.23 26.36L17.56 23.34L20.26 21.19L19.21 17.90L22.28 16.32L21.89 12.89L25.21 11.93L25.49 8.49L28.93 8.21L29.89 4.89L33.32 5.28L34.90 2.21L38.19 3.26L40.34 0.56L43.36 2.23Z"/>
+            <circle cx="46" cy="29" r="24.6" fill="url(#selo-disco)"/>
+            <circle cx="46" cy="29" r="22.7" fill="none" stroke="#f1c266" stroke-width=".6" stroke-opacity=".85"/>
+            <circle cx="46" cy="29" r="21.2" fill="none" stroke="#f1c266" stroke-width=".7" stroke-dasharray=".2 1.9" stroke-linecap="round" stroke-opacity=".6"/>
+            <text x="46" y="26.4" text-anchor="middle" font-family="Cinzel, Georgia, serif" font-weight="800" font-size="19.5" fill="url(#selo-num)">65</text>
+            <text x="46" y="34.1" text-anchor="middle" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="800" font-size="6.6" letter-spacing="1.5" fill="#fff">ANOS</text>
+            <path fill="#8a6114" d="M0 42.5H15V58H0l4.2-7.75Z"/>
+            <path fill="#8a6114" d="M92 42.5H77V58H92l-4.2-7.75Z"/>
+            <path fill="#5c3f0b" d="M9 54.6 15 58V54.6Z"/>
+            <path fill="#5c3f0b" d="M83 54.6 77 58V54.6Z"/>
+            <rect x="9" y="38.6" width="74" height="16" rx="1.2" fill="url(#selo-fita)"/>
+            <path d="M9 39.4H83" stroke="#fff5d6" stroke-width=".6" stroke-opacity=".7"/>
+            <text x="46" y="50.1" text-anchor="middle" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="800" font-size="10" letter-spacing=".4" fill="#071d49">1961 – 2026</text>
+          </svg>
         </a>
 
         <!-- Barra de Busca Editorial -->
@@ -389,12 +404,12 @@
           <button
             onclick="openAuthModal('login')"
             aria-label="Área do Associado"
-            class="inline-flex items-center gap-2 p-2.5 sm:px-3.5 sm:py-2 rounded-lg text-xs sm:text-sm font-bold text-sincor-900 hover:bg-slate-100 transition"
+            class="inline-flex items-center gap-2 p-2.5 md:px-3.5 md:py-2 rounded-lg text-xs sm:text-sm font-bold text-sincor-900 hover:bg-slate-100 transition"
           >
             <svg class="w-4 h-4 text-sincor-gold shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
             </svg>
-            <span class="hidden sm:inline">Área do Associado</span>
+            <span class="hidden md:inline">Área do Associado</span>
           </button>
 
           <a

@@ -93,6 +93,8 @@ zero complacência, apontar caminho melhor quando existir, antecipar falhas, ser
 > Logos tratados por `site/tools/logos.py` (fundo transparente, recorte, mesma área visual, WebP sem perda em 2x; o
 > script imprime o width/height para o `<img>`). As 7 marcas estão com logo oficial: Porto, HDI Seguros, Bradesco
 > Seguros, Tokio Marine Seguradora, Maxpar Assistências, ENS (sem o slogan) e Allianz.
+> Selo de 65 anos ao lado do logo (SVG inline, sem imagem): medalha com borda serrilhada dourada, "65" em Cinzel,
+> "ANOS" e fita com "1961 – 2026"; 66 px de altura com margem negativa, para não aumentar o cabeçalho.
 
 Fase atual: **protótipo da Home** para aprovação, com **duas propostas de layout** que usam o **mesmo texto** (do site
 atual do Sincor SC), a mesma paleta e as mesmas abas. As páginas internas ainda não existem: links internos mostram o
