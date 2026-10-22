@@ -1,0 +1,7 @@
+{
+  "domain": "lightcoral-dolphin-948661.hostingersite.com",
+  "username": "u203058587",
+  "type": "static",
+  "source": "site",
+  "exclude": ["tools/", ".hostinger/"]
+}
