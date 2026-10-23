@@ -1,0 +1,172 @@
+/* Estilos compartilhados por todas as páginas do site (o resto vem das classes do Tailwind) */
+/* Canhão de Luzes Cênico (Volumetric Stage Lighting) */
+.stage-spotlight {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at 18% 0%, rgba(21, 66, 148, 0.55) 0%, transparent 55%),
+              radial-gradient(circle at 85% 15%, rgba(212, 150, 42, 0.25) 0%, transparent 50%),
+              linear-gradient(180deg, #030d1f 0%, #071d49 100%);
+}
+.light-beam-gold {
+  position: absolute;
+  top: -30%;
+  left: 12%;
+  width: 520px;
+  height: 720px;
+  background: conic-gradient(from 155deg at 50% 0%, rgba(241, 194, 102, 0.22), transparent 65%);
+  filter: blur(42px);
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+.light-beam-blue {
+  position: absolute;
+  top: -25%;
+  right: 8%;
+  width: 560px;
+  height: 680px;
+  background: conic-gradient(from 200deg at 50% 0%, rgba(56, 189, 248, 0.18), transparent 65%);
+  filter: blur(48px);
+  transform: rotate(10deg);
+  pointer-events: none;
+}
+
+/* Física 3D Real nos Cards e Banners */
+.scene-3d {
+  perspective: 1400px;
+}
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease;
+  will-change: transform;
+}
+.layer-z-20 {
+  transform: translateZ(24px);
+}
+.layer-z-40 {
+  transform: translateZ(44px);
+}
+
+/* Gradiente Metálico Dourado Oficial */
+.gold-foil-text {
+  background: linear-gradient(135deg, #fff5d6 0%, #f1c266 35%, #d4962a 70%, #ffeaad 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.gold-foil-btn {
+  background: linear-gradient(135deg, #e0a43b 0%, #c4851c 55%, #e8b454 100%);
+}
+
+/* Marca d'água Geométrica Sincor SP */
+.sincor-watermark {
+  background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 60 C0 26.86 26.86 0 60 0 L60 60 Z' fill='%23d4962a' fill-opacity='0.08'/%3E%3Cpath d='M60 60 C60 26.86 86.86 0 120 0 L120 60 Z' fill='%23071d49' fill-opacity='0.05'/%3E%3Cpath d='M60 120 C60 86.86 86.86 60 120 60 L120 120 Z' fill='%23d4962a' fill-opacity='0.08'/%3E%3C/svg%3E");
+  background-repeat: repeat-y;
+  background-position: right center;
+}
+
+/* Selo de 65 anos ao lado do logo: mesma altura visual do logo, sem aumentar o cabeçalho */
+.selo-65 { height: 66px; width: auto; margin-block: -11px; flex: none; filter: drop-shadow(0 3px 5px rgba(7, 29, 73, .22)); }
+
+/* Cabeçalho fixo: as âncoras do menu não param escondidas embaixo dele */
+html { scroll-padding-top: 6rem; }
+@media (min-width: 1024px) { html { scroll-padding-top: 9.5rem; } }
+
+/* Barra de cotações (dados reais; sobe = verde, cai = vermelho) */
+.ticker { background: #020817; color: #c9d3e6; font-size: 12px; line-height: 1.2; border-bottom: 1px solid rgb(255 255 255 / .08); }
+.ticker [hidden] { display: none !important; }
+.ticker__inner { display: flex; align-items: center; min-height: 38px; }
+.ticker__label { flex: none; display: inline-flex; align-items: center; gap: .5rem; padding-right: 1rem; border-right: 1px solid rgb(255 255 255 / .1); font-size: 10.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #f1c266; }
+.ticker__dot { width: 7px; height: 7px; border-radius: 50%; background: #8fa0bd; }
+.ticker.is-live .ticker__dot { background: #34d399; box-shadow: 0 0 0 3px rgb(52 211 153 / .2); }
+.ticker.is-cached .ticker__dot { background: #f1c266; }
+.ticker__viewport { flex: 1; min-width: 0; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 20px, #000 calc(100% - 20px), transparent); mask-image: linear-gradient(90deg, transparent, #000 20px, #000 calc(100% - 20px), transparent); }
+.ticker__status { padding-left: .5rem; white-space: nowrap; color: #9fb0cb; }
+.ticker__track { display: flex; width: max-content; }
+.ticker.is-scrolling .ticker__track { animation: ticker-scroll var(--ticker-duration, 60s) linear infinite; will-change: transform; }
+.ticker:hover .ticker__track, .ticker:focus-within .ticker__track, .ticker.is-paused .ticker__track { animation-play-state: paused; }
+@keyframes ticker-scroll { to { transform: translateX(-50%); } }
+.ticker__list { display: flex; flex: none; }
+/* Estilo de painel de bolsa: nome em caixa alta discreta, valor branco, variação em etiqueta colorida */
+.tick { display: inline-flex; align-items: center; gap: .55rem; padding: 0 1.25rem; white-space: nowrap; border-right: 1px solid rgb(255 255 255 / .06); font-variant-numeric: tabular-nums; }
+.tick__name { font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #8fa0bd; }
+.tick__value { font-size: 12.5px; font-weight: 700; color: #f8fafc; }
+.tick__var { display: inline-flex; align-items: center; gap: .25rem; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: 700; line-height: 1.2; }
+.tick__arrow { width: 7px; height: 7px; fill: currentColor; }
+.tick--up .tick__var { color: #4ade80; background: rgb(74 222 128 / .12); }
+.tick--down .tick__var { color: #f87171; background: rgb(248 113 113 / .12); }
+.tick--down .tick__arrow { transform: rotate(180deg); }
+.tick--flat .tick__var { color: #9fb0cb; background: rgb(159 176 203 / .1); }
+.tick--flash-up { animation: tick-flash-up 1.8s ease-out; }
+.tick--flash-down { animation: tick-flash-down 1.8s ease-out; }
+@keyframes tick-flash-up { from { background: rgb(52 211 153 / .22); } }
+@keyframes tick-flash-down { from { background: rgb(248 113 113 / .22); } }
+.ticker__time { flex: none; padding-left: 1rem; border-left: 1px solid rgb(255 255 255 / .1); font-size: 11px; color: #8fa0bd; font-variant-numeric: tabular-nums; }
+.ticker__toggle { flex: none; margin-left: .25rem; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 6px; color: #c9d3e6; transition: background-color .2s, color .2s; }
+.ticker__toggle:hover { background: rgb(255 255 255 / .1); color: #fff; }
+.ticker__toggle:focus-visible { outline: 2px solid #f1c266; outline-offset: -2px; }
+.ticker__toggle svg { width: 14px; height: 14px; }
+.ticker__toggle .icon-play, .ticker.is-paused .ticker__toggle .icon-pause { display: none; }
+.ticker.is-paused .ticker__toggle .icon-play { display: block; }
+.ticker:not(.is-scrolling) .ticker__toggle { display: none; }
+@media (max-width: 767px) { .ticker__time { display: none; } }
+
+/* Convenções Coletivas e Ouvidoria: destaque dourado, brilho no hover */
+.topbar-highlight { display: inline-flex; align-items: center; gap: .4rem; font-size: 13px; font-weight: 700; color: #f1c266; transition: color .2s, text-shadow .2s; }
+.topbar-highlight svg { transition: filter .2s; }
+.topbar-highlight:hover, .topbar-highlight:focus-visible { color: #ffe3a3; text-shadow: 0 0 2px rgb(241 194 102 / .9), 0 0 12px rgb(241 194 102 / .7); }
+.topbar-highlight:hover svg, .topbar-highlight:focus-visible svg { filter: drop-shadow(0 0 4px rgb(241 194 102 / .9)); }
+.topbar-highlight:focus-visible { outline: 2px solid #f1c266; outline-offset: 3px; border-radius: 4px; }
+
+/* Faixa de empresas parceiras: marcas em cartões brancos (cores oficiais preservadas) sobre o azul da marca */
+.partners { display: flex; align-items: center; gap: 1.25rem; padding: .875rem .75rem .875rem 1.5rem; border-radius: 14px; background: linear-gradient(100deg, #030d1f 0%, #071d49 55%, #0c2d6b 100%); border: 1px solid rgb(212 150 42 / .28); box-shadow: 0 14px 32px -18px rgba(7, 29, 73, .55); }
+.partners [hidden] { display: none !important; }
+.partners__head { flex: none; padding-right: 1.25rem; border-right: 1px solid rgb(255 255 255 / .12); }
+.partners__kicker { font-size: 10.5px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #f1c266; }
+.partners__title { margin-top: 2px; font-size: 14px; font-weight: 700; color: #fff; white-space: nowrap; }
+.partners__viewport { flex: 1; min-width: 0; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 28px, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(90deg, transparent, #000 28px, #000 calc(100% - 28px), transparent); }
+.partners__track { display: flex; width: max-content; animation: partners-scroll var(--partners-duration, 40s) linear infinite; will-change: transform; }
+.partners:hover .partners__track, .partners:focus-within .partners__track, .partners.is-paused .partners__track, .partners.is-offscreen .partners__track { animation-play-state: paused; }
+@keyframes partners-scroll { to { transform: translateX(-50%); } }
+.partners__list { display: flex; flex: none; gap: .75rem; padding-right: .75rem; }
+.partner { display: grid; place-items: center; width: 164px; height: 60px; padding: .5rem 1rem; border-radius: 10px; background: #fff; box-shadow: inset 0 0 0 1px rgb(15 23 42 / .06); }
+.partner__name { font-size: 12.5px; font-weight: 800; line-height: 1.15; letter-spacing: .08em; text-align: center; text-transform: uppercase; color: #071d49; }
+.partner__logo { display: block; max-width: 100%; height: auto; }
+.partners__toggle { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 8px; color: #c9d3e6; transition: background-color .2s, color .2s; }
+.partners__toggle:hover { background: rgb(255 255 255 / .1); color: #fff; }
+.partners__toggle:focus-visible { outline: 2px solid #f1c266; outline-offset: -2px; }
+.partners__toggle svg { width: 14px; height: 14px; }
+.partners__toggle .icon-play, .partners.is-paused .partners__toggle .icon-pause { display: none; }
+.partners.is-paused .partners__toggle .icon-play { display: block; }
+@media (max-width: 767px) {
+  .partners { flex-wrap: wrap; gap: .75rem; padding: 1rem; }
+  .partners__head { flex: 1; padding-right: 0; border-right: 0; }
+  .partners__viewport { flex-basis: 100%; order: 3; }
+  .partner { width: 140px; height: 56px; }
+}
+
+/* Menu principal com painéis (desktop) */
+.nav-menu { display: flex; align-items: center; gap: .25rem; }
+.nav-item { position: relative; }
+.nav-link { display: inline-flex; align-items: center; gap: .35rem; height: 44px; padding: 0 .85rem; border-radius: 8px; font-size: 14px; font-weight: 600; color: #071d49; transition: background-color .2s, color .2s; }
+.nav-link:hover, .nav-item.is-open > .nav-link { background: #f6f2ea; }
+.nav-link svg { width: 14px; height: 14px; color: #a87214; transition: transform .25s; }
+.nav-item.is-open > .nav-link svg { transform: rotate(180deg); }
+.nav-panel { position: absolute; top: calc(100% + 8px); left: 0; z-index: 50; min-width: 300px; padding: .5rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; box-shadow: 0 22px 50px -12px rgba(7, 29, 73, 0.22); opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .18s, transform .18s, visibility 0s .18s; }
+.nav-panel::before { content: ""; position: absolute; left: 0; right: 0; top: -10px; height: 10px; }
+.nav-item.is-open .nav-panel { opacity: 1; visibility: visible; transform: none; transition: opacity .18s, transform .18s; }
+.nav-item--end .nav-panel { left: auto; right: 0; }
+.nav-panel a { display: grid; gap: 2px; padding: .65rem .8rem; border-radius: 9px; transition: background-color .2s; }
+.nav-panel a:hover { background: #f8f5ee; }
+.nav-panel strong { font-size: 14px; font-weight: 700; color: #071d49; }
+.nav-panel small { font-size: 12.5px; color: #64748b; }
+.nav-link:focus-visible, .nav-panel a:focus-visible { outline: 2px solid #a87214; outline-offset: 2px; }
+
+/* Menu do celular: mesmos grupos, em sanfona */
+.mobile-nav > details, .mobile-nav > a { display: block; border-bottom: 1px solid #eef2f6; }
+.mobile-nav summary, .mobile-nav > a { display: flex; align-items: center; justify-content: space-between; min-height: 48px; font-size: 15px; font-weight: 700; color: #071d49; cursor: pointer; list-style: none; }
+.mobile-nav summary::-webkit-details-marker { display: none; }
+.mobile-nav summary svg { width: 16px; height: 16px; color: #a87214; transition: transform .2s; }
+.mobile-nav details[open] summary svg { transform: rotate(180deg); }
+.mobile-nav ul { display: grid; gap: 2px; padding: 0 0 .75rem; }
+.mobile-nav ul a { display: block; padding: .65rem .75rem; border-radius: 8px; font-size: 14px; font-weight: 600; color: #334155; }
+.mobile-nav ul a:hover { background: #f8f5ee; color: #071d49; }
+.mobile-nav summary:focus-visible, .mobile-nav a:focus-visible { outline: 2px solid #a87214; outline-offset: 2px; border-radius: 6px; }

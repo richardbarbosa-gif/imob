@@ -39,209 +39,9 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            display: ['"Cinzel"', 'serif'],
-          },
-          colors: {
-            sincor: {
-              950: '#030d1f',
-              900: '#071d49',
-              800: '#0c2d6b',
-              700: '#154294',
-              gold: '#d4962a',
-              goldLight: '#f1c266',
-              goldDark: '#a87214',
-              cream: '#f9f6f0'
-            }
-          },
-          boxShadow: {
-            'editorial': '0 12px 40px -12px rgba(7, 29, 73, 0.10)',
-            'editorial-hover': '0 22px 50px -12px rgba(7, 29, 73, 0.18)',
-            'gold-glow': '0 10px 30px -5px rgba(212, 150, 42, 0.40)'
-          }
-        }
-      }
-    }
-  </script>
+  <script src="assets/js/tailwind-config.js"></script>
 
-  <style>
-    /* Canhão de Luzes Cênico (Volumetric Stage Lighting) */
-    .stage-spotlight {
-      position: relative;
-      overflow: hidden;
-      background: radial-gradient(circle at 18% 0%, rgba(21, 66, 148, 0.55) 0%, transparent 55%),
-                  radial-gradient(circle at 85% 15%, rgba(212, 150, 42, 0.25) 0%, transparent 50%),
-                  linear-gradient(180deg, #030d1f 0%, #071d49 100%);
-    }
-    .light-beam-gold {
-      position: absolute;
-      top: -30%;
-      left: 12%;
-      width: 520px;
-      height: 720px;
-      background: conic-gradient(from 155deg at 50% 0%, rgba(241, 194, 102, 0.22), transparent 65%);
-      filter: blur(42px);
-      transform: rotate(-12deg);
-      pointer-events: none;
-    }
-    .light-beam-blue {
-      position: absolute;
-      top: -25%;
-      right: 8%;
-      width: 560px;
-      height: 680px;
-      background: conic-gradient(from 200deg at 50% 0%, rgba(56, 189, 248, 0.18), transparent 65%);
-      filter: blur(48px);
-      transform: rotate(10deg);
-      pointer-events: none;
-    }
-
-    /* Física 3D Real nos Cards e Banners */
-    .scene-3d {
-      perspective: 1400px;
-    }
-    .card-3d {
-      transform-style: preserve-3d;
-      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease;
-      will-change: transform;
-    }
-    .layer-z-20 {
-      transform: translateZ(24px);
-    }
-    .layer-z-40 {
-      transform: translateZ(44px);
-    }
-
-    /* Gradiente Metálico Dourado Oficial */
-    .gold-foil-text {
-      background: linear-gradient(135deg, #fff5d6 0%, #f1c266 35%, #d4962a 70%, #ffeaad 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .gold-foil-btn {
-      background: linear-gradient(135deg, #e0a43b 0%, #c4851c 55%, #e8b454 100%);
-    }
-
-    /* Marca d'água Geométrica Sincor SP */
-    .sincor-watermark {
-      background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 60 C0 26.86 26.86 0 60 0 L60 60 Z' fill='%23d4962a' fill-opacity='0.08'/%3E%3Cpath d='M60 60 C60 26.86 86.86 0 120 0 L120 60 Z' fill='%23071d49' fill-opacity='0.05'/%3E%3Cpath d='M60 120 C60 86.86 86.86 60 120 60 L120 120 Z' fill='%23d4962a' fill-opacity='0.08'/%3E%3C/svg%3E");
-      background-repeat: repeat-y;
-      background-position: right center;
-    }
-
-    /* Selo de 65 anos ao lado do logo: mesma altura visual do logo, sem aumentar o cabeçalho */
-    .selo-65 { height: 66px; width: auto; margin-block: -11px; flex: none; filter: drop-shadow(0 3px 5px rgba(7, 29, 73, .22)); }
-
-    /* Cabeçalho fixo: as âncoras do menu não param escondidas embaixo dele */
-    html { scroll-padding-top: 6rem; }
-    @media (min-width: 1024px) { html { scroll-padding-top: 9.5rem; } }
-
-    /* Barra de cotações (dados reais; sobe = verde, cai = vermelho) */
-    .ticker { background: #020817; color: #c9d3e6; font-size: 12px; line-height: 1.2; border-bottom: 1px solid rgb(255 255 255 / .08); }
-    .ticker [hidden] { display: none !important; }
-    .ticker__inner { display: flex; align-items: center; min-height: 38px; }
-    .ticker__label { flex: none; display: inline-flex; align-items: center; gap: .5rem; padding-right: 1rem; border-right: 1px solid rgb(255 255 255 / .1); font-size: 10.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #f1c266; }
-    .ticker__dot { width: 7px; height: 7px; border-radius: 50%; background: #8fa0bd; }
-    .ticker.is-live .ticker__dot { background: #34d399; box-shadow: 0 0 0 3px rgb(52 211 153 / .2); }
-    .ticker.is-cached .ticker__dot { background: #f1c266; }
-    .ticker__viewport { flex: 1; min-width: 0; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 20px, #000 calc(100% - 20px), transparent); mask-image: linear-gradient(90deg, transparent, #000 20px, #000 calc(100% - 20px), transparent); }
-    .ticker__status { padding-left: .5rem; white-space: nowrap; color: #9fb0cb; }
-    .ticker__track { display: flex; width: max-content; }
-    .ticker.is-scrolling .ticker__track { animation: ticker-scroll var(--ticker-duration, 60s) linear infinite; will-change: transform; }
-    .ticker:hover .ticker__track, .ticker:focus-within .ticker__track, .ticker.is-paused .ticker__track { animation-play-state: paused; }
-    @keyframes ticker-scroll { to { transform: translateX(-50%); } }
-    .ticker__list { display: flex; flex: none; }
-    /* Estilo de painel de bolsa: nome em caixa alta discreta, valor branco, variação em etiqueta colorida */
-    .tick { display: inline-flex; align-items: center; gap: .55rem; padding: 0 1.25rem; white-space: nowrap; border-right: 1px solid rgb(255 255 255 / .06); font-variant-numeric: tabular-nums; }
-    .tick__name { font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #8fa0bd; }
-    .tick__value { font-size: 12.5px; font-weight: 700; color: #f8fafc; }
-    .tick__var { display: inline-flex; align-items: center; gap: .25rem; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: 700; line-height: 1.2; }
-    .tick__arrow { width: 7px; height: 7px; fill: currentColor; }
-    .tick--up .tick__var { color: #4ade80; background: rgb(74 222 128 / .12); }
-    .tick--down .tick__var { color: #f87171; background: rgb(248 113 113 / .12); }
-    .tick--down .tick__arrow { transform: rotate(180deg); }
-    .tick--flat .tick__var { color: #9fb0cb; background: rgb(159 176 203 / .1); }
-    .tick--flash-up { animation: tick-flash-up 1.8s ease-out; }
-    .tick--flash-down { animation: tick-flash-down 1.8s ease-out; }
-    @keyframes tick-flash-up { from { background: rgb(52 211 153 / .22); } }
-    @keyframes tick-flash-down { from { background: rgb(248 113 113 / .22); } }
-    .ticker__time { flex: none; padding-left: 1rem; border-left: 1px solid rgb(255 255 255 / .1); font-size: 11px; color: #8fa0bd; font-variant-numeric: tabular-nums; }
-    .ticker__toggle { flex: none; margin-left: .25rem; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 6px; color: #c9d3e6; transition: background-color .2s, color .2s; }
-    .ticker__toggle:hover { background: rgb(255 255 255 / .1); color: #fff; }
-    .ticker__toggle:focus-visible { outline: 2px solid #f1c266; outline-offset: -2px; }
-    .ticker__toggle svg { width: 14px; height: 14px; }
-    .ticker__toggle .icon-play, .ticker.is-paused .ticker__toggle .icon-pause { display: none; }
-    .ticker.is-paused .ticker__toggle .icon-play { display: block; }
-    .ticker:not(.is-scrolling) .ticker__toggle { display: none; }
-    @media (max-width: 767px) { .ticker__time { display: none; } }
-
-    /* Convenções Coletivas e Ouvidoria: destaque dourado, brilho no hover */
-    .topbar-highlight { display: inline-flex; align-items: center; gap: .4rem; font-size: 13px; font-weight: 700; color: #f1c266; transition: color .2s, text-shadow .2s; }
-    .topbar-highlight svg { transition: filter .2s; }
-    .topbar-highlight:hover, .topbar-highlight:focus-visible { color: #ffe3a3; text-shadow: 0 0 2px rgb(241 194 102 / .9), 0 0 12px rgb(241 194 102 / .7); }
-    .topbar-highlight:hover svg, .topbar-highlight:focus-visible svg { filter: drop-shadow(0 0 4px rgb(241 194 102 / .9)); }
-    .topbar-highlight:focus-visible { outline: 2px solid #f1c266; outline-offset: 3px; border-radius: 4px; }
-
-    /* Faixa de empresas parceiras: marcas em cartões brancos (cores oficiais preservadas) sobre o azul da marca */
-    .partners { display: flex; align-items: center; gap: 1.25rem; padding: .875rem .75rem .875rem 1.5rem; border-radius: 14px; background: linear-gradient(100deg, #030d1f 0%, #071d49 55%, #0c2d6b 100%); border: 1px solid rgb(212 150 42 / .28); box-shadow: 0 14px 32px -18px rgba(7, 29, 73, .55); }
-    .partners [hidden] { display: none !important; }
-    .partners__head { flex: none; padding-right: 1.25rem; border-right: 1px solid rgb(255 255 255 / .12); }
-    .partners__kicker { font-size: 10.5px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #f1c266; }
-    .partners__title { margin-top: 2px; font-size: 14px; font-weight: 700; color: #fff; white-space: nowrap; }
-    .partners__viewport { flex: 1; min-width: 0; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 28px, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(90deg, transparent, #000 28px, #000 calc(100% - 28px), transparent); }
-    .partners__track { display: flex; width: max-content; animation: partners-scroll var(--partners-duration, 40s) linear infinite; will-change: transform; }
-    .partners:hover .partners__track, .partners:focus-within .partners__track, .partners.is-paused .partners__track, .partners.is-offscreen .partners__track { animation-play-state: paused; }
-    @keyframes partners-scroll { to { transform: translateX(-50%); } }
-    .partners__list { display: flex; flex: none; gap: .75rem; padding-right: .75rem; }
-    .partner { display: grid; place-items: center; width: 164px; height: 60px; padding: .5rem 1rem; border-radius: 10px; background: #fff; box-shadow: inset 0 0 0 1px rgb(15 23 42 / .06); }
-    .partner__name { font-size: 12.5px; font-weight: 800; line-height: 1.15; letter-spacing: .08em; text-align: center; text-transform: uppercase; color: #071d49; }
-    .partner__logo { display: block; max-width: 100%; height: auto; }
-    .partners__toggle { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 8px; color: #c9d3e6; transition: background-color .2s, color .2s; }
-    .partners__toggle:hover { background: rgb(255 255 255 / .1); color: #fff; }
-    .partners__toggle:focus-visible { outline: 2px solid #f1c266; outline-offset: -2px; }
-    .partners__toggle svg { width: 14px; height: 14px; }
-    .partners__toggle .icon-play, .partners.is-paused .partners__toggle .icon-pause { display: none; }
-    .partners.is-paused .partners__toggle .icon-play { display: block; }
-    @media (max-width: 767px) {
-      .partners { flex-wrap: wrap; gap: .75rem; padding: 1rem; }
-      .partners__head { flex: 1; padding-right: 0; border-right: 0; }
-      .partners__viewport { flex-basis: 100%; order: 3; }
-      .partner { width: 140px; height: 56px; }
-    }
-
-    /* Menu principal com painéis (desktop) */
-    .nav-menu { display: flex; align-items: center; gap: .25rem; }
-    .nav-item { position: relative; }
-    .nav-link { display: inline-flex; align-items: center; gap: .35rem; height: 44px; padding: 0 .85rem; border-radius: 8px; font-size: 14px; font-weight: 600; color: #071d49; transition: background-color .2s, color .2s; }
-    .nav-link:hover, .nav-item.is-open > .nav-link { background: #f6f2ea; }
-    .nav-link svg { width: 14px; height: 14px; color: #a87214; transition: transform .25s; }
-    .nav-item.is-open > .nav-link svg { transform: rotate(180deg); }
-    .nav-panel { position: absolute; top: calc(100% + 8px); left: 0; z-index: 50; min-width: 300px; padding: .5rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; box-shadow: 0 22px 50px -12px rgba(7, 29, 73, 0.22); opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .18s, transform .18s, visibility 0s .18s; }
-    .nav-panel::before { content: ""; position: absolute; left: 0; right: 0; top: -10px; height: 10px; }
-    .nav-item.is-open .nav-panel { opacity: 1; visibility: visible; transform: none; transition: opacity .18s, transform .18s; }
-    .nav-item--end .nav-panel { left: auto; right: 0; }
-    .nav-panel a { display: grid; gap: 2px; padding: .65rem .8rem; border-radius: 9px; transition: background-color .2s; }
-    .nav-panel a:hover { background: #f8f5ee; }
-    .nav-panel strong { font-size: 14px; font-weight: 700; color: #071d49; }
-    .nav-panel small { font-size: 12.5px; color: #64748b; }
-    .nav-link:focus-visible, .nav-panel a:focus-visible { outline: 2px solid #a87214; outline-offset: 2px; }
-
-    /* Menu do celular: mesmos grupos, em sanfona */
-    .mobile-nav > details, .mobile-nav > a { display: block; border-bottom: 1px solid #eef2f6; }
-    .mobile-nav summary, .mobile-nav > a { display: flex; align-items: center; justify-content: space-between; min-height: 48px; font-size: 15px; font-weight: 700; color: #071d49; cursor: pointer; list-style: none; }
-    .mobile-nav summary::-webkit-details-marker { display: none; }
-    .mobile-nav summary svg { width: 16px; height: 16px; color: #a87214; transition: transform .2s; }
-    .mobile-nav details[open] summary svg { transform: rotate(180deg); }
-    .mobile-nav ul { display: grid; gap: 2px; padding: 0 0 .75rem; }
-    .mobile-nav ul a { display: block; padding: .65rem .75rem; border-radius: 8px; font-size: 14px; font-weight: 600; color: #334155; }
-    .mobile-nav ul a:hover { background: #f8f5ee; color: #071d49; }
-    .mobile-nav summary:focus-visible, .mobile-nav a:focus-visible { outline: 2px solid #a87214; outline-offset: 2px; border-radius: 6px; }
-  </style>
+  <link rel="stylesheet" href="assets/css/site.css" />
 </head>
 
 <body class="bg-[#F8FAFC] text-slate-800 antialiased selection:bg-sincor-gold selection:text-white">
@@ -266,6 +66,7 @@
     </div>
   </aside>
 
+  <!-- layout:topo (cabeçalho compartilhado: edite aqui e rode node tools/sync-layout.mjs) -->
   <!-- ===================================================================== -->
   <!-- 1. TOPBAR DE ATENDIMENTO                                              -->
   <!-- ===================================================================== -->
@@ -413,8 +214,8 @@
           </button>
 
           <a
-            href="#associe-se"
-            class="inline-flex items-center justify-center px-3.5 sm:px-5 py-2.5 rounded-lg text-xs sm:text-sm font-extrabold text-white gold-foil-btn hover:brightness-105 shadow-md transition whitespace-nowrap"
+            href="seja-associado.html"
+            class="inline-flex items-center justify-center px-3 sm:px-5 py-2.5 rounded-lg text-xs sm:text-sm font-extrabold text-white gold-foil-btn hover:brightness-105 shadow-md transition whitespace-nowrap"
           >
             Associe-se
           </a>
@@ -447,7 +248,7 @@
             <button class="nav-link" type="button" aria-expanded="false" aria-controls="panel-associe">Associe-se<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></button>
             <div class="nav-panel" id="panel-associe">
               <ul>
-                <li><a href="#associe-se"><strong>Seja Corretor Associado</strong><small>Benefícios para pessoa física e jurídica</small></a></li>
+                <li><a href="seja-associado.html"><strong>Seja Corretor Associado</strong><small>Benefícios para pessoa física e jurídica</small></a></li>
                 <li><a href="#sobre-nos"><strong>Contribuição</strong><small>Guias e orientações de pagamento</small></a></li>
               </ul>
             </div>
@@ -505,7 +306,7 @@
         <details>
           <summary>Associe-se<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></summary>
           <ul>
-            <li><a href="#associe-se">Seja Corretor Associado</a></li>
+            <li><a href="seja-associado.html">Seja Corretor Associado</a></li>
             <li><a href="#sobre-nos">Contribuição</a></li>
           </ul>
         </details>
@@ -538,6 +339,7 @@
       </nav>
     </div>
   </header>
+  <!-- /layout:topo -->
 
   <!-- ===================================================================== -->
   <!-- 3. FAIXA DE EMPRESAS PARCEIRAS (CARROSSEL CONTÍNUO DE MARCAS)         -->
@@ -755,7 +557,7 @@
 
         <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
           <span class="text-slate-500 font-medium">Não possui cadastro?</span>
-          <a href="#associe-se" class="font-extrabold text-sincor-goldDark hover:underline">Associe-se agora →</a>
+          <a href="seja-associado.html" class="font-extrabold text-sincor-goldDark hover:underline">Associe-se agora →</a>
         </div>
       </div>
 
@@ -770,7 +572,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
 
         <div class="lg:col-span-4 space-y-2">
-          <a href="#associe-se" class="inline-block px-4 py-1.5 rounded-md text-xs font-extrabold text-white gold-foil-btn shadow-sm">
+          <a href="seja-associado.html" class="inline-block px-4 py-1.5 rounded-md text-xs font-extrabold text-white gold-foil-btn shadow-sm">
             Seja um associado
           </a>
           <p class="text-sm sm:text-base font-extrabold text-sincor-900 leading-snug pt-1">
@@ -1145,9 +947,9 @@
           <span class="text-[11px] font-extrabold uppercase tracking-widest text-sincor-goldLight">Seja Corretor Associado</span>
           <h3 class="text-xl sm:text-2xl font-extrabold">Comparativo de Benefícios: Pessoa Física (PF) vs. Pessoa Jurídica (PJ)</h3>
         </div>
-        <button onclick="openEventModal('Proposta de Adesão Associativa Sincor-SC')" class="px-5 py-2.5 rounded-lg text-xs font-extrabold text-white gold-foil-btn hover:brightness-105 transition shrink-0">
+        <a href="seja-associado.html" class="px-5 py-2.5 rounded-lg text-xs font-extrabold text-white gold-foil-btn hover:brightness-105 transition shrink-0">
           Preencher Ficha de Adesão Online
-        </button>
+        </a>
       </div>
       <div class="overflow-x-auto">
         <table class="w-full text-left border-collapse text-xs sm:text-sm">
@@ -1535,6 +1337,7 @@
     </div>
   </section>
 
+  <!-- layout:rodape (rodapé compartilhado: edite aqui e rode node tools/sync-layout.mjs) -->
   <footer class="bg-[#040d1f] text-slate-300 pt-12 mt-8 border-t border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-10 border-b border-white/10 text-xs">
@@ -1635,12 +1438,14 @@
         <p>Copyright © 2026 Sincor SC | Todos os direitos reservados.</p>
 
         <div class="flex flex-wrap items-center gap-2">
+          <!-- so-na-home: indicadores dependem da barra de cotações, que só existe na Home -->
           <!-- Preenchido com a mesma Selic real da barra de cotações -->
           <span class="bg-white/[0.06] border border-white/10 px-2.5 py-1 rounded text-slate-200 font-semibold" data-selic>Selic: —</span>
           <span class="bg-white/[0.06] border border-emerald-500/20 px-2.5 py-1 rounded text-emerald-400 font-semibold">
             Mercado Segurador SC: +14,2% a.a.
           </span>
           <span class="mx-1 text-white/20">|</span>
+          <!-- /so-na-home -->
           <a href="#" class="hover:text-white transition">Política de Privacidade (LGPD)</a>
         </div>
       </div>
@@ -1707,6 +1512,8 @@
     </div>
   </div>
 
+  <!-- /layout:rodape -->
+
   <div id="eventModal" class="fixed inset-0 z-50 hidden bg-sincor-950/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl">
       <div class="flex justify-between items-center border-b border-slate-100 pb-3">
@@ -1725,502 +1532,7 @@
   <!-- ===================================================================== -->
   <!-- SCRIPTS INTERATIVOS                                                   -->
   <!-- ===================================================================== -->
-  <script>
-    // Menu Mobile
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    function setMobileMenu(open) {
-      mobileMenu.classList.toggle('hidden', !open);
-      mobileMenuBtn.setAttribute('aria-expanded', String(open));
-      mobileMenuBtn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
-    }
-    mobileMenuBtn.addEventListener('click', () => setMobileMenu(mobileMenu.classList.contains('hidden')));
-    // Escolheu um destino: fecha o menu para a seção aparecer
-    mobileMenu.addEventListener('click', e => { if (e.target.closest('a')) setMobileMenu(false); });
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) { setMobileMenu(false); mobileMenuBtn.focus(); }
-    });
-
-    // Menu principal com painéis: hover no mouse, clique no toque, teclado (Esc fecha e devolve o foco)
-    const navItems = document.querySelectorAll('.nav-item.has-panel');
-    let lastPointer = 'mouse';
-    document.addEventListener('pointerdown', e => { lastPointer = e.pointerType || 'mouse'; }, true);
-    function setPanel(item, open) {
-      item.classList.toggle('is-open', open);
-      item.querySelector('.nav-link').setAttribute('aria-expanded', String(open));
-    }
-    const closePanels = except => navItems.forEach(item => item !== except && setPanel(item, false));
-    navItems.forEach(item => {
-      const button = item.querySelector('.nav-link');
-      let hoverTimer;
-      button.addEventListener('click', () => {
-        const isOpen = item.classList.contains('is-open');
-        // Com mouse o painel já abriu no hover: o clique confirma em vez de fechar
-        if (isOpen && lastPointer === 'mouse' && item.matches(':hover')) return;
-        closePanels(item);
-        setPanel(item, !isOpen);
-      });
-      item.addEventListener('pointerenter', e => {
-        if (e.pointerType !== 'mouse') return;
-        clearTimeout(hoverTimer);
-        closePanels(item);
-        setPanel(item, true);
-      });
-      item.addEventListener('pointerleave', e => {
-        if (e.pointerType !== 'mouse') return;
-        hoverTimer = setTimeout(() => setPanel(item, false), 180);
-      });
-      item.addEventListener('focusout', e => { if (!item.contains(e.relatedTarget)) setPanel(item, false); });
-      item.addEventListener('keydown', e => {
-        if (e.key === 'Escape' && item.classList.contains('is-open')) { setPanel(item, false); button.focus(); }
-      });
-      item.querySelector('.nav-panel').addEventListener('click', e => { if (e.target.closest('a')) setPanel(item, false); });
-    });
-    document.addEventListener('click', e => { if (!e.target.closest('.nav-item')) closePanels(); });
-
-    // Barra de cotações: dados reais, atualizados a cada minuto; sem dado, o item não aparece (nada inventado)
-    (function initTicker(root) {
-      if (!root) return;
-      const track = root.querySelector('[data-ticker-track]');
-      const statusEl = root.querySelector('[data-ticker-status]');
-      const timeEl = root.querySelector('[data-ticker-time]');
-      const toggle = root.querySelector('[data-ticker-toggle]');
-      const feedUrl = root.dataset.feed;
-      const brapiToken = root.dataset.brapiToken;
-      const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
-      const CACHE_KEY = 'sincor-sc:mercado';
-      const SPEED = 40;          // px por segundo
-      const REFRESH = 60000;     // moedas e Ibovespa
-      const BCB_RETRY = 600000;  // indicadores do BC mudam no máximo 1x por dia
-
-      const store = {
-        get: k => { try { return localStorage.getItem(k); } catch { return null; } },
-        set: (k, v) => { try { localStorage.setItem(k, v); } catch { /* navegação privada */ } }
-      };
-      const num = (v, d) => v.toLocaleString('pt-BR', { minimumFractionDigits: d, maximumFractionDigits: d });
-      const brl = (v, d) => `R$ ${num(v, d)}`;
-      const toNumber = x => (typeof x === 'number' ? x : parseFloat(x));
-      // Ordem de exibição e formatação
-      const SPEC = {
-        IBOV: { label: 'Ibovespa', fmt: v => `${num(v, 0)} pts` },
-        USD: { label: 'Dólar', fmt: v => brl(v, 4) },
-        EUR: { label: 'Euro', fmt: v => brl(v, 4) },
-        GBP: { label: 'Libra', fmt: v => brl(v, 4) },
-        BTC: { label: 'Bitcoin', fmt: v => brl(v, 0) },
-        SELIC: { label: 'Selic', fmt: v => `${num(v, 2)}% a.a.` },
-        CDI: { label: 'CDI', fmt: v => `${num(v, 2)}% a.a.` },
-        IPCA: { label: 'IPCA 12 meses', fmt: v => `${num(v, 2)}%` }
-      };
-      const ORDER = Object.keys(SPEC);
-      const SOURCES = {
-        currencies: 'https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,GBP-BRL,BTC-BRL',
-        bcb: series => `https://api.bcb.gov.br/dados/serie/bcdata.sgs.${series}/dados/ultimos/1?formato=json`,
-        selicBackup: 'https://brasilapi.com.br/api/taxas/v1/selic', // se o Banco Central bloquear o navegador
-        ibov: token => `https://brapi.dev/api/quote/%5EBVSP?token=${encodeURIComponent(token)}`
-      };
-      const BCB_SERIES = { SELIC: 432, CDI: 4389, IPCA: 13522 };
-      const RANGE = { SELIC: [0.5, 50], CDI: [0.5, 50], IPCA: [-10, 50] }; // sanidade: descarta dado absurdo
-
-      let current = [];
-      let currentMode = '';
-      let rates = [];
-      let bcbTriedAt = 0;
-      let lastLoad = 0;
-
-      async function getJSON(url) {
-        const ctrl = new AbortController();
-        const timer = setTimeout(() => ctrl.abort(), 8000);
-        try {
-          const res = await fetch(url, { signal: ctrl.signal, cache: 'no-store' });
-          if (!res.ok) throw new Error(`HTTP ${res.status}`);
-          return await res.json();
-        } finally {
-          clearTimeout(timer);
-        }
-      }
-      const item = (id, value, change) => ({ id, value, change: Number.isFinite(change) ? change : null });
-      const inRange = (id, v) => Number.isFinite(v) && v >= RANGE[id][0] && v <= RANGE[id][1];
-
-      async function fromCurrencies() {
-        const data = await getJSON(SOURCES.currencies);
-        const keys = { USDBRL: 'USD', EURBRL: 'EUR', GBPBRL: 'GBP', BTCBRL: 'BTC' };
-        return Object.entries(keys).flatMap(([key, id]) => {
-          const quote = data && data[key];
-          const value = quote ? toNumber(quote.bid) : NaN;
-          return Number.isFinite(value) && value > 0 ? [item(id, value, quote ? toNumber(quote.pctChange) : NaN)] : [];
-        });
-      }
-      async function bcbSeries(id) {
-        const data = await getJSON(SOURCES.bcb(BCB_SERIES[id]));
-        const last = Array.isArray(data) && data.length ? data[data.length - 1] : null;
-        const value = last ? toNumber(last.valor) : NaN;
-        if (!inRange(id, value)) throw new Error(`Série ${BCB_SERIES[id]} fora da faixa`);
-        return item(id, value, NaN);
-      }
-      async function selicFromBackup() {
-        const data = await getJSON(SOURCES.selicBackup);
-        const value = data ? toNumber(data.valor) : NaN;
-        if (!inRange('SELIC', value)) throw new Error('Selic de reserva fora da faixa');
-        return item('SELIC', value, NaN);
-      }
-      async function fromCentralBank() {
-        const settled = await Promise.allSettled(Object.keys(BCB_SERIES).map(id =>
-          id === 'SELIC' ? bcbSeries(id).catch(selicFromBackup) : bcbSeries(id)));
-        return settled.filter(s => s.status === 'fulfilled').map(s => s.value);
-      }
-      async function fromIbovespa() {
-        if (!brapiToken) return [];
-        const data = await getJSON(SOURCES.ibov(brapiToken));
-        const quote = data && Array.isArray(data.results) ? data.results[0] : null;
-        const value = quote ? toNumber(quote.regularMarketPrice) : NaN;
-        return Number.isFinite(value) && value > 1000 ? [item('IBOV', value, toNumber(quote.regularMarketChangePercent))] : [];
-      }
-      async function fromFeed(url) {
-        const data = await getJSON(url);
-        const list = data && Array.isArray(data.items) ? data.items : [];
-        return list
-          .filter(i => SPEC[i.id] && Number.isFinite(toNumber(i.value)))
-          .map(i => item(i.id, toNumber(i.value), toNumber(i.change)));
-      }
-
-      async function load(first) {
-        lastLoad = Date.now();
-        let fresh = [];
-        if (feedUrl) {
-          fresh = await fromFeed(feedUrl).catch(() => []);
-        } else {
-          const tasks = [fromCurrencies(), fromIbovespa()];
-          if (first || (!rates.length && Date.now() - bcbTriedAt > BCB_RETRY)) {
-            bcbTriedAt = Date.now();
-            tasks.push(fromCentralBank().then(r => { if (r.length) rates = r; return []; }));
-          }
-          const settled = await Promise.allSettled(tasks);
-          fresh = settled.flatMap(s => (s.status === 'fulfilled' ? s.value : [])).concat(rates);
-        }
-        if (fresh.length) {
-          // Mantém itens da última leitura ao vivo que falharam só nesta rodada
-          const merged = new Map(currentMode === 'live' ? current.map(i => [i.id, i]) : []);
-          fresh.forEach(i => merged.set(i.id, i));
-          const list = [...merged.values()];
-          render(list, new Date(), 'live');
-          store.set(CACHE_KEY, JSON.stringify({ time: Date.now(), items: list }));
-        } else if (!current.length) {
-          unavailable();
-        }
-      }
-
-      function readCache() {
-        try {
-          const cached = JSON.parse(store.get(CACHE_KEY));
-          if (cached && Array.isArray(cached.items) && Date.now() - cached.time < 3 * 864e5) {
-            const items = cached.items.filter(i => SPEC[i.id] && Number.isFinite(i.value));
-            return items.length ? { time: cached.time, items } : null;
-          }
-        } catch { /* cache inválido */ }
-        return null;
-      }
-
-      function arrow() {
-        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        svg.setAttribute('viewBox', '0 0 10 10');
-        svg.setAttribute('class', 'tick__arrow');
-        svg.setAttribute('aria-hidden', 'true');
-        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-        path.setAttribute('d', 'M5 1.5 9.5 8.5H.5Z');
-        svg.append(path);
-        return svg;
-      }
-
-      // Monta com DOM (sem innerHTML): dados de terceiros nunca viram HTML
-      function tickEl(entry, previous) {
-        const spec = SPEC[entry.id];
-        const li = document.createElement('li');
-        const dir = entry.change == null ? '' : entry.change > 0.005 ? 'up' : entry.change < -0.005 ? 'down' : 'flat';
-        li.className = dir ? `tick tick--${dir}` : 'tick';
-        const name = document.createElement('span');
-        name.className = 'tick__name';
-        name.textContent = spec.label;
-        const value = document.createElement('span');
-        value.className = 'tick__value';
-        value.textContent = spec.fmt(entry.value);
-        li.append(name, value);
-        if (entry.change != null) {
-          const variation = document.createElement('span');
-          variation.className = 'tick__var';
-          if (dir !== 'flat') variation.append(arrow());
-          variation.append(`${num(Math.abs(entry.change), 2)}%`);
-          const sr = document.createElement('span');
-          sr.className = 'sr-only';
-          sr.textContent = dir === 'up' ? ' em alta' : dir === 'down' ? ' em queda' : ' estável';
-          variation.append(sr);
-          li.append(variation);
-        }
-        if (previous != null && previous !== entry.value) li.classList.add(entry.value > previous ? 'tick--flash-up' : 'tick--flash-down');
-        return li;
-      }
-
-      function render(list, time, mode) {
-        const previous = new Map(current.map(i => [i.id, i.value]));
-        current = ORDER.map(id => list.find(i => i.id === id)).filter(Boolean);
-        currentMode = mode;
-        if (!current.length) { unavailable(); return; }
-        const group = document.createElement('ul');
-        group.className = 'ticker__list';
-        current.forEach(entry => group.append(tickEl(entry, previous.get(entry.id))));
-        const clone = group.cloneNode(true);
-        clone.setAttribute('aria-hidden', 'true');
-        track.replaceChildren(group, clone);
-        track.hidden = false;
-        statusEl.hidden = true;
-        root.classList.toggle('is-live', mode === 'live');
-        root.classList.toggle('is-cached', mode === 'cached');
-        const hour = time.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
-        timeEl.textContent = mode === 'live' ? `Atualizado às ${hour}` : `Último dado às ${hour}`;
-        timeEl.title = 'Cotações com atraso, apenas informativas. Fontes: AwesomeAPI (moedas e bitcoin), Banco Central do Brasil (Selic, CDI e IPCA) e brapi/B3 (Ibovespa).';
-        timeEl.hidden = false;
-        // A Selic do rodapé usa o mesmo dado
-        const selic = current.find(i => i.id === 'SELIC');
-        document.querySelectorAll('[data-selic]').forEach(el => { el.textContent = `Selic: ${selic ? SPEC.SELIC.fmt(selic.value) : '—'}`; });
-        requestAnimationFrame(setupScroll);
-      }
-
-      function unavailable() {
-        statusEl.textContent = 'Cotações indisponíveis no momento.';
-        statusEl.hidden = false;
-        track.hidden = true;
-        timeEl.hidden = true;
-        root.classList.remove('is-live', 'is-cached', 'is-scrolling');
-      }
-
-      function setupScroll() {
-        const group = track.firstElementChild;
-        if (!group) return;
-        const width = group.getBoundingClientRect().width;
-        const scroll = width > track.parentElement.clientWidth - 8;
-        root.classList.toggle('is-scrolling', scroll);
-        track.lastElementChild.hidden = !scroll;
-        // "Reduzir movimento" (comum no Windows de PCs antigos) deixa mais lento, sem parar: pedido do cliente; há botão de pausa
-        if (scroll) track.style.setProperty('--ticker-duration', `${Math.round(width / (reduceMotion.matches ? SPEED / 2 : SPEED))}s`);
-      }
-
-      toggle.addEventListener('click', () => {
-        const paused = root.classList.toggle('is-paused');
-        toggle.setAttribute('aria-pressed', String(paused));
-        toggle.setAttribute('aria-label', paused ? 'Retomar a rolagem das cotações' : 'Pausar a rolagem das cotações');
-      });
-      // Remede quando o layout muda (CSS do Tailwind chegando, fonte trocada, janela redimensionada)
-      let resizeFrame;
-      const remeasure = () => { cancelAnimationFrame(resizeFrame); resizeFrame = requestAnimationFrame(setupScroll); };
-      if ('ResizeObserver' in window) new ResizeObserver(remeasure).observe(track.parentElement);
-      else window.addEventListener('resize', remeasure);
-
-      const cached = readCache();
-      if (cached) render(cached.items, new Date(cached.time), 'cached');
-      load(true);
-      setInterval(() => { if (!document.hidden) load(false); }, REFRESH);
-      document.addEventListener('visibilitychange', () => {
-        if (!document.hidden && Date.now() - lastLoad > REFRESH) load(false);
-      });
-    })(document.querySelector('[data-ticker]'));
-
-    // Faixa de parceiros: o loop roda só com CSS; o script ajusta a velocidade, a pausa e para fora da tela
-    (function initPartners(root) {
-      if (!root) return;
-      const track = root.querySelector('[data-partners-track]');
-      const list = track.firstElementChild;
-      const toggle = root.querySelector('[data-partners-toggle]');
-      const reduceMotion = window.matchMedia ? matchMedia('(prefers-reduced-motion: reduce)') : null;
-      // px por segundo: devagar, para a marca ser lida. "Reduzir movimento" (comum no Windows de PCs antigos) deixa
-      // ainda mais lento, sem parar: pedido do cliente; o botão de pausa atende quem precisa do conteúdo parado
-      const speed = () => (reduceMotion && reduceMotion.matches ? 18 : 32);
-
-      function setup() {
-        const width = list.getBoundingClientRect().width;
-        if (width > 0) track.style.setProperty('--partners-duration', `${Math.round(width / speed())}s`);
-      }
-      toggle.addEventListener('click', () => {
-        const paused = root.classList.toggle('is-paused');
-        toggle.setAttribute('aria-pressed', String(paused));
-        toggle.setAttribute('aria-label', paused ? 'Retomar o carrossel de parceiros' : 'Pausar o carrossel de parceiros');
-      });
-      if ('IntersectionObserver' in window) {
-        new IntersectionObserver(([entry]) => root.classList.toggle('is-offscreen', !entry.isIntersecting)).observe(root);
-      }
-      // Remede quando o layout muda (CSS do Tailwind chegando, logo carregado, janela redimensionada)
-      let frame;
-      const remeasure = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(setup); };
-      if ('ResizeObserver' in window) new ResizeObserver(remeasure).observe(list);
-      else { window.addEventListener('resize', remeasure); window.addEventListener('load', remeasure); }
-      if (reduceMotion) {
-        if (reduceMotion.addEventListener) reduceMotion.addEventListener('change', remeasure);
-        else if (reduceMotion.addListener) reduceMotion.addListener(remeasure);
-      }
-      setup();
-    })(document.querySelector('[data-partners]'));
-
-    // Carrossel Hero
-    const slides = [
-      {
-        tag: 'Convite Oficial • Mercado Segurador Catarinense',
-        sub: 'Prêmio Melhores do Ano 2026 • Jantar de Comemoração',
-        title: 'Sincor-SC completa <span class="gold-foil-text">65 anos de história</span> com noite de gala no Teatro Carlos Gomes',
-        img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1400&q=85',
-        btn: 'INSCREVA-SE AQUI!'
-      },
-      {
-        tag: 'Benefícios Exclusivos PF e PJ',
-        sub: 'Fortaleça sua Corretora em Santa Catarina',
-        title: 'Certificado Digital, Assessoria Jurídica e <span class="gold-foil-text">Carteira Digital Mobile ID</span>',
-        img: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1400&q=85',
-        btn: 'CONHECER BENEFÍCIOS'
-      },
-      {
-        tag: 'Capacitação & Eventos Regionais',
-        sub: 'Agenda Executiva Sincor-SC 2026',
-        title: 'Encontros presenciais em <span class="gold-foil-text">Blumenau, Florianópolis, Joinville, Criciúma e Chapecó</span>',
-        img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1400&q=85',
-        btn: 'VER AGENDA DE EVENTOS'
-      }
-    ];
-    let curSlide = 0;
-    function setHeroSlide(i) {
-      curSlide = (i + slides.length) % slides.length;
-      const s = slides[curSlide];
-      document.getElementById('heroTag').textContent = s.tag;
-      document.getElementById('heroSubhead').textContent = s.sub;
-      document.getElementById('heroTitle').innerHTML = s.title;
-      document.getElementById('heroBgImg').src = s.img;
-      document.getElementById('heroBtnLabel').textContent = s.btn;
-      const dots = document.getElementById('heroDots').children;
-      for (let d = 0; d < dots.length; d++) {
-        dots[d].className = d === curSlide
-          ? 'w-7 h-2 rounded-full bg-sincor-gold transition-all'
-          : 'w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all';
-      }
-    }
-    function changeHeroSlide(dir) { setHeroSlide(curSlide + dir); }
-
-    // Notícias Dinâmicas (CMS)
-    const newsItems = [
-      {
-        cat: 'EVENTOS',
-        date: '13/10/2026',
-        title: 'Jantar de 65 Anos do Sincor-SC e Prêmio Melhores do Ano reunirá mercado segurador no Teatro Carlos Gomes',
-        desc: 'Cerimônia acontece no dia 05/11/26 às 19h30 em Blumenau/SC. Corretores associados já podem realizar inscrição e votar.',
-        img: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=700&q=80'
-      },
-      {
-        cat: 'MERCADO SC',
-        date: '10/10/2026',
-        title: 'Procura por Seguros Corporativos, Vida e Responsabilidade Civil cresce em Santa Catarina em 2026',
-        desc: 'Corretores catarinenses ampliam consultoria especializada para pequenas, médias e grandes empresas do Estado.',
-        img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=80'
-      },
-      {
-        cat: 'INSTITUCIONAL',
-        date: '05/10/2026',
-        title: 'Sincor-SC disponibiliza Convenções Coletivas atualizadas e atendimento jurídico para corretoras associadas',
-        desc: 'Documentos oficiais podem ser consultados diretamente na Área do Associado ou solicitados à sede em Blumenau.',
-        img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=700&q=80'
-      }
-    ];
-
-    function renderNews(cat = 'all', q = '') {
-      const box = document.getElementById('newsContainer');
-      const list = newsItems.filter(n => (cat === 'all' || n.cat === cat) && n.title.toLowerCase().includes(q.toLowerCase()));
-      box.innerHTML = list.map(n => `
-        <article class="bg-white rounded-2xl overflow-hidden border border-slate-200/90 shadow-editorial hover:shadow-editorial-hover transition flex flex-col justify-between">
-          <div>
-            <div class="h-44 overflow-hidden">
-              <img src="${n.img}" alt="${n.title}" class="w-full h-full object-cover hover:scale-105 transition duration-500" />
-            </div>
-            <div class="p-5">
-              <div class="flex items-center gap-2.5 mb-2">
-                <span class="px-2.5 py-0.5 rounded text-[10px] font-extrabold uppercase bg-sincor-900 text-white">${n.cat}</span>
-                <span class="text-[11px] font-semibold text-slate-400">${n.date}</span>
-              </div>
-              <h3 class="text-sm sm:text-base font-extrabold text-sincor-900 leading-snug">${n.title}</h3>
-              <p class="text-xs text-slate-600 mt-2 leading-relaxed">${n.desc}</p>
-            </div>
-          </div>
-          <div class="px-5 pb-5">
-            <a href="#noticias" class="text-xs font-extrabold text-sincor-goldDark hover:underline">Ler notícia completa →</a>
-          </div>
-        </article>
-      `).join('');
-    }
-    renderNews();
-
-    function filterNews(cat) {
-      document.querySelectorAll('.news-tab-btn').forEach(b => {
-        b.className = b.dataset.cat === cat
-          ? 'news-tab-btn px-3 py-1.5 rounded-lg text-xs font-extrabold bg-sincor-900 text-white transition'
-          : 'news-tab-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-200/70 text-slate-700 hover:bg-slate-300 transition';
-      });
-      renderNews(cat);
-    }
-
-    document.getElementById('globalSearchInput')?.addEventListener('input', e => renderNews('all', e.target.value));
-
-    // Regiões SC
-    const regData = {
-      vale: { label: 'Sede Estadual • Vale do Itajaí', cities: 'Blumenau, Itajaí, Balneário Camboriú, Brusque e Rio do Sul', addr: 'Rua Dr. Luiz de Freitas Melro, 395 - salas 902 à 904 - Centro, Blumenau - SC, 89010-921' },
-      floripa: { label: 'Delegacia Regional • Grande Florianópolis', cities: 'Florianópolis, São José, Palhoça e Biguaçu', addr: 'Representação institucional e eventos técnicos na Capital.' },
-      norte: { label: 'Delegacia Regional • Norte SC', cities: 'Joinville, Jaraguá do Sul, São Francisco do Sul e Mafra', addr: 'Atendimento às corretoras da macrorregião Norte.' },
-      sul: { label: 'Delegacia Regional • Sul SC', cities: 'Criciúma, Tubarão, Araranguá e Laguna', addr: 'Encontros regionais e suporte sindical no Sul catarinense.' },
-      oeste: { label: 'Delegacia Regional • Oeste SC', cities: 'Chapecó, Concórdia, Joaçaba e São Miguel do Oeste', addr: 'Foco em agronegócio, transportes e desenvolvimento regional.' }
-    };
-    function selectRegion(r) {
-      document.getElementById('regLabel').textContent = regData[r].label;
-      document.getElementById('regCities').textContent = regData[r].cities;
-      document.getElementById('regAddress').textContent = regData[r].addr;
-      document.querySelectorAll('.reg-pill').forEach(b => {
-        b.className = b.dataset.reg === r
-          ? 'reg-pill px-3.5 py-2 rounded-lg text-xs font-extrabold bg-sincor-900 text-white transition'
-          : 'reg-pill px-3.5 py-2 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
-      });
-    }
-
-    function filterComm(v) {
-      document.querySelectorAll('#commContainer > div').forEach(d => {
-        d.classList.toggle('hidden', v !== 'all' && d.dataset.c !== v);
-      });
-    }
-
-    // Modais
-    function openAuthModal(tab) {
-      document.getElementById('authModal').classList.remove('hidden');
-      switchAuthTab(tab);
-    }
-    function closeAuthModal() { document.getElementById('authModal').classList.add('hidden'); }
-    function switchAuthTab(tab) {
-      ['login', 'votacao', 'carteira'].forEach(t => {
-        const cap = t.charAt(0).toUpperCase() + t.slice(1);
-        document.getElementById('tabContent' + cap).classList.toggle('hidden', t !== tab);
-        document.getElementById('tabBtn' + cap).className = t === tab
-          ? 'flex-1 py-3 border-b-2 border-sincor-900 text-sincor-900'
-          : 'flex-1 py-3 border-b-2 border-transparent text-slate-500';
-      });
-    }
-    function openEventModal(title) {
-      document.getElementById('eventModalTitle').textContent = title;
-      document.getElementById('eventModal').classList.remove('hidden');
-    }
-    function closeEventModal() { document.getElementById('eventModal').classList.add('hidden'); }
-    function handleQuickLogin(e) { e.preventDefault(); openAuthModal('carteira'); }
-
-    // Efeito 3D Suave nos Cards
-    document.querySelectorAll('.card-3d').forEach(card => {
-      card.addEventListener('mousemove', e => {
-        const r = card.getBoundingClientRect();
-        const x = ((e.clientX - r.left) / r.width - 0.5) * 6;
-        const y = ((e.clientY - r.top) / r.height - 0.5) * -6;
-        card.style.transform = `rotateX(${y}deg) rotateY(${x}deg)`;
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'rotateX(0deg) rotateY(0deg)';
-      });
-    });
-  </script>
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/home.js"></script>
 </body>
 </html>

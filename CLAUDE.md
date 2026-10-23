@@ -95,6 +95,17 @@ zero complacência, apontar caminho melhor quando existir, antecipar falhas, ser
 > Seguros, Tokio Marine Seguradora, Maxpar Assistências, ENS (sem o slogan) e Allianz.
 > Selo de 65 anos ao lado do logo (SVG inline, sem imagem): medalha com borda serrilhada dourada, "65" em Cinzel,
 > "ANOS" e fita com "1961 – 2026"; 66 px de altura com margem negativa, para não aumentar o cabeçalho.
+>
+> **Associe-se (23/10):** todos os botões "Associe-se" da Home levam a `site/seja-associado.html` (escolha PF/PJ), que leva às
+> fichas `seja-associado-pessoa-fisica.html` e `seja-associado-pessoa-juridica.html` (mesmos campos do site oficial,
+> organizados em 6 blocos). O envio vai para `site/enviar-adesao.php` (PHP da Hostinger): valida tudo de novo (CPF/CNPJ
+> com dígito, datas, tipo real do anexo), barra robôs (campo-isca, tempo mínimo, 5 envios/h por IP), não grava dados e
+> manda o e-mail com anexo para administrativo@sincor-sc.com.br via `mail()`. CEP preenche o endereço (ViaCEP).
+> **Estrutura do site:** CSS/JS compartilhados em `site/assets/css/site.css`, `site/assets/js/site.js` (menus, cotações,
+> parceiros, modais) e `tailwind-config.js`; só da Home em `home.js`; das fichas em `adesao.css`/`adesao.js`.
+> Cabeçalho e rodapé: a Home é a fonte (entre `<!-- layout:topo -->` e `<!-- layout:rodape -->`); depois de mexer neles,
+> rode `node site/tools/sync-layout.mjs` para copiar às outras páginas (os links `#secao` viram `index.html#secao`).
+> As páginas internas não têm a barra de cotações nem a faixa de parceiros (foco no formulário).
 
 Fase atual: **protótipo da Home** para aprovação, com **duas propostas de layout** que usam o **mesmo texto** (do site
 atual do Sincor SC), a mesma paleta e as mesmas abas. As páginas internas ainda não existem: links internos mostram o
