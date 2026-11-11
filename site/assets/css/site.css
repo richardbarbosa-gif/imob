@@ -170,3 +170,58 @@ html { scroll-padding-top: 6rem; }
 .mobile-nav ul a { display: block; padding: .65rem .75rem; border-radius: 8px; font-size: 14px; font-weight: 600; color: #334155; }
 .mobile-nav ul a:hover { background: #f8f5ee; color: #071d49; }
 .mobile-nav summary:focus-visible, .mobile-nav a:focus-visible { outline: 2px solid #a87214; outline-offset: 2px; border-radius: 6px; }
+
+/* Destaques da Home: banners de campanha em carrossel (artes do cliente + legenda em HTML) */
+.banners { --banners-duration: 7s; }
+.banners__viewport { position: relative; overflow: hidden; border-radius: 24px; background: #fff; border: 1px solid rgb(226 232 240 / .9); box-shadow: 0 12px 40px -12px rgba(7, 29, 73, .12); }
+.banners__track { display: flex; transition: transform .6s cubic-bezier(.22, 1, .36, 1); touch-action: pan-y; }
+.banner { flex: 0 0 100%; min-width: 0; }
+.banner__link { display: block; color: inherit; }
+.banner__link:focus-visible { outline: 3px solid #a87214; outline-offset: -3px; border-radius: 24px; }
+/* Moldura no formato dos banners 2000x625 (3,2:1). Arte de outro formato aparece inteira, sobre a própria arte desfocada */
+.banner__frame { position: relative; display: block; aspect-ratio: 16 / 5; overflow: hidden; background: #071d49; }
+.banner__img { position: relative; display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.22, 1, .36, 1); }
+.banner__frame--fit .banner__img { object-fit: contain; filter: drop-shadow(0 14px 22px rgb(120 60 0 / .28)); }
+.banner__backdrop { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.banner__frame--fit::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 40px rgb(0 0 0 / .12); pointer-events: none; }
+.banner__link:hover .banner__img { transform: scale(1.015); }
+.banner__caption { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 1.5rem; padding: 1rem clamp(1rem, 3vw, 1.75rem); border-top: 1px solid #eef2f6; }
+.banner__text { min-width: 0; flex: 1 1 22rem; }
+.banner__kicker { display: block; font-size: 10.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #8a5d0f; }
+.banner__title { display: block; margin-top: .2rem; font-size: clamp(.9375rem, .88rem + .3vw, 1.0625rem); font-weight: 800; line-height: 1.35; color: #071d49; }
+.banner__cta { display: inline-flex; align-items: center; gap: .45rem; min-height: 44px; padding: .55rem 1.15rem; border-radius: 12px; font-size: 13.5px; font-weight: 800; color: #071d49; background: linear-gradient(135deg, #f6d786 0%, #e0a43b 55%, #d4962a 100%); box-shadow: 0 8px 20px -10px rgba(212, 150, 42, .8); white-space: nowrap; transition: filter .2s; }
+.banner__cta svg { width: 17px; height: 17px; transition: transform .2s; }
+.banner__link:hover .banner__cta { filter: brightness(1.05); }
+.banner__link:hover .banner__cta svg { transform: translateX(2px); }
+
+.banners__arrow { position: absolute; top: calc(50% - 2.6rem); z-index: 2; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; color: #071d49; background: rgb(255 255 255 / .92); box-shadow: 0 6px 18px -6px rgba(3, 13, 31, .45); transition: background-color .2s, transform .2s; }
+.banners__arrow:hover { background: #fff; transform: scale(1.06); }
+.banners__arrow:focus-visible { outline: 3px solid #f1c266; outline-offset: 2px; }
+.banners__arrow svg { width: 20px; height: 20px; }
+.banners__arrow--prev { left: 14px; }
+.banners__arrow--next { right: 14px; }
+@media (max-width: 639px) { .banners__arrow { display: none; } }
+
+.banners__controls { display: flex; align-items: center; gap: .75rem; margin-top: .85rem; }
+.banners__steps { display: flex; flex: 1; gap: .5rem; min-width: 0; }
+.banners__steps button { display: flex; flex: 1; flex-direction: column; gap: .4rem; min-width: 0; min-height: 44px; justify-content: center; padding: 0 .1rem; text-align: left; }
+.banners__step-label { overflow: hidden; font-size: 11.5px; font-weight: 700; color: #64748b; text-overflow: ellipsis; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.banners__steps button[aria-current="true"] .banners__step-label { color: #071d49; }
+.banners__bar { position: relative; display: block; height: 3px; overflow: hidden; border-radius: 3px; background: #e2e8f0; }
+.banners__bar::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #f1c266, #d4962a); transform: scaleX(0); transform-origin: left; }
+.banners__steps button[aria-current="true"] .banners__bar::after { animation: banners-progress var(--banners-duration) linear forwards; }
+.banners.is-paused .banners__steps button[aria-current="true"] .banners__bar::after,
+.banners.is-holding .banners__steps button[aria-current="true"] .banners__bar::after,
+.banners.is-offscreen .banners__steps button[aria-current="true"] .banners__bar::after { animation-play-state: paused; }
+@keyframes banners-progress { to { transform: scaleX(1); } }
+.banners__steps button:focus-visible { outline: 3px solid #a87214; outline-offset: 2px; border-radius: 6px; }
+@media (max-width: 639px) { .banners__step-name { display: none; } }
+.banners__pause { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; color: #071d49; background: #fff; border: 1px solid #e2e8f0; transition: border-color .2s; }
+.banners__pause:hover { border-color: #d4962a; }
+.banners__pause:focus-visible { outline: 3px solid #a87214; outline-offset: 2px; }
+.banners__pause svg { width: 15px; height: 15px; }
+.banners__pause .icon-play, .banners.is-paused .banners__pause .icon-pause { display: none; }
+.banners.is-paused .banners__pause .icon-play { display: block; }
+@media (prefers-reduced-motion: reduce) {
+  .banners__track, .banner__img { transition: none; }
+}

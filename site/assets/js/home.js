@@ -127,3 +127,67 @@ function filterComm(v) {
     d.classList.toggle('hidden', v !== 'all' && d.dataset.c !== v);
   });
 }
+
+// Destaques (banners de campanha): a barra dourada é o relógio da troca; pausar a animação pausa a troca
+(function initBanners(root) {
+  if (!root) return;
+  const track = root.querySelector('[data-banners-track]');
+  const slides = [...track.children];
+  const dots = [...root.querySelectorAll('[data-banners-dot]')];
+  const pauseBtn = root.querySelector('[data-banners-pause]');
+  let index = 0;
+
+  function go(i) {
+    index = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(${-index * 100}%)`;
+    slides.forEach((slide, n) => {
+      const ativo = n === index;
+      slide.toggleAttribute('inert', !ativo); // banner escondido não recebe foco nem clique
+      slide.setAttribute('aria-hidden', String(!ativo));
+    });
+    dots.forEach((dot, n) => dot.setAttribute('aria-current', String(n === index)));
+    // Recomeça a barra do banner atual (a animação vive no ::after do botão marcado)
+    const bar = dots[index].querySelector('.banners__bar');
+    bar.style.display = 'none';
+    void bar.offsetWidth;
+    bar.style.removeProperty('display');
+  }
+
+  dots.forEach((dot, n) => {
+    dot.addEventListener('click', () => go(n));
+    dot.querySelector('.banners__bar').addEventListener('animationend', () => { if (n === index) go(index + 1); });
+  });
+  root.querySelector('[data-banners-prev]').addEventListener('click', () => go(index - 1));
+  root.querySelector('[data-banners-next]').addEventListener('click', () => go(index + 1));
+
+  pauseBtn.addEventListener('click', () => {
+    const pausado = root.classList.toggle('is-paused');
+    pauseBtn.setAttribute('aria-pressed', String(pausado));
+    pauseBtn.setAttribute('aria-label', pausado ? 'Retomar a troca automática dos banners' : 'Pausar a troca automática dos banners');
+  });
+
+  // Segura a troca enquanto a pessoa olha (mouse) ou navega (teclado) nos banners
+  const viewport = root.querySelector('.banners__viewport');
+  viewport.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') root.classList.add('is-holding'); });
+  viewport.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') root.classList.remove('is-holding'); });
+  root.addEventListener('focusin', () => root.classList.add('is-holding'));
+  root.addEventListener('focusout', e => { if (!root.contains(e.relatedTarget)) root.classList.remove('is-holding'); });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => root.classList.toggle('is-offscreen', !entry.isIntersecting)).observe(root);
+  }
+
+  // Arrastar com o dedo; um arrasto não vira clique no banner
+  let startX = null;
+  let arrastou = false;
+  viewport.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') { startX = e.clientX; arrastou = false; } });
+  viewport.addEventListener('pointerup', e => {
+    if (startX === null) return;
+    const dx = e.clientX - startX;
+    startX = null;
+    if (Math.abs(dx) > 40) { arrastou = true; go(index + (dx < 0 ? 1 : -1)); }
+  });
+  viewport.addEventListener('pointercancel', () => { startX = null; });
+  track.addEventListener('click', e => { if (arrastou) { e.preventDefault(); arrastou = false; } }, true);
+
+  go(0);
+})(document.querySelector('[data-banners]'));

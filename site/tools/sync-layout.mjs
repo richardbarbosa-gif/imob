@@ -7,7 +7,10 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const PAGES = ['seja-associado.html', 'seja-associado-pessoa-fisica.html', 'seja-associado-pessoa-juridica.html'];
+const PAGES = [
+  'seja-associado.html', 'seja-associado-pessoa-fisica.html', 'seja-associado-pessoa-juridica.html',
+  'selo-corretor-associado.html', 'cartao-do-empresario.html', 'eventos.html', 'politica-de-privacidade.html',
+];
 const REGIONS = ['topo', 'rodape'];
 
 const home = fs.readFileSync(path.join(root, 'index.html'), 'utf8');

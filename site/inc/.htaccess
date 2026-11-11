@@ -1,0 +1,2 @@
+# Biblioteca dos formulários: só é incluída pelos arquivos enviar-*.php, nunca acessada direto
+Require all denied

@@ -106,6 +106,18 @@ zero complacência, apontar caminho melhor quando existir, antecipar falhas, ser
 > Cabeçalho e rodapé: a Home é a fonte (entre `<!-- layout:topo -->` e `<!-- layout:rodape -->`); depois de mexer neles,
 > rode `node site/tools/sync-layout.mjs` para copiar às outras páginas (os links `#secao` viram `index.html#secao`).
 > As páginas internas não têm a barra de cotações nem a faixa de parceiros (foco no formulário).
+>
+> **Banners, selo, cartão, eventos e política (11/11):** seção "Destaques" na Home (logo abaixo dos parceiros) com os
+> 3 banners do cliente em carrossel (moldura 16:5; arte de outro formato aparece inteira sobre a própria arte desfocada;
+> legenda em HTML com o texto da arte; barra de progresso = relógio da troca, pausa no hover/foco/botão/fora da tela).
+> Imagens em `site/imagens/` (WebP em várias larguras, geradas por `site/tools/imagens.py`). Destinos: Cartão do
+> Empresário → `cartao-do-empresario.html` (passo a passo do informativo do Sincor + pedido com usuários, fotos e
+> documentos); Selo → `selo-corretor-associado.html` (campos e termo da página original); Melhores do Ano → pasta de
+> fotos no Google Drive. `eventos.html`: eventos do site original (links externos mantidos) + Melhores do Ano 2026,
+> separados em próximos e realizados (o script reclassifica pela data). `politica-de-privacidade.html`: texto do site
+> oficial (só a grafia corrigida). Redes sociais com as URLs oficiais. Formulários: `assets/js/formulario.js` (comum),
+> envio por `enviar-adesao.php` e `enviar-solicitacao.php` sobre a biblioteca `inc/formularios.php` (bloqueada ao acesso
+> direto). Pendente: contraste e alvos de toque de trechos originais da Home (24 itens no axe, anteriores a esta etapa).
 
 Fase atual: **protótipo da Home** para aprovação, com **duas propostas de layout** que usam o **mesmo texto** (do site
 atual do Sincor SC), a mesma paleta e as mesmas abas. As páginas internas ainda não existem: links internos mostram o
