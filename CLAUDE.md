@@ -217,7 +217,8 @@ prototipo/
 - Menus com teclado (Enter abre, Tab entra, Esc fecha e devolve o foco), atalho `/` para busca, diálogos nativos `<dialog>`.
 - Tudo que se move sozinho tem pausa; troca automática pausa no hover e no foco; respeite `prefers-reduced-motion`
   (exceção documentada, pedido do cliente: o telão, a barra de cotações e a faixa de parceiros continuam com
-  "reduzir movimento", mais lentos e com botão de pausa. PCs antigos com Windows em "melhor desempenho" ativam essa
+  "reduzir movimento", mais lentos. **Cotações e faixa de parceiros não têm botão de pausa** (pedido do cliente em
+  12/11, ciente de que a WCAG 2.2.2 pede um): rodam sempre, só seguram sob o mouse/foco e fora da tela. PCs antigos com Windows em "melhor desempenho" ativam essa
   preferência sem o usuário saber, e o carrossel parado pareceu defeito).
 - Links de páginas ainda inexistentes mostram aviso, nunca levam a página quebrada.
 - Formulários com rótulo visível, `autocomplete` correto, mensagens de status com `role="status"`.

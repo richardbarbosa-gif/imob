@@ -57,7 +57,6 @@ document.addEventListener('click', e => { if (!e.target.closest('.nav-item')) cl
   const track = root.querySelector('[data-ticker-track]');
   const statusEl = root.querySelector('[data-ticker-status]');
   const timeEl = root.querySelector('[data-ticker-time]');
-  const toggle = root.querySelector('[data-ticker-toggle]');
   const feedUrl = root.dataset.feed;
   const brapiToken = root.dataset.brapiToken;
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -272,15 +271,10 @@ document.addEventListener('click', e => { if (!e.target.closest('.nav-item')) cl
     const scroll = width > track.parentElement.clientWidth - 8;
     root.classList.toggle('is-scrolling', scroll);
     track.lastElementChild.hidden = !scroll;
-    // "Reduzir movimento" (comum no Windows de PCs antigos) deixa mais lento, sem parar: pedido do cliente; há botão de pausa
+    // "Reduzir movimento" (comum no Windows de PCs antigos) deixa mais lento, sem parar; sem botão de pausa (pedido do cliente, 12/11): roda sempre, só segura sob o mouse
     if (scroll) track.style.setProperty('--ticker-duration', `${Math.round(width / (reduceMotion.matches ? SPEED / 2 : SPEED))}s`);
   }
 
-  toggle.addEventListener('click', () => {
-    const paused = root.classList.toggle('is-paused');
-    toggle.setAttribute('aria-pressed', String(paused));
-    toggle.setAttribute('aria-label', paused ? 'Retomar a rolagem das cotações' : 'Pausar a rolagem das cotações');
-  });
   // Remede quando o layout muda (CSS do Tailwind chegando, fonte trocada, janela redimensionada)
   let resizeFrame;
   const remeasure = () => { cancelAnimationFrame(resizeFrame); resizeFrame = requestAnimationFrame(setupScroll); };
@@ -298,26 +292,20 @@ document.addEventListener('click', e => { if (!e.target.closest('.nav-item')) cl
   });
 })(document.querySelector('[data-ticker]'));
 
-// Faixa de parceiros: o loop roda só com CSS; o script ajusta a velocidade, a pausa e para fora da tela
+// Faixa de parceiros: o loop roda só com CSS; o script ajusta a velocidade e para fora da tela
 (function initPartners(root) {
   if (!root) return;
   const track = root.querySelector('[data-partners-track]');
   const list = track.firstElementChild;
-  const toggle = root.querySelector('[data-partners-toggle]');
   const reduceMotion = window.matchMedia ? matchMedia('(prefers-reduced-motion: reduce)') : null;
   // px por segundo: devagar, para a marca ser lida. "Reduzir movimento" (comum no Windows de PCs antigos) deixa
-  // ainda mais lento, sem parar: pedido do cliente; o botão de pausa atende quem precisa do conteúdo parado
+  // ainda mais lento, sem parar. Sem botão de pausa (pedido do cliente, 12/11): só segura sob o mouse e fora da tela
   const speed = () => (reduceMotion && reduceMotion.matches ? 18 : 32);
 
   function setup() {
     const width = list.getBoundingClientRect().width;
     if (width > 0) track.style.setProperty('--partners-duration', `${Math.round(width / speed())}s`);
   }
-  toggle.addEventListener('click', () => {
-    const paused = root.classList.toggle('is-paused');
-    toggle.setAttribute('aria-pressed', String(paused));
-    toggle.setAttribute('aria-label', paused ? 'Retomar o carrossel de parceiros' : 'Pausar o carrossel de parceiros');
-  });
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(([entry]) => root.classList.toggle('is-offscreen', !entry.isIntersecting)).observe(root);
   }

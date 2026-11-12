@@ -82,7 +82,7 @@ html { scroll-padding-top: 6rem; }
 .ticker__status { padding-left: .5rem; white-space: nowrap; color: #9fb0cb; }
 .ticker__track { display: flex; width: max-content; }
 .ticker.is-scrolling .ticker__track { animation: ticker-scroll var(--ticker-duration, 60s) linear infinite; will-change: transform; }
-.ticker:hover .ticker__track, .ticker:focus-within .ticker__track, .ticker.is-paused .ticker__track { animation-play-state: paused; }
+.ticker:hover .ticker__track, .ticker:focus-within .ticker__track { animation-play-state: paused; }
 @keyframes ticker-scroll { to { transform: translateX(-50%); } }
 .ticker__list { display: flex; flex: none; }
 /* Estilo de painel de bolsa: nome em caixa alta discreta, valor branco, variação em etiqueta colorida */
@@ -100,13 +100,6 @@ html { scroll-padding-top: 6rem; }
 @keyframes tick-flash-up { from { background: rgb(52 211 153 / .22); } }
 @keyframes tick-flash-down { from { background: rgb(248 113 113 / .22); } }
 .ticker__time { flex: none; padding-left: 1rem; border-left: 1px solid rgb(255 255 255 / .1); font-size: 11px; color: #8fa0bd; font-variant-numeric: tabular-nums; }
-.ticker__toggle { flex: none; margin-left: .25rem; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 6px; color: #c9d3e6; transition: background-color .2s, color .2s; }
-.ticker__toggle:hover { background: rgb(255 255 255 / .1); color: #fff; }
-.ticker__toggle:focus-visible { outline: 2px solid #f1c266; outline-offset: -2px; }
-.ticker__toggle svg { width: 14px; height: 14px; }
-.ticker__toggle .icon-play, .ticker.is-paused .ticker__toggle .icon-pause { display: none; }
-.ticker.is-paused .ticker__toggle .icon-play { display: block; }
-.ticker:not(.is-scrolling) .ticker__toggle { display: none; }
 @media (max-width: 767px) { .ticker__time { display: none; } }
 
 /* Convenções Coletivas e Ouvidoria: destaque dourado, brilho no hover */
@@ -124,18 +117,12 @@ html { scroll-padding-top: 6rem; }
 .partners__title { margin-top: 2px; font-size: 14px; font-weight: 700; color: #fff; white-space: nowrap; }
 .partners__viewport { flex: 1; min-width: 0; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 28px, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(90deg, transparent, #000 28px, #000 calc(100% - 28px), transparent); }
 .partners__track { display: flex; width: max-content; animation: partners-scroll var(--partners-duration, 40s) linear infinite; will-change: transform; }
-.partners:hover .partners__track, .partners:focus-within .partners__track, .partners.is-paused .partners__track, .partners.is-offscreen .partners__track { animation-play-state: paused; }
+.partners:hover .partners__track, .partners:focus-within .partners__track, .partners.is-offscreen .partners__track { animation-play-state: paused; }
 @keyframes partners-scroll { to { transform: translateX(-50%); } }
 .partners__list { display: flex; flex: none; gap: .75rem; padding-right: .75rem; }
 .partner { display: grid; place-items: center; width: 164px; height: 60px; padding: .5rem 1rem; border-radius: 10px; background: #fff; box-shadow: inset 0 0 0 1px rgb(15 23 42 / .06); }
 .partner__name { font-size: 12.5px; font-weight: 800; line-height: 1.15; letter-spacing: .08em; text-align: center; text-transform: uppercase; color: #071d49; }
 .partner__logo { display: block; max-width: 100%; height: auto; }
-.partners__toggle { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 8px; color: #c9d3e6; transition: background-color .2s, color .2s; }
-.partners__toggle:hover { background: rgb(255 255 255 / .1); color: #fff; }
-.partners__toggle:focus-visible { outline: 2px solid #f1c266; outline-offset: -2px; }
-.partners__toggle svg { width: 14px; height: 14px; }
-.partners__toggle .icon-play, .partners.is-paused .partners__toggle .icon-pause { display: none; }
-.partners.is-paused .partners__toggle .icon-play { display: block; }
 @media (max-width: 767px) {
   .partners { flex-wrap: wrap; gap: .75rem; padding: 1rem; }
   .partners__head { flex: 1; padding-right: 0; border-right: 0; }
