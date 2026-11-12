@@ -1,54 +1,12 @@
 // Só da Home: carrossel de destaques, notícias, regiões e comissões
-// Carrossel Hero
-const slides = [
-  {
-    tag: 'Convite Oficial • Mercado Segurador Catarinense',
-    sub: 'Prêmio Melhores do Ano 2026 • Jantar de Comemoração',
-    title: 'Sincor-SC completa <span class="gold-foil-text">65 anos de história</span> com noite de gala no Teatro Carlos Gomes',
-    img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1400&q=85',
-    btn: 'INSCREVA-SE AQUI!'
-  },
-  {
-    tag: 'Benefícios Exclusivos PF e PJ',
-    sub: 'Fortaleça sua Corretora em Santa Catarina',
-    title: 'Certificado Digital, Assessoria Jurídica e <span class="gold-foil-text">Carteira Digital Mobile ID</span>',
-    img: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1400&q=85',
-    btn: 'CONHECER BENEFÍCIOS'
-  },
-  {
-    tag: 'Capacitação & Eventos Regionais',
-    sub: 'Agenda Executiva Sincor-SC 2026',
-    title: 'Encontros presenciais em <span class="gold-foil-text">Blumenau, Florianópolis, Joinville, Criciúma e Chapecó</span>',
-    img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1400&q=85',
-    btn: 'VER AGENDA DE EVENTOS'
-  }
-];
-let curSlide = 0;
-function setHeroSlide(i) {
-  curSlide = (i + slides.length) % slides.length;
-  const s = slides[curSlide];
-  document.getElementById('heroTag').textContent = s.tag;
-  document.getElementById('heroSubhead').textContent = s.sub;
-  document.getElementById('heroTitle').innerHTML = s.title;
-  document.getElementById('heroBgImg').src = s.img;
-  document.getElementById('heroBtnLabel').textContent = s.btn;
-  const dots = document.getElementById('heroDots').children;
-  for (let d = 0; d < dots.length; d++) {
-    dots[d].className = d === curSlide
-      ? 'w-7 h-2 rounded-full bg-sincor-gold transition-all'
-      : 'w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all';
-  }
-}
-function changeHeroSlide(dir) { setHeroSlide(curSlide + dir); }
-
 // Notícias Dinâmicas (CMS)
 const newsItems = [
   {
     cat: 'EVENTOS',
-    date: '13/10/2026',
-    title: 'Jantar de 65 Anos do Sincor-SC e Prêmio Melhores do Ano reunirá mercado segurador no Teatro Carlos Gomes',
-    desc: 'Cerimônia acontece no dia 05/11/26 às 19h30 em Blumenau/SC. Corretores associados já podem realizar inscrição e votar.',
-    img: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=700&q=80'
+    date: '05/11/2026',
+    title: 'Sincor-SC celebra 65 anos e premia os Melhores do Ano do mercado segurador catarinense',
+    desc: 'A noite de gala reuniu o mercado no Teatro Carlos Gomes, em Blumenau. As fotos do evento já estão disponíveis.',
+    img: 'imagens/fotos/melhores-do-ano-2026-3-960.webp'
   },
   {
     cat: 'MERCADO SC',
@@ -191,3 +149,101 @@ function filterComm(v) {
 
   go(0);
 })(document.querySelector('[data-banners]'));
+
+// O que temos de novo: troca só por escolha da pessoa (setas, abas, deslizar). As fotos do slide 1 passam
+// sozinhas devagar, só enquanto o slide está na tela, e param no botão de pausa.
+(function initNovos(root) {
+  if (!root) return;
+  const slides = [...root.querySelectorAll('[data-novo]')];
+  const abas = [...root.querySelectorAll('[data-novos-aba]')];
+  const pausa = root.querySelector('[data-novos-pausa]');
+  const fotos = [...root.querySelectorAll('[data-novo-fotos] img')];
+  const TROCA = 5500;
+  let index = 0;
+  let foto = 0;
+  let timer = null;
+  let visivel = false;
+  let pausado = false;
+
+  function go(i) {
+    index = (i + slides.length) % slides.length;
+    slides.forEach((slide, n) => {
+      const ativo = n === index;
+      slide.classList.toggle('is-active', ativo);
+      slide.toggleAttribute('inert', !ativo);
+      slide.setAttribute('aria-hidden', String(!ativo));
+    });
+    abas.forEach((aba, n) => aba.setAttribute('aria-current', String(n === index)));
+    pausa.hidden = index !== 0; // a pausa só controla as fotos do slide 1
+    agenda();
+  }
+
+  // As fotos 2 a 4 só são baixadas quando o slide 1 começa a passar (economiza dados no celular)
+  function carregar(img) {
+    if (!img.dataset.src) return;
+    img.srcset = img.dataset.srcset;
+    img.src = img.dataset.src;
+    delete img.dataset.src;
+    delete img.dataset.srcset;
+  }
+
+  function proxima() {
+    const seguinte = (foto + 1) % fotos.length;
+    const img = fotos[seguinte];
+    carregar(img);
+    const trocar = () => {
+      fotos[foto].classList.remove('is-on');
+      img.classList.add('is-on');
+      foto = seguinte;
+      carregar(fotos[(foto + 1) % fotos.length]);
+      agenda();
+    };
+    if (img.complete && img.naturalWidth) trocar();
+    else {
+      img.addEventListener('load', trocar, { once: true });
+      img.addEventListener('error', () => { fotos.splice(seguinte, 1); agenda(); }, { once: true });
+    }
+  }
+
+  function agenda() {
+    clearTimeout(timer);
+    timer = null;
+    const rodar = index === 0 && visivel && !pausado && !document.hidden && fotos.length > 1;
+    root.classList.toggle('is-parado', !rodar);
+    if (rodar) timer = setTimeout(proxima, TROCA);
+  }
+
+  abas.forEach((aba, n) => aba.addEventListener('click', () => go(n)));
+  document.querySelector('[data-novos-prev]')?.addEventListener('click', () => go(index - 1));
+  document.querySelector('[data-novos-next]')?.addEventListener('click', () => go(index + 1));
+  pausa.addEventListener('click', () => {
+    pausado = !pausado;
+    pausa.setAttribute('aria-pressed', String(pausado));
+    pausa.setAttribute('aria-label', pausado ? 'Retomar a troca de fotos' : 'Pausar a troca de fotos');
+    agenda();
+  });
+  document.addEventListener('visibilitychange', agenda);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => { visivel = entry.isIntersecting; if (visivel) carregar(fotos[1]); agenda(); }, { threshold: 0.25 }).observe(root);
+  } else {
+    visivel = true;
+  }
+
+  // Deslizar com o dedo troca o destaque; arrasto não vira clique em link
+  const area = root.querySelector('.novos__slides');
+  let startX = null;
+  let startY = 0;
+  let arrastou = false;
+  area.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') { startX = e.clientX; startY = e.clientY; arrastou = false; } });
+  area.addEventListener('pointerup', e => {
+    if (startX === null) return;
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+    startX = null;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) { arrastou = true; go(index + (dx < 0 ? 1 : -1)); }
+  });
+  area.addEventListener('pointercancel', () => { startX = null; });
+  area.addEventListener('click', e => { if (arrastou) { e.preventDefault(); arrastou = false; } }, true);
+
+  go(0);
+})(document.querySelector('[data-novos]'));

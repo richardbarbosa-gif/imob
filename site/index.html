@@ -41,7 +41,7 @@
 
   <script src="assets/js/tailwind-config.js?v=41ae9b2d69"></script>
 
-  <link rel="stylesheet" href="assets/css/site.css?v=3f9045b6e4" />
+  <link rel="stylesheet" href="assets/css/site.css?v=107ea4fba7" />
 </head>
 
 <body class="bg-[#F8FAFC] text-slate-800 antialiased selection:bg-sincor-gold selection:text-white">
@@ -484,98 +484,100 @@
         <h1 class="text-lg sm:text-xl font-extrabold text-sincor-900">O que temos de novo</h1>
       </div>
       <div class="flex items-center gap-2">
-        <button onclick="changeHeroSlide(-1)" class="w-9 h-9 rounded-full border border-slate-200 bg-white hover:border-sincor-gold text-sincor-900 flex items-center justify-center transition shadow-sm" aria-label="Slide Anterior">
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        <button type="button" data-novos-prev class="w-11 h-11 rounded-full border border-slate-200 bg-white hover:border-sincor-gold text-sincor-900 flex items-center justify-center transition shadow-sm" aria-label="Destaque anterior" aria-controls="novos-slides">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
         </button>
-        <button onclick="changeHeroSlide(1)" class="w-9 h-9 rounded-full border border-slate-200 bg-white hover:border-sincor-gold text-sincor-900 flex items-center justify-center transition shadow-sm" aria-label="Próximo Slide">
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        <button type="button" data-novos-next class="w-11 h-11 rounded-full border border-slate-200 bg-white hover:border-sincor-gold text-sincor-900 flex items-center justify-center transition shadow-sm" aria-label="Próximo destaque" aria-controls="novos-slides">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
         </button>
       </div>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
 
-      <!-- BANNER PRINCIPAL LARGO COM CANHÃO DE LUZES E EFEITO 3D -->
-      <div class="lg:col-span-8 scene-3d">
-        <div id="heroStageCard" class="card-3d stage-spotlight rounded-3xl min-h-[430px] sm:min-h-[460px] p-6 sm:p-10 text-white flex flex-col justify-between relative border border-sincor-800 shadow-2xl">
+      <!-- DESTAQUES DO SINCOR SC: troca manual (setas, abas, deslizar); só as fotos do slide 1 passam sozinhas -->
+      <div class="lg:col-span-8">
+        <div class="novos stage-spotlight" data-novos role="region" aria-roledescription="carrossel" aria-label="O que temos de novo">
+          <div class="light-beam-gold" aria-hidden="true"></div>
+          <div class="light-beam-blue" aria-hidden="true"></div>
 
-          <div class="light-beam-gold"></div>
-          <div class="light-beam-blue"></div>
+          <div class="novos__slides" id="novos-slides" aria-live="polite">
 
-          <img
-            id="heroBgImg"
-            src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1400&q=85"
-            alt="Melhores do Ano Sincor SC"
-            class="absolute inset-0 w-full h-full object-cover opacity-25 mix-blend-luminosity pointer-events-none transition-all duration-700"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-sincor-950 via-sincor-950/65 to-transparent pointer-events-none"></div>
-
-          <div class="layer-z-20 relative z-10 flex items-start justify-between gap-4">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-sincor-gold/40">
-              <span class="w-2 h-2 rounded-full bg-sincor-goldLight animate-pulse"></span>
-              <span id="heroTag" class="text-[11px] font-extrabold uppercase tracking-wider text-sincor-goldLight">
-                Convite Oficial • Mercado Segurador Catarinense
-              </span>
-            </div>
-
-            <!-- Medalhão 65 Anos em SVG Puro -->
-            <div class="layer-z-40 hidden sm:flex flex-col items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-[#f6d786] via-[#c8963e] to-[#7c5612] p-1 shadow-gold-glow shrink-0">
-              <div class="w-full h-full rounded-full bg-sincor-950 flex flex-col items-center justify-center border border-sincor-goldLight/60 text-center">
-                <span class="text-[8px] uppercase tracking-widest text-sincor-goldLight font-bold">Aniversário</span>
-                <span class="font-display text-2xl font-extrabold gold-foil-text leading-none">65</span>
-                <span class="text-[9px] uppercase tracking-widest text-white font-bold">Anos</span>
+            <article class="novo novo--fotos is-active" data-novo aria-roledescription="slide" aria-label="1 de 3: Melhores do Ano 2026">
+              <div class="novo__fotos" data-novo-fotos aria-hidden="true">
+                <img class="novo__foto is-on" src="imagens/fotos/melhores-do-ano-2026-1-960.webp" srcset="imagens/fotos/melhores-do-ano-2026-1-960.webp 960w, imagens/fotos/melhores-do-ano-2026-1-1440.webp 1440w" sizes="(min-width: 1280px) 830px, (min-width: 1024px) 66vw, 100vw" alt="" width="960" height="640" loading="lazy" decoding="async">
+                <img class="novo__foto" data-src="imagens/fotos/melhores-do-ano-2026-2-960.webp" data-srcset="imagens/fotos/melhores-do-ano-2026-2-960.webp 960w, imagens/fotos/melhores-do-ano-2026-2-1440.webp 1440w" sizes="(min-width: 1280px) 830px, (min-width: 1024px) 66vw, 100vw" alt="" width="960" height="640" decoding="async">
+                <img class="novo__foto" data-src="imagens/fotos/melhores-do-ano-2026-3-960.webp" data-srcset="imagens/fotos/melhores-do-ano-2026-3-960.webp 960w, imagens/fotos/melhores-do-ano-2026-3-1440.webp 1440w" sizes="(min-width: 1280px) 830px, (min-width: 1024px) 66vw, 100vw" alt="" width="960" height="640" decoding="async">
+                <img class="novo__foto" data-src="imagens/fotos/melhores-do-ano-2026-4-960.webp" data-srcset="imagens/fotos/melhores-do-ano-2026-4-960.webp 960w, imagens/fotos/melhores-do-ano-2026-4-1440.webp 1440w" sizes="(min-width: 1280px) 830px, (min-width: 1024px) 66vw, 100vw" alt="" width="960" height="640" decoding="async">
               </div>
-            </div>
+              <div class="novo__veu" aria-hidden="true"></div>
+              <div class="novo__body">
+                <p class="novo__tag"><span class="novo__ponto" aria-hidden="true"></span>Realizado em 5 de novembro de 2026</p>
+                <p class="novo__kicker">Melhores do Ano 2026 · Jantar de 65 anos</p>
+                <h2 class="novo__title">Confira como foi a noite que celebrou os <span class="gold-foil-text">65 anos do Sincor SC</span></h2>
+                <ul class="novo__info">
+                  <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span><small>Data</small>05/11/2026 · 19h30</span></li>
+                  <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg><span><small>Local</small>Teatro Carlos Gomes, Blumenau/SC</span></li>
+                </ul>
+                <div class="novo__acoes">
+                  <a class="novo__cta" href="https://drive.google.com/drive/folders/15aCt4lY2GGlaVeI2AERuzwTW_9TTDcVr" target="_blank" rel="noopener noreferrer">Ver todas as fotos<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H8M17 7v9"/></svg><span class="sr-only"> (abre o Google Drive em nova aba)</span></a>
+                  <a class="novo__link" href="eventos.html">Agenda de eventos</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="novo novo--arte" data-novo aria-roledescription="slide" aria-label="2 de 3: Brasesul 2027">
+              <img class="novo__fundo" src="imagens/eventos/brasesul-2027-fundo.webp" alt="" width="320" height="180" loading="lazy" decoding="async">
+              <div class="novo__veu" aria-hidden="true"></div>
+              <div class="novo__body">
+                <p class="novo__tag"><span class="novo__ponto" aria-hidden="true"></span>Próximo evento</p>
+                <p class="novo__kicker">Congresso Sul Brasileiro dos Corretores de Seguros</p>
+                <h2 class="novo__title"><span class="gold-foil-text">Brasesul 2027</span>: o congresso dos corretores do Sul do Brasil</h2>
+                <ul class="novo__info">
+                  <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span><small>Data</small>20 e 21/05/2027</span></li>
+                  <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg><span><small>Local</small>Joinville/SC</span></li>
+                </ul>
+                <div class="novo__acoes">
+                  <a class="novo__cta" href="https://brasesul.com.br/2027/" target="_blank" rel="noopener noreferrer">Site do evento<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H8M17 7v9"/></svg><span class="sr-only"> (abre o site do evento em nova aba)</span></a>
+                  <a class="novo__link" href="eventos.html">Agenda de eventos</a>
+                </div>
+              </div>
+              <figure class="novo__arte">
+                <img src="imagens/eventos/brasesul-2027.webp" alt="Arte de divulgação: Brasesul 2027, 20 e 21 de maio de 2027, Joinville/SC" width="680" height="375" loading="lazy" decoding="async">
+              </figure>
+            </article>
+
+            <article class="novo novo--passos" data-novo aria-roledescription="slide" aria-label="3 de 3: Cartão do Empresário">
+              <div class="novo__veu" aria-hidden="true"></div>
+              <div class="novo__body">
+                <p class="novo__tag"><span class="novo__ponto" aria-hidden="true"></span>Benefício do associado</p>
+                <p class="novo__kicker">Sincor SC · FecomércioSC · Sesc · Senac</p>
+                <h2 class="novo__title"><span class="gold-foil-text">Cartão do Empresário</span>: Sesc e Senac para você, seus sócios e dependentes</h2>
+                <div class="novo__acoes">
+                  <a class="novo__cta" href="cartao-do-empresario.html">Saiba como obter<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
+                  <a class="novo__link" href="seja-associado.html">Seja associado</a>
+                </div>
+              </div>
+              <ol class="novo__passos">
+                <li><strong>1</strong><span>Envie o pedido e os documentos <small>pelo formulário do site</small></span></li>
+                <li><strong>2</strong><span>R$ 20,00 por usuário <small>pago ao Sindicato após a validação</small></span></li>
+                <li><strong>3</strong><span>Confirmação por e-mail <small>em até 48 horas</small></span></li>
+              </ol>
+            </article>
+
           </div>
 
-          <div class="layer-z-20 relative z-10 my-auto py-4 max-w-2xl">
-            <p id="heroSubhead" class="text-xs sm:text-sm font-bold uppercase tracking-widest text-sincor-goldLight mb-1">
-              Prêmio Melhores do Ano 2026 • Jantar de Comemoração
-            </p>
-            <h2 id="heroTitle" class="text-2xl sm:text-4xl font-extrabold leading-[1.15] tracking-tight text-white">
-              Sincor-SC completa <span class="gold-foil-text">65 anos de história</span> com noite de gala no Teatro Carlos Gomes
-            </h2>
-
-            <div id="heroInfoPills" class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mt-5">
-              <div class="bg-gradient-to-r from-[#d4962a]/25 to-[#d4962a]/10 border border-sincor-gold/50 rounded-xl px-3.5 py-2.5 backdrop-blur-sm">
-                <span class="block text-[10px] uppercase tracking-wider text-sincor-goldLight font-bold">Data do Evento</span>
-                <span class="text-sm sm:text-base font-extrabold text-white">05/11/26</span>
-              </div>
-              <div class="bg-gradient-to-r from-[#d4962a]/25 to-[#d4962a]/10 border border-sincor-gold/50 rounded-xl px-3.5 py-2.5 backdrop-blur-sm">
-                <span class="block text-[10px] uppercase tracking-wider text-sincor-goldLight font-bold">Horário & Traje</span>
-                <span class="text-sm sm:text-base font-extrabold text-white">19:30 • Esporte Fino</span>
-              </div>
-              <div class="bg-gradient-to-r from-[#d4962a]/25 to-[#d4962a]/10 border border-sincor-gold/50 rounded-xl px-3.5 py-2.5 backdrop-blur-sm">
-                <span class="block text-[10px] uppercase tracking-wider text-sincor-goldLight font-bold">Local (Blumenau/SC)</span>
-                <span class="text-sm sm:text-base font-extrabold text-white">Teatro Carlos Gomes</span>
-              </div>
+          <div class="novos__barra">
+            <div class="novos__abas">
+              <button type="button" data-novos-aba aria-current="true" aria-controls="novos-slides"><span class="novos__num">01</span> <span class="novos__nome">Melhores do Ano</span></button>
+              <button type="button" data-novos-aba aria-controls="novos-slides"><span class="novos__num">02</span> <span class="novos__nome">Brasesul 2027</span></button>
+              <button type="button" data-novos-aba aria-controls="novos-slides"><span class="novos__num">03</span> <span class="novos__nome">Cartão do Empresário</span></button>
             </div>
+            <button type="button" class="novos__pausa" data-novos-pausa aria-pressed="false" aria-label="Pausar a troca de fotos">
+              <svg class="novos__i-pausa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+              <svg class="novos__i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 001.5.86l10.5-6.5a1 1 0 000-1.72L9.5 4.64A1 1 0 008 5.5z"/></svg>
+            </button>
           </div>
-
-          <div class="layer-z-20 relative z-10 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
-            <div class="flex flex-wrap items-center gap-3">
-              <button
-                onclick="openEventModal('Jantar Melhores do Ano & 65 Anos Sincor-SC — 05/11/26 (Teatro Carlos Gomes)')"
-                class="px-6 py-3 rounded-full font-extrabold text-xs sm:text-sm text-sincor-950 bg-white hover:bg-sincor-goldLight transition shadow-lg inline-flex items-center gap-2"
-              >
-                <span id="heroBtnLabel">INSCREVA-SE AQUI!</span>
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-              </button>
-              <button
-                onclick="openAuthModal('votacao')"
-                class="px-4 py-3 rounded-full font-bold text-xs text-white bg-white/10 hover:bg-white/20 border border-white/20 transition"
-              >
-                Votar com Código Único
-              </button>
-            </div>
-
-            <div class="flex items-center gap-2" id="heroDots">
-              <button onclick="setHeroSlide(0)" class="w-7 h-2 rounded-full bg-sincor-gold transition-all" aria-label="Slide 1"></button>
-              <button onclick="setHeroSlide(1)" class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all" aria-label="Slide 2"></button>
-              <button onclick="setHeroSlide(2)" class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all" aria-label="Slide 3"></button>
-            </div>
-          </div>
-
         </div>
       </div>
 
@@ -622,10 +624,10 @@
           <div class="mt-5 pt-4 border-t border-slate-100">
             <span class="block text-[10px] font-extrabold uppercase tracking-wider text-slate-400 mb-2.5">Acesso Rápido do Corretor</span>
             <div class="grid grid-cols-2 gap-2">
-              <button onclick="openAuthModal('votacao')" class="p-2.5 rounded-xl bg-slate-50 hover:bg-amber-50/80 border border-slate-200/80 text-left transition">
-                <span class="block text-xs font-extrabold text-sincor-900">Votação 2026</span>
-                <span class="block text-[10px] text-slate-500">Código Único Auditado</span>
-              </button>
+              <a href="cartao-do-empresario.html" class="block p-2.5 rounded-xl bg-slate-50 hover:bg-amber-50/80 border border-slate-200/80 text-left transition">
+                <span class="block text-xs font-extrabold text-sincor-900">Cartão do Empresário</span>
+                <span class="block text-[10px] text-slate-500">Sesc e Senac</span>
+              </a>
               <button onclick="openAuthModal('carteira')" class="p-2.5 rounded-xl bg-slate-50 hover:bg-amber-50/80 border border-slate-200/80 text-left transition">
                 <span class="block text-xs font-extrabold text-sincor-900">Carteira Digital</span>
                 <span class="block text-[10px] text-slate-500">Credencial Mobile ID</span>
@@ -769,102 +771,68 @@
       <div class="flex items-center gap-3">
         <span class="text-[11px] font-bold uppercase tracking-widest text-slate-400">Eventos</span>
         <span class="text-slate-300 font-light text-lg">|</span>
-        <h2 class="text-lg sm:text-xl font-extrabold text-sincor-900">Confira os próximos eventos e cursos</h2>
+        <h2 class="text-lg sm:text-xl font-extrabold text-sincor-900">Confira os próximos eventos</h2>
       </div>
       <a href="eventos.html" class="px-4 py-2 rounded-lg text-xs font-extrabold text-white gold-foil-btn hover:brightness-105 transition self-start sm:self-auto">
         Ver mais eventos
       </a>
     </div>
 
-    <div class="bg-white rounded-3xl border border-slate-200/90 shadow-editorial p-6 sm:p-8 mb-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center sincor-watermark">
-      <div class="lg:col-span-5 rounded-2xl overflow-hidden bg-gradient-to-br from-sincor-950 via-sincor-900 to-sincor-800 p-6 text-white relative min-h-[230px] flex flex-col justify-between shadow-lg">
-        <div class="flex items-center justify-between">
-          <span class="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase bg-sincor-gold text-sincor-950">05 NOV 2026 • 19h30</span>
-          <span class="text-xs font-display font-bold text-sincor-goldLight">65 ANOS SINCOR-SC</span>
-        </div>
-        <div class="my-4">
-          <p class="text-xs uppercase tracking-widest text-sincor-goldLight font-bold">Mercado Segurador Catarinense</p>
-          <h3 class="text-2xl sm:text-3xl font-display font-extrabold text-white mt-1">MELHORES DO ANO</h3>
-          <p class="text-xs text-slate-300 mt-1">Local: Teatro Carlos Gomes • Blumenau/SC</p>
-        </div>
-        <div class="text-[11px] text-slate-300 border-t border-white/10 pt-2 flex justify-between">
-          <span>Traje: Esporte Fino</span>
-          <span class="text-sincor-goldLight font-bold">Inscrições Abertas</span>
-        </div>
-      </div>
+    <div class="bg-white rounded-3xl border border-slate-200/90 shadow-editorial p-5 sm:p-8 mb-6 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center sincor-watermark">
+      <figure class="ev-destaque lg:col-span-5">
+        <img class="ev-destaque__fundo" src="imagens/eventos/brasesul-2027-fundo.webp" alt="" width="320" height="180" loading="lazy" decoding="async">
+        <img class="ev-destaque__arte" src="imagens/eventos/brasesul-2027.webp" alt="Arte de divulgação: Brasesul 2027" width="680" height="375" loading="lazy" decoding="async">
+      </figure>
 
       <div class="lg:col-span-7 space-y-3">
         <span class="inline-block px-3 py-1 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600">
-          05 de novembro de 2026 • Presencial em Blumenau/SC
+          20 e 21 de maio de 2027 • Presencial em Joinville/SC
         </span>
-        <h3 class="text-2xl font-extrabold text-sincor-900">
-          Jantar de Comemoração aos 65 Anos do Sincor-SC & Prêmio Melhores do Ano
-        </h3>
-        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl">
-          O maior encontro de confraternização e reconhecimento das lideranças, corretores e seguradoras parceiras de Santa Catarina. Garanta sua reserva com confirmação imediata por e-mail.
+        <p class="text-[11px] font-extrabold uppercase tracking-widest text-[#8a5d0f]">Congresso Sul Brasileiro dos Corretores de Seguros</p>
+        <h3 class="text-2xl font-extrabold text-sincor-900">Brasesul 2027</h3>
+        <p class="text-sm text-slate-600 leading-relaxed max-w-2xl">
+          O congresso dos corretores de seguros do Sul do Brasil, em Joinville.
         </p>
         <div class="pt-2 flex flex-wrap gap-3">
-          <button onclick="openEventModal('Jantar Melhores do Ano 65 Anos Sincor-SC (05/11/26)')" class="px-5 py-2.5 rounded-lg text-xs font-extrabold text-white gold-foil-btn hover:brightness-105 transition shadow">
-            Inscreva-se
-          </button>
-          <button onclick="openAuthModal('votacao')" class="px-5 py-2.5 rounded-lg text-xs font-bold text-sincor-900 bg-slate-100 hover:bg-slate-200 transition">
-            Votar nos Melhores do Ano
-          </button>
+          <a href="https://brasesul.com.br/2027/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center min-h-[44px] px-5 rounded-lg text-xs font-extrabold text-sincor-950 gold-foil-btn hover:brightness-105 transition shadow">
+            Acessar o site do evento<span class="sr-only"> (abre o site do evento em nova aba)</span>
+          </a>
+          <a href="eventos.html" class="inline-flex items-center min-h-[44px] px-5 rounded-lg text-xs font-bold text-sincor-900 bg-slate-100 hover:bg-slate-200 transition">
+            Ver a agenda completa
+          </a>
         </div>
       </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition flex flex-col justify-between">
-        <div>
-          <span class="inline-block px-3 py-1 rounded-full text-[11px] font-semibold bg-slate-100 text-slate-600 mb-3">
-            22 de outubro de 2026
-          </span>
-          <h4 class="text-base font-extrabold text-sincor-900 leading-snug">
-            Fórum Catarinense de Seguros Corporativos e Riscos Patrimoniais
-          </h4>
-          <p class="text-xs text-slate-500 mt-2">Florianópolis / Transmissão Híbrida — 14h00</p>
+    <h3 class="text-sm font-extrabold text-sincor-900 mb-3">Realizados recentemente</h3>
+    <div class="ev-cards">
+      <article class="ev-card">
+        <p class="ev-card__data"><time datetime="2026-11-05"><strong>05</strong><span>nov 2026</span></time></p>
+        <div class="ev-card__info">
+          <span class="ev-card__status">Realizado</span>
+          <h4 class="ev-card__title">Melhores do Ano 2026 e jantar de 65 anos do Sincor-SC</h4>
+          <p class="ev-card__local">Teatro Carlos Gomes, Blumenau/SC</p>
+          <a class="ev-card__cta" href="https://drive.google.com/drive/folders/15aCt4lY2GGlaVeI2AERuzwTW_9TTDcVr" target="_blank" rel="noopener noreferrer">Ver as fotos<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H8M17 7v9"/></svg><span class="sr-only"> (abre o Google Drive em nova aba)</span></a>
         </div>
-        <div class="mt-5">
-          <button onclick="openEventModal('Fórum Catarinense de Seguros Corporativos — 22/10/26')" class="px-4 py-2 rounded-lg text-xs font-extrabold text-white gold-foil-btn hover:brightness-105 transition">
-            Inscreva-se no evento
-          </button>
+      </article>
+      <article class="ev-card">
+        <p class="ev-card__data"><time datetime="2026-09-12"><strong>12</strong><span>set 2026</span></time></p>
+        <div class="ev-card__info">
+          <span class="ev-card__status">Realizado</span>
+          <h4 class="ev-card__title">Encontro da Mulher Corretora de Seguros de Santa Catarina 2026</h4>
+          <p class="ev-card__local">Hotel Sibara, Balneário Camboriú/SC</p>
+          <a class="ev-card__cta" href="https://encontrodamulher.toindo.com.br/" target="_blank" rel="noopener noreferrer">Site do evento<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H8M17 7v9"/></svg><span class="sr-only"> (abre o site do evento em nova aba)</span></a>
         </div>
-      </div>
-
-      <div class="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition flex flex-col justify-between">
-        <div>
-          <span class="inline-block px-3 py-1 rounded-full text-[11px] font-semibold bg-slate-100 text-slate-600 mb-3">
-            12 de novembro de 2026
-          </span>
-          <h4 class="text-base font-extrabold text-sincor-900 leading-snug">
-            Encontro Regional Norte SC: Reforma Tributária para Corretoras PJ
-          </h4>
-          <p class="text-xs text-slate-500 mt-2">Joinville / Presencial — 09h00</p>
+      </article>
+      <article class="ev-card">
+        <p class="ev-card__data"><time datetime="2026-08-27"><strong>27</strong><span>ago 2026</span></time></p>
+        <div class="ev-card__info">
+          <span class="ev-card__status">Realizado</span>
+          <h4 class="ev-card__title">24º Congresso Brasileiro dos Corretores de Seguros</h4>
+          <p class="ev-card__local">ExpoRio Cidade Nova, Rio de Janeiro/RJ</p>
+          <a class="ev-card__cta" href="https://congressodoscorretores.com.br/" target="_blank" rel="noopener noreferrer">Site do evento<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H8M17 7v9"/></svg><span class="sr-only"> (abre o site do evento em nova aba)</span></a>
         </div>
-        <div class="mt-5">
-          <button onclick="openEventModal('Encontro Regional Norte SC — 12/11/26')" class="px-4 py-2 rounded-lg text-xs font-extrabold text-white gold-foil-btn hover:brightness-105 transition">
-            Inscreva-se
-          </button>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition flex flex-col justify-between">
-        <div>
-          <span class="inline-block px-3 py-1 rounded-full text-[11px] font-semibold bg-slate-100 text-slate-600 mb-3">
-            26 de novembro de 2026
-          </span>
-          <h4 class="text-base font-extrabold text-sincor-900 leading-snug">
-            Workshop Comercial: Seguro de Vida Individual, Familiar e Sucessório
-          </h4>
-          <p class="text-xs text-slate-500 mt-2">Online Ao Vivo p/ Associados — 19h00</p>
-        </div>
-        <div class="mt-5">
-          <button onclick="openEventModal('Workshop Seguro de Vida — 26/11/26')" class="px-4 py-2 rounded-lg text-xs font-extrabold text-white gold-foil-btn hover:brightness-105 transition">
-            Inscreva-se
-          </button>
-        </div>
-      </div>
+      </article>
     </div>
 
   </section>
@@ -1620,6 +1588,6 @@
   <!-- SCRIPTS INTERATIVOS                                                   -->
   <!-- ===================================================================== -->
   <script src="assets/js/site.js?v=c8b38391cd"></script>
-  <script src="assets/js/home.js?v=c70cf7e849"></script>
+  <script src="assets/js/home.js?v=9610461147"></script>
 </body>
 </html>

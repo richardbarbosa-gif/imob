@@ -119,6 +119,14 @@ zero complacência, apontar caminho melhor quando existir, antecipar falhas, ser
 > envio por `enviar-adesao.php` e `enviar-solicitacao.php` sobre a biblioteca `inc/formularios.php` (bloqueada ao acesso
 > direto). Pendente: contraste e alvos de toque de trechos originais da Home (24 itens no axe, anteriores a esta etapa).
 
+> **Cache e "O que temos de novo" (12/11):** a hospedagem guarda CSS/JS por 7 dias; todo `assets/css|js` entra com
+> `?v=<hash>` (`node site/tools/versionar.mjs`, **rodar antes de cada publicação**), senão quem já visitou vê o HTML novo
+> com CSS velho e a página quebra. O carrossel "O que temos de novo" foi refeito: troca **manual** (setas, abas, deslizar;
+> o de campanhas acima já é automático), slide 1 = Melhores do Ano 2026 com 4 fotos reais do Drive passando no fundo
+> (pausa, só na tela, `site/tools/fotos.py`, WebP ≤ 150 KB, sem EXIF), slide 2 = Brasesul 2027, slide 3 = Cartão do
+> Empresário. Saíram as fotos de banco, o "Inscreva-se"/"Votar" do jantar e os eventos fictícios da seção de eventos
+> (agora com os dados reais de `eventos.html`). **Ao passar a data de um evento, atualize a Home junto com eventos.html.**
+
 Fase atual: **protótipo da Home** para aprovação, com **duas propostas de layout** que usam o **mesmo texto** (do site
 atual do Sincor SC), a mesma paleta e as mesmas abas. As páginas internas ainda não existem: links internos mostram o
 aviso "disponível na próxima etapa".
