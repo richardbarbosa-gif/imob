@@ -307,3 +307,27 @@ html { scroll-padding-top: 6rem; }
 .ev-card__cta:hover { text-decoration: underline; text-underline-offset: 3px; }
 .ev-card__cta svg { width: 15px; height: 15px; }
 .ev-card__cta:focus-visible { outline: 3px solid #a87214; outline-offset: 2px; border-radius: 6px; }
+
+/* Vitrine da revista na Home (gerada por tools/revistas.mjs): texto + pilha das 3 capas mais recentes */
+.rev-home { display: grid; gap: 2rem; align-items: center; padding: clamp(1.5rem, 4vw, 2.75rem); border-radius: 24px; background: #f1f5f9; border: 1px solid rgb(226 232 240 / .9); }
+.rev-home__kicker { font-size: 11.5px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #8a5d0f; font-variant-numeric: tabular-nums; }
+.rev-home__titulo { margin-top: .4rem; font-size: clamp(1.5rem, 1.15rem + 1.2vw, 2.125rem); font-weight: 800; line-height: 1.15; color: #071d49; text-wrap: balance; }
+.rev-home__resumo { margin-top: .7rem; max-width: 56ch; font-size: 14.5px; line-height: 1.6; color: #475569; }
+.rev-home__acoes { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.4rem; }
+.rev-home__cta, .rev-home__link { display: inline-flex; align-items: center; gap: .5rem; min-height: 46px; padding: 0 1.35rem; border-radius: 12px; font-size: 13.5px; font-weight: 800; transition: filter .2s, background-color .2s, border-color .2s; }
+.rev-home__cta { color: #030d1f; background: linear-gradient(135deg, #f6d786 0%, #e0a43b 55%, #d4962a 100%); box-shadow: 0 8px 20px -10px rgb(212 150 42 / .8); }
+.rev-home__cta:hover { filter: brightness(1.05); }
+.rev-home__cta svg { width: 16px; height: 16px; }
+.rev-home__link { color: #071d49; background: #fff; border: 1px solid #e2e8f0; }
+.rev-home__link:hover { border-color: #d4962a; }
+.rev-home__cta:focus-visible, .rev-home__link:focus-visible { outline: 3px solid #a87214; outline-offset: 2px; }
+.rev-home__pilha { position: relative; display: block; justify-self: center; width: min(100%, 360px); aspect-ratio: 5 / 4; }
+.rev-home__capa { position: absolute; top: 4%; width: 52%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 8px; box-shadow: 0 22px 40px -18px rgb(3 13 31 / .55), 0 0 0 1px rgb(15 23 42 / .06); transition: transform .45s cubic-bezier(.22, 1, .36, 1); }
+.rev-home__capa--3 { left: 2%; transform: rotate(-9deg); }
+.rev-home__capa--2 { left: 46%; transform: rotate(8deg); }
+.rev-home__capa--1 { left: 24%; top: 7%; z-index: 2; transform: rotate(-1.5deg); }
+.rev-home__pilha:hover .rev-home__capa--3 { transform: rotate(-12deg) translateX(-6px); }
+.rev-home__pilha:hover .rev-home__capa--2 { transform: rotate(11deg) translateX(6px); }
+.rev-home__pilha:hover .rev-home__capa--1 { transform: rotate(0) translateY(-6px); }
+@media (min-width: 1024px) { .rev-home { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 3rem; } }
+@media (prefers-reduced-motion: reduce) { .rev-home__capa { transition: none; } }

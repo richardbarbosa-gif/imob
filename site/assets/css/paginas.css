@@ -268,3 +268,41 @@ input[type="date"].input { min-height: 48px; }
   [data-eventos="proximos"] > li:only-child .evento__title { font-size: 1.5rem; }
   [data-eventos="proximos"] > li:only-child .evento__texto { font-size: .9375rem; }
 }
+
+/* ===== Revistas (revistas.html): destaque da edição atual + acervo em capas ===== */
+.rev-destaque { position: relative; display: grid; gap: 2rem; align-items: center; padding: clamp(1.5rem, 4vw, 3rem); border-radius: 24px; border: 1px solid #0b2a5e; color: #fff; box-shadow: 0 25px 50px -20px rgb(3 13 31 / .45); isolation: isolate; }
+.rev-destaque .light-beam-gold { z-index: -1; }
+.rev-destaque__capa { justify-self: center; width: min(62%, 300px); border-radius: 10px; overflow: hidden; transform: rotate(-3deg); box-shadow: 0 30px 60px -18px rgb(0 0 0 / .7), 0 0 0 1px rgb(241 194 102 / .35); transition: transform .4s cubic-bezier(.22, 1, .36, 1); }
+.rev-destaque__capa:hover { transform: rotate(0) translateY(-4px); }
+.rev-destaque__capa img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; }
+.rev-destaque__tag { display: inline-flex; padding: .35rem .8rem; border-radius: 999px; background: rgb(255 255 255 / .1); border: 1px solid rgb(212 150 42 / .45); font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #f1c266; }
+.rev-destaque__num { margin-top: 1rem; font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #f1c266; font-variant-numeric: tabular-nums; }
+.rev-destaque__titulo { margin-top: .35rem; font-size: clamp(1.625rem, 1.2rem + 1.6vw, 2.5rem); font-weight: 800; line-height: 1.12; letter-spacing: -.01em; text-wrap: balance; }
+.rev-destaque__resumo { margin-top: .85rem; max-width: 52ch; font-size: 15px; line-height: 1.6; color: #d7deea; }
+.rev-destaque__cta { display: inline-flex; align-items: center; gap: .5rem; min-height: 48px; margin-top: 1.5rem; padding: 0 1.5rem; border-radius: 999px; background: #fff; color: #030d1f; font-size: 14px; font-weight: 800; box-shadow: 0 10px 24px -10px rgb(0 0 0 / .6); transition: background-color .2s; }
+.rev-destaque__cta:hover { background: #f1c266; }
+.rev-destaque__cta svg { width: 17px; height: 17px; }
+.rev-destaque__cta:focus-visible { outline: 3px solid #f1c266; outline-offset: 3px; }
+.rev-destaque__nota { margin-top: .9rem; font-size: 12.5px; color: #aab7cc; }
+@media (min-width: 768px) {
+  .rev-destaque { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 3rem; }
+  .rev-destaque__capa { width: min(100%, 320px); }
+}
+
+.revistas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem 1rem; }
+@media (min-width: 640px) { .revistas { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem 1.5rem; } }
+@media (min-width: 1024px) { .revistas { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (min-width: 1280px) { .revistas { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.revista { display: flex; flex-direction: column; height: 100%; color: inherit; border-radius: 12px; }
+.revista__capa { position: relative; display: block; aspect-ratio: 3 / 4; border-radius: 8px; overflow: hidden; background: #071d49; box-shadow: 0 1px 2px rgb(15 23 42 / .12), 0 14px 28px -16px rgb(7 29 73 / .5); transition: transform .35s cubic-bezier(.22, 1, .36, 1), box-shadow .35s; }
+.revista__capa::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgb(0 0 0 / .22) 0, rgb(255 255 255 / .12) 2.5%, transparent 6%); pointer-events: none; }
+.revista__capa img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.revista:hover .revista__capa { transform: translateY(-6px); box-shadow: 0 1px 2px rgb(15 23 42 / .12), 0 26px 40px -18px rgb(7 29 73 / .6); }
+.revista__num { margin-top: .9rem; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #8a5d0f; font-variant-numeric: tabular-nums; }
+.revista__titulo { margin-top: .25rem; font-size: 14.5px; font-weight: 800; line-height: 1.3; color: #071d49; }
+.revista__cta { display: inline-flex; align-items: center; gap: .3rem; margin-top: auto; padding-top: .5rem; font-size: 12.5px; font-weight: 800; color: #8a5d0f; }
+.revista__cta svg { width: 14px; height: 14px; transition: transform .2s; }
+.revista:hover .revista__cta svg { transform: translate(2px, -2px); }
+.revista:hover .revista__titulo { text-decoration: underline; text-decoration-color: rgb(212 150 42 / .6); text-underline-offset: 3px; }
+.revista:focus-visible { outline: 3px solid #a87214; outline-offset: 6px; }
+@media (prefers-reduced-motion: reduce) { .revista__capa, .rev-destaque__capa { transition: none; } }

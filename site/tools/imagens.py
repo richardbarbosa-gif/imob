@@ -12,6 +12,8 @@ BANNERS = {
     '20.jpg': ('cartao_empresario', [640, 1280]),
     '21.jpg': ('corretor_associado', [800, 1280, 2000]),
     '22.jpg': ('melhores_do_ano', [800, 1280, 2000]),
+    # Mesma arte do banner do site original (Banner_revistas_sincor_1920x600px-scaled.jpg, 2560x800), 16:5
+    'revistas_digitais.jpg': ('revistas_digitais', [800, 1280, 2000]),
 }
 EVENTOS = {
     'Captura-de-tela-2026-04-17-154452.png': 'congresso-brasileiro-2026',
@@ -24,6 +26,9 @@ def salvar(im, caminho):
     print(f'{os.path.relpath(caminho, OUT)}: {im.width}x{im.height}, {os.path.getsize(caminho) / 1024:.1f} KB')
 
 for arquivo, (nome, larguras) in BANNERS.items():
+    if not os.path.exists(os.path.join(SRC, arquivo)):
+        print(f'(sem {arquivo} em {SRC}: mantido o que já está em {OUT})')
+        continue
     im = Image.open(os.path.join(SRC, arquivo)).convert('RGB')
     for w in larguras:
         w = min(w, im.width)  # nunca amplia: só reduz
@@ -39,9 +44,12 @@ def fundo_16x9(im, caminho):
     salvar(im.resize((320, 180), Image.LANCZOS).filter(ImageFilter.GaussianBlur(12)), caminho)
 
 for arquivo, nome in EVENTOS.items():
+    if not os.path.exists(os.path.join(SRC, 'eventos', arquivo)):
+        continue
     im = Image.open(os.path.join(SRC, 'eventos', arquivo)).convert('RGB')
     salvar(im, os.path.join(OUT, 'eventos', f'{nome}.webp'))
     fundo_16x9(im, os.path.join(OUT, 'eventos', f'{nome}-fundo.webp'))
 
 # O banner do Melhores do Ano também vira cartão na página de eventos
-fundo_16x9(Image.open(os.path.join(SRC, '22.jpg')).convert('RGB'), os.path.join(OUT, 'eventos', 'melhores-do-ano-2026-fundo.webp'))
+if os.path.exists(os.path.join(SRC, '22.jpg')):
+    fundo_16x9(Image.open(os.path.join(SRC, '22.jpg')).convert('RGB'), os.path.join(OUT, 'eventos', 'melhores-do-ano-2026-fundo.webp'))

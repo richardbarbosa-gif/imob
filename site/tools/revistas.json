@@ -1,0 +1,22 @@
+{
+  "_como_usar": "Nova edição: gere as capas com tools/capas.py (acrescente o arquivo em CAPAS), acrescente o item abaixo e rode `node site/tools/revistas.mjs` e depois `node site/tools/versionar.mjs`. A edição de maior número vira o destaque de revistas.html e da vitrine da Home. Links e capas vêm da página Publicações do site original (https://sincor-sc.com.br/publicacoes/).",
+  "edicoes": [
+    { "num": 16, "data": "Junho de 2026", "titulo": "Aniversário de 65 anos", "resumo": "65 anos de história, união e conquistas pelo fortalecimento da nossa categoria.", "capa": "revista-16-junho-2026", "link": "https://online.fliphtml5.com/vhxlb/RevistaSincor_Junho26/" },
+    { "num": 15, "data": "Maio de 2026", "titulo": "Posse da Diretoria Gestão 2026 a 2029", "resumo": "E mais: Encontro da Mulher Corretora de Seguros-SC 2026 e o ciclo de palestras do Sincor-SC sobre o Novo Marco Legal do Seguro.", "capa": "revista-15-maio-2026", "link": "https://online.fliphtml5.com/vhxlb/RevistaSincor_Posse_Maio26_WEB/" },
+    { "num": 14, "data": "Dezembro de 2025", "titulo": "Melhores do Ano 2025", "resumo": "Conheça os vencedores do Melhores do Ano 2025.", "capa": "revista-14-dezembro-2025", "link": "https://online.fliphtml5.com/vhxlb/AF_RevistaSincor_MelhoresdoAno_26/" },
+    { "num": 13, "data": "2025", "titulo": "Conec 2025: o Sincor/SC no maior congresso de corretores da América Latina", "capa": "revista-13-2025", "link": "https://online.fliphtml5.com/vhxlb/kgke/" },
+    { "num": 12, "data": "2025", "titulo": "Café e Seguro em Pauta", "capa": "revista-12-2025", "link": "https://online.fliphtml5.com/vhxlb/nmqn/" },
+    { "num": 11, "data": "2025", "titulo": "Brasesul 2025", "capa": "revista-11-2025", "link": "https://online.fliphtml5.com/vhxlb/qneo/" },
+    { "num": 10, "data": "2024", "titulo": "Melhores do Ano 2024", "capa": "revista-10-2024", "link": "https://online.fliphtml5.com/vhxlb/swhc/" },
+    { "num": 9, "data": "2024", "titulo": "Está chegando a hora de escolher os Melhores do Ano", "capa": "revista-09-2024", "link": "https://online.fliphtml5.com/vhxlb/utzu/" },
+    { "num": 8, "data": "2024", "titulo": "Catástrofe no Rio Grande do Sul", "capa": "revista-08-2024", "link": "https://online.fliphtml5.com/vhxlb/reus/#p=1" },
+    { "num": 7, "data": "Dezembro de 2023", "titulo": "Melhores do Ano 2023", "capa": "revista-07-dezembro-2023", "link": "https://online.fliphtml5.com/vhxlb/cqbp/#p=1" },
+    { "num": 6, "data": "Outubro de 2023", "titulo": "Conheça mais do projeto Santa Catarina Seguro", "capa": "revista-06-outubro-2023", "link": "https://online.fliphtml5.com/vhxlb/qwqy/#p=1" },
+    { "num": 5, "data": "Agosto de 2023", "titulo": "Sincor, 62 anos de história", "capa": "revista-05-agosto-2023", "link": "https://online.fliphtml5.com/vhxlb/toyd/#p=1" },
+    { "num": 4, "data": "2022", "titulo": "Melhores do Ano 2022", "capa": "revista-04-2022", "link": "https://online.fliphtml5.com/vhxlb/cfnq/" }
+  ],
+  "especiais": [
+    { "rotulo": "Edição especial · Sincor SC, PR e RS", "titulo": "Brasesul 2018: caminhos, alternativas e soluções", "capa": "brasesul-2018", "link": "https://online.fliphtml5.com/vhxlb/AF_Revista_Sincor_05_baixa/" },
+    { "rotulo": "Documento oficial CNC · 2ª edição, julho de 2023", "titulo": "Cartilha LGPD: Lei Geral de Proteção de Dados Pessoais", "capa": "cartilha-lgpd-cnc-2023", "link": "https://online.fliphtml5.com/vhxlb/eijy/#p=1" }
+  ]
+}

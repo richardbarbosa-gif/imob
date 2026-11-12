@@ -127,6 +127,14 @@ zero complacência, apontar caminho melhor quando existir, antecipar falhas, ser
 > Empresário. Saíram as fotos de banco, o "Inscreva-se"/"Votar" do jantar e os eventos fictícios da seção de eventos
 > (agora com os dados reais de `eventos.html`). **Ao passar a data de um evento, atualize a Home junto com eventos.html.**
 
+> **Revistas (12/11):** 4º banner de campanha ("Leia a versão on-line das revistas", mesma arte do site original) leva a
+> `site/revistas.html`: destaque da edição mais recente + edições anteriores + especiais, cada capa abre a revista no
+> leitor FlipHTML5 (links da página Publicações do original, em nova aba). **Fonte única: `site/tools/revistas.json`.**
+> Nova edição = capa em `tools/capas.py` (3:4, WebP ≤ 150 KB) + uma linha no JSON + `node site/tools/revistas.mjs`
+> (reescreve entre `<!-- revistas:x -->` a página e a vitrine `#revistas` da Home) + `node site/tools/versionar.mjs`.
+> Menu "Revistas" (desktop e celular, todas as páginas) aponta para `revistas.html`; saiu o botão falso "Baixar PDF".
+> A confirmar com o cliente: no original, a capa do Brasesul 2018 aponta para `AF_Revista_Sincor_05_baixa` (mantido).
+
 Fase atual: **protótipo da Home** para aprovação, com **duas propostas de layout** que usam o **mesmo texto** (do site
 atual do Sincor SC), a mesma paleta e as mesmas abas. As páginas internas ainda não existem: links internos mostram o
 aviso "disponível na próxima etapa".
