@@ -14,7 +14,11 @@ BANNERS = {
     '22.jpg': ('melhores_do_ano', [800, 1280, 2000]),
     # Mesma arte do banner do site original (Banner_revistas_sincor_1920x600px-scaled.jpg, 2560x800), 16:5
     'revistas_digitais.jpg': ('revistas_digitais', [800, 1280, 2000]),
+    # Arte da SUSEP enviada pelo cliente (1024x572, 16:9): aparece inteira na moldura 16:5, sobre o fundo desfocado
+    'susep_registro.webp': ('susep_registro', [640, 1024]),
 }
+# Artes de outra proporção: ganham um fundo (a própria arte, ampliada e desfocada) para a moldura 16:5
+COM_FUNDO = {'cartao_empresario', 'susep_registro'}
 EVENTOS = {
     'Captura-de-tela-2026-04-17-154452.png': 'congresso-brasileiro-2026',
     'Captura-de-tela-2026-07-23-145251.png': 'encontro-da-mulher-2026',
@@ -33,7 +37,7 @@ for arquivo, (nome, larguras) in BANNERS.items():
     for w in larguras:
         w = min(w, im.width)  # nunca amplia: só reduz
         salvar(im.resize((w, round(im.height * w / im.width)), Image.LANCZOS), os.path.join(OUT, f'{nome}-{w}.webp'))
-    if nome == 'cartao_empresario':
+    if nome in COM_FUNDO:
         # Fundo para a moldura 16:5: a própria arte, ampliada na altura e desfocada aqui (sem filtro no navegador,
         # que apaga as bordas e custa processamento no celular)
         fundo = im.resize((400, 125), Image.LANCZOS).filter(ImageFilter.GaussianBlur(14))

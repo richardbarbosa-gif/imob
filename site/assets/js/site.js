@@ -51,7 +51,7 @@ navItems.forEach(item => {
 });
 document.addEventListener('click', e => { if (!e.target.closest('.nav-item')) closePanels(); });
 
-// Barra de cotações: dados reais, atualizados a cada minuto; sem dado, o item não aparece (nada inventado)
+// Barra de cotações: dados reais (moedas a cada 3 min, com fonte reserva); sem dado, o item não aparece (nada inventado)
 (function initTicker(root) {
   if (!root) return;
   const track = root.querySelector('[data-ticker-track]');
@@ -62,7 +62,9 @@ document.addEventListener('click', e => { if (!e.target.closest('.nav-item')) cl
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const CACHE_KEY = 'sincor-sc:mercado';
   const SPEED = 40;          // px por segundo
-  const REFRESH = 60000;     // moedas e Ibovespa
+  const REFRESH = 180000;    // moedas e Ibovespa: a AwesomeAPI gratuita tem cota por conexão (responde 429 ao estourar)
+  const AWESOME_PAUSE = 1800000; // depois de um 429, 30 min usando só a reserva (Frankfurter)
+  const AWESOME_KEY = 'sincor-sc:awesome-bloqueada';
   const BCB_RETRY = 600000;  // indicadores do BC mudam no máximo 1x por dia
 
   const store = {
@@ -87,7 +89,9 @@ document.addEventListener('click', e => { if (!e.target.closest('.nav-item')) cl
   const SOURCES = {
     currencies: 'https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,GBP-BRL,BTC-BRL',
     bcb: series => `https://api.bcb.gov.br/dados/serie/bcdata.sgs.${series}/dados/ultimos/1?formato=json`,
-    selicBackup: 'https://brasilapi.com.br/api/taxas/v1/selic', // se o Banco Central bloquear o navegador
+    taxaBackup: id => `https://brasilapi.com.br/api/taxas/v1/${id.toLowerCase()}`, // se o Banco Central falhar
+    // Reserva das moedas: referência diária do Banco Central Europeu; a variação é sobre o dia útil anterior
+    frankfurter: start => `https://api.frankfurter.dev/v1/${start}..?base=BRL&symbols=USD,EUR,GBP`,
     ibov: token => `https://brapi.dev/api/quote/%5EBVSP?token=${encodeURIComponent(token)}`
   };
   const BCB_SERIES = { SELIC: 432, CDI: 4389, IPCA: 13522 };
@@ -113,7 +117,7 @@ document.addEventListener('click', e => { if (!e.target.closest('.nav-item')) cl
   const item = (id, value, change) => ({ id, value, change: Number.isFinite(change) ? change : null });
   const inRange = (id, v) => Number.isFinite(v) && v >= RANGE[id][0] && v <= RANGE[id][1];
 
-  async function fromCurrencies() {
+  async function fromAwesome() {
     const data = await getJSON(SOURCES.currencies);
     const keys = { USDBRL: 'USD', EURBRL: 'EUR', GBPBRL: 'GBP', BTCBRL: 'BTC' };
     return Object.entries(keys).flatMap(([key, id]) => {
@@ -122,6 +126,32 @@ document.addEventListener('click', e => { if (!e.target.closest('.nav-item')) cl
       return Number.isFinite(value) && value > 0 ? [item(id, value, quote ? toNumber(quote.pctChange) : NaN)] : [];
     });
   }
+  async function fromFrankfurter() {
+    const start = new Date(Date.now() - 10 * 864e5).toISOString().slice(0, 10);
+    const data = await getJSON(SOURCES.frankfurter(start));
+    const days = data && data.rates ? Object.keys(data.rates).sort() : [];
+    if (!days.length) return [];
+    const last = data.rates[days[days.length - 1]];
+    const prev = days.length > 1 ? data.rates[days[days.length - 2]] : null;
+    // A base é BRL (1 real = x dólar): o preço em reais é o inverso
+    return ['USD', 'EUR', 'GBP'].flatMap(id => {
+      const value = last[id] > 0 ? 1 / last[id] : NaN;
+      const before = prev && prev[id] > 0 ? 1 / prev[id] : NaN;
+      return Number.isFinite(value) ? [item(id, value, Number.isFinite(before) ? (value / before - 1) * 100 : NaN)] : [];
+    });
+  }
+  async function fromCurrencies() {
+    const bloqueada = Number(store.get(AWESOME_KEY)) || 0;
+    if (Date.now() - bloqueada > AWESOME_PAUSE) {
+      try {
+        const list = await fromAwesome();
+        if (list.length) return list;
+      } catch (e) {
+        if (/HTTP 429/.test(e.message)) store.set(AWESOME_KEY, String(Date.now()));
+      }
+    }
+    return fromFrankfurter();
+  }
   async function bcbSeries(id) {
     const data = await getJSON(SOURCES.bcb(BCB_SERIES[id]));
     const last = Array.isArray(data) && data.length ? data[data.length - 1] : null;
@@ -129,15 +159,15 @@ document.addEventListener('click', e => { if (!e.target.closest('.nav-item')) cl
     if (!inRange(id, value)) throw new Error(`Série ${BCB_SERIES[id]} fora da faixa`);
     return item(id, value, NaN);
   }
-  async function selicFromBackup() {
-    const data = await getJSON(SOURCES.selicBackup);
+  async function taxaFromBackup(id) {
+    const data = await getJSON(SOURCES.taxaBackup(id));
     const value = data ? toNumber(data.valor) : NaN;
-    if (!inRange('SELIC', value)) throw new Error('Selic de reserva fora da faixa');
-    return item('SELIC', value, NaN);
+    if (!inRange(id, value)) throw new Error(`${id} de reserva fora da faixa`);
+    return item(id, value, NaN);
   }
   async function fromCentralBank() {
     const settled = await Promise.allSettled(Object.keys(BCB_SERIES).map(id =>
-      id === 'SELIC' ? bcbSeries(id).catch(selicFromBackup) : bcbSeries(id)));
+      bcbSeries(id).catch(() => taxaFromBackup(id))));
     return settled.filter(s => s.status === 'fulfilled').map(s => s.value);
   }
   async function fromIbovespa() {
@@ -162,9 +192,9 @@ document.addEventListener('click', e => { if (!e.target.closest('.nav-item')) cl
       fresh = await fromFeed(feedUrl).catch(() => []);
     } else {
       const tasks = [fromCurrencies(), fromIbovespa()];
-      if (first || (!rates.length && Date.now() - bcbTriedAt > BCB_RETRY)) {
+      if (first || (rates.length < Object.keys(BCB_SERIES).length && Date.now() - bcbTriedAt > BCB_RETRY)) {
         bcbTriedAt = Date.now();
-        tasks.push(fromCentralBank().then(r => { if (r.length) rates = r; return []; }));
+        tasks.push(fromCentralBank().then(r => { if (r.length >= rates.length) rates = r; return []; }));
       }
       const settled = await Promise.allSettled(tasks);
       fresh = settled.flatMap(s => (s.status === 'fulfilled' ? s.value : [])).concat(rates);
@@ -248,7 +278,7 @@ document.addEventListener('click', e => { if (!e.target.closest('.nav-item')) cl
     root.classList.toggle('is-cached', mode === 'cached');
     const hour = time.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
     timeEl.textContent = mode === 'live' ? `Atualizado às ${hour}` : `Último dado às ${hour}`;
-    timeEl.title = 'Cotações com atraso, apenas informativas. Fontes: AwesomeAPI (moedas e bitcoin), Banco Central do Brasil (Selic, CDI e IPCA) e brapi/B3 (Ibovespa).';
+    timeEl.title = 'Cotações com atraso, apenas informativas. Fontes: AwesomeAPI (moedas e bitcoin; reserva: Frankfurter/BCE), Banco Central do Brasil (Selic, CDI e IPCA; reserva: BrasilAPI) e brapi/B3 (Ibovespa).';
     timeEl.hidden = false;
     // A Selic do rodapé usa o mesmo dado
     const selic = current.find(i => i.id === 'SELIC');
@@ -264,15 +294,31 @@ document.addEventListener('click', e => { if (!e.target.closest('.nav-item')) cl
     root.classList.remove('is-live', 'is-cached', 'is-scrolling');
   }
 
+  // Roda sempre (pedido do cliente): com poucos itens ou tela larga, repete a lista até passar da largura da tela,
+  // para o loop nunca ficar parado nem mostrar buraco. As cópias ficam escondidas do leitor de tela.
   function setupScroll() {
     const group = track.firstElementChild;
-    if (!group) return;
-    const width = group.getBoundingClientRect().width;
-    const scroll = width > track.parentElement.clientWidth - 8;
-    root.classList.toggle('is-scrolling', scroll);
-    track.lastElementChild.hidden = !scroll;
-    // "Reduzir movimento" (comum no Windows de PCs antigos) deixa mais lento, sem parar; sem botão de pausa (pedido do cliente, 12/11): roda sempre, só segura sob o mouse
-    if (scroll) track.style.setProperty('--ticker-duration', `${Math.round(width / (reduceMotion.matches ? SPEED / 2 : SPEED))}s`);
+    if (!group || !current.length) return;
+    group.querySelectorAll('[data-copia]').forEach(el => el.remove());
+    const base = [...group.children];
+    const unit = group.getBoundingClientRect().width;
+    if (!unit) return;
+    const repeats = Math.max(1, Math.ceil((track.parentElement.clientWidth + 8) / unit));
+    for (let r = 1; r < repeats; r++) {
+      base.forEach(li => {
+        const copy = li.cloneNode(true);
+        copy.setAttribute('aria-hidden', 'true');
+        copy.setAttribute('data-copia', '');
+        copy.classList.remove('tick--flash-up', 'tick--flash-down');
+        group.append(copy);
+      });
+    }
+    const clone = group.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    track.replaceChildren(group, clone);
+    root.classList.add('is-scrolling');
+    // "Reduzir movimento" (comum no Windows de PCs antigos) deixa mais lento, sem parar; sem botão de pausa (pedido do cliente, 12/11)
+    track.style.setProperty('--ticker-duration', `${Math.round((unit * repeats) / (reduceMotion.matches ? SPEED / 2 : SPEED))}s`);
   }
 
   // Remede quando o layout muda (CSS do Tailwind chegando, fonte trocada, janela redimensionada)

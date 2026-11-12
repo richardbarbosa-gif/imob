@@ -135,6 +135,14 @@ zero complacência, apontar caminho melhor quando existir, antecipar falhas, ser
 > Menu "Revistas" (desktop e celular, todas as páginas) aponta para `revistas.html`; saiu o botão falso "Baixar PDF".
 > A confirmar com o cliente: no original, a capa do Brasesul 2018 aponta para `AF_Revista_Sincor_05_baixa` (mantido).
 
+> **SUSEP e barra de cotações (12/11):** 5º banner de campanha com a arte da SUSEP enviada pelo cliente (1024x572, aparece
+> inteira na moldura 16:5) e atalho "Consulta SUSEP" no painel "Acesso rápido do corretor", ambos para
+> https://www2.susep.gov.br/safe/Corretores/pesquisa (nova aba). Barra de cotações: a AwesomeAPI gratuita passou a ter
+> cota por conexão (responde 429 "QuotaExceeded"); sem moedas sobravam 2 itens que cabiam na tela e a barra ficava parada.
+> Agora a barra **sempre rola** (repete a lista até passar da largura), moedas a cada 3 min com reserva no Frankfurter
+> (referência do BCE; 30 min sem chamar a AwesomeAPI após um 429; Bitcoin só pela AwesomeAPI) e CDI/IPCA com reserva na
+> BrasilAPI. Em produção, o ideal continua sendo o JSON próprio (`data-feed`) publicado pelo servidor.
+
 Fase atual: **protótipo da Home** para aprovação, com **duas propostas de layout** que usam o **mesmo texto** (do site
 atual do Sincor SC), a mesma paleta e as mesmas abas. As páginas internas ainda não existem: links internos mostram o
 aviso "disponível na próxima etapa".
