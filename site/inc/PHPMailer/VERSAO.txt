@@ -1,0 +1,1 @@
+PHPMailer v6.12.0 (LGPL-2.1), copiado sem alteração de https://github.com/PHPMailer/PHPMailer. Só os 3 arquivos usados para SMTP.

@@ -5,7 +5,8 @@
  * - Não grava nenhum dado pessoal no servidor: valida, monta o e-mail (com anexos) e envia.
  * - Valida tudo de novo aqui; a validação do navegador só ajuda quem preenche.
  * - Proteções contra robôs: campo-isca, tempo mínimo de preenchimento e limite de envios por hora.
- * - Envio pela função mail() da hospedagem. Para trocar o destino, mude DESTINO.
+ * - Envio por SMTP autenticado quando existe o arquivo sincor-smtp.php fora da pasta pública (ver config_smtp());
+ *   sem ele, pela função mail() da hospedagem, que pode cair no spam. Para trocar o destino, mude DESTINO.
  */
 declare(strict_types=1);
 
@@ -260,20 +261,33 @@ function enviar_email(string $tipo, string $titulo, string $protocolo, array $bl
            . '<p style="margin-top:4px;font-size:12px;color:#94a3b8">Para responder, use "Responder": a resposta vai para o e-mail informado no formulário.</p>'
            . '</td></tr></table></td></tr></table></body></html>';
 
-    // Remetente do próprio domínio do site; "Responder" vai para quem preencheu
+    $replyTo = str_replace(["\r", "\n"], '', $replyTo);
+    $assunto = "$tipo: $titulo [$protocolo]";
+
+    // 1º caminho: SMTP autenticado (caixa de e-mail real, com SPF/DKIM do domínio). É o que tira o e-mail do spam.
+    $smtp = config_smtp();
+    if ($smtp !== null) {
+        if (enviar_por_smtp($smtp, $assunto, $html, $texto, $anexos, $replyTo, $protocolo)) return true;
+        error_log("Sincor SC: SMTP falhou no envio $protocolo; tentando mail() da hospedagem");
+    }
+
+    // 2º caminho (reserva): mail() da hospedagem, com remetente do próprio domínio do site
     $dominio = preg_replace('/^www\./', '', host_do_site());
     if (!preg_match('/^[a-z0-9.-]+\.[a-z]{2,}$/', $dominio)) $dominio = 'sincor-sc.com.br';
     $remetente = "nao-responda@$dominio";
-    $replyTo = str_replace(["\r", "\n"], '', $replyTo);
     $codifica = fn(string $v): string => '=?UTF-8?B?' . base64_encode($v) . '?=';
-    $assunto = $codifica("$tipo: $titulo [$protocolo]");
+    $assunto = $codifica($assunto);
 
     $limite = 'sincor-' . bin2hex(random_bytes(12));
     $alt = 'sincor-alt-' . bin2hex(random_bytes(12));
+    // Date e Message-ID próprios: e-mail sem eles soma pontos nos filtros de spam
     $cabecalhos = implode("\r\n", [
         'MIME-Version: 1.0',
+        'Date: ' . date(DATE_RFC2822),
+        'Message-ID: <' . $protocolo . '.' . bin2hex(random_bytes(6)) . "@$dominio>",
         'From: ' . $codifica('Site Sincor SC') . " <$remetente>",
         "Reply-To: $replyTo",
+        'Auto-Submitted: auto-generated',
         'X-Mailer: Sincor SC',
         "Content-Type: multipart/mixed; boundary=\"$limite\"",
     ]);
@@ -296,6 +310,72 @@ function enviar_email(string $tipo, string $titulo, string $protocolo, array $bl
     $ok = mail(DESTINO, $assunto, $corpo, $cabecalhos, '-f' . $remetente);
     if (!$ok) error_log("Sincor SC: falha no envio $protocolo ($tipo)");
     return $ok;
+}
+
+/**
+ * Lê a configuração de SMTP de um arquivo FORA da pasta pública (nunca vai para o GitHub nem para o navegador):
+ * na Hostinger, ao lado da public_html (domains/<domínio>/sincor-smtp.php). Modelo em tools/sincor-smtp.exemplo.php.
+ * Sem o arquivo (ou incompleto), devolve null e o envio usa o mail() da hospedagem.
+ */
+function config_smtp(): ?array
+{
+    $arquivo = dirname(__DIR__, 2) . '/sincor-smtp.php';
+    if (!is_file($arquivo)) return null;
+    $cfg = include $arquivo;
+    if (!is_array($cfg)) return null;
+    foreach (['host', 'porta', 'usuario', 'senha'] as $chave) {
+        if (empty($cfg[$chave])) {
+            error_log("Sincor SC: sincor-smtp.php sem '$chave'; usando mail()");
+            return null;
+        }
+    }
+    return $cfg;
+}
+
+/** Envia por SMTP autenticado (PHPMailer). Devolve false em qualquer falha, sem expor detalhes ao visitante. */
+function enviar_por_smtp(array $cfg, string $assunto, string $html, string $texto, array $anexos, string $replyTo, string $protocolo): bool
+{
+    require_once __DIR__ . '/PHPMailer/Exception.php';
+    require_once __DIR__ . '/PHPMailer/PHPMailer.php';
+    require_once __DIR__ . '/PHPMailer/SMTP.php';
+
+    $m = new PHPMailer\PHPMailer\PHPMailer(true);
+    try {
+        $m->isSMTP();
+        $m->Host = (string) $cfg['host'];
+        $m->Port = (int) $cfg['porta'];
+        $m->SMTPAuth = true;
+        $m->Username = (string) $cfg['usuario'];
+        $m->Password = (string) $cfg['senha'];
+        // 465 = SSL direto; 587 = STARTTLS. Certificado sempre verificado.
+        $m->SMTPSecure = (int) $cfg['porta'] === 465
+            ? PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS
+            : PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+        $m->Timeout = 20;
+        $m->CharSet = PHPMailer\PHPMailer\PHPMailer::CHARSET_UTF8;
+        $m->Encoding = PHPMailer\PHPMailer\PHPMailer::ENCODING_BASE64;
+        $m->XMailer = 'Sincor SC';
+
+        // O remetente precisa ser a própria caixa autenticada (ou um alias dela), senão o SPF/DKIM não alinham
+        $m->setFrom((string) ($cfg['remetente'] ?? $cfg['usuario']), (string) ($cfg['nome'] ?? 'Site Sincor SC'), false);
+        $m->addAddress((string) ($cfg['destino'] ?? DESTINO));
+        if (filter_var($replyTo, FILTER_VALIDATE_EMAIL)) $m->addReplyTo($replyTo);
+        $m->MessageID = '<' . $protocolo . '.' . bin2hex(random_bytes(6)) . '@' . substr(strrchr($m->From, '@') ?: '@sincor-sc.com.br', 1) . '>';
+        $m->addCustomHeader('Auto-Submitted', 'auto-generated');
+
+        $m->isHTML(true);
+        $m->Subject = $assunto;
+        $m->Body = $html;
+        $m->AltBody = $texto;
+        foreach ($anexos as $a) {
+            $m->addStringAttachment($a['conteudo'], $a['nome'], PHPMailer\PHPMailer\PHPMailer::ENCODING_BASE64, $a['mime']);
+        }
+        return $m->send();
+    } catch (Throwable $e) {
+        $motivo = substr(preg_replace('/[^\x20-\x7E]+/', ' ', $m->ErrorInfo) ?? '', 0, 300);
+        error_log("Sincor SC: falha no SMTP $protocolo: $motivo");
+        return false;
+    }
 }
 
 /** Recusa o envio quando a soma dos anexos passa do limite do e-mail. */

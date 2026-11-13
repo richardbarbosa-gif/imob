@@ -1,0 +1,12 @@
+{
+  "name": "sincor-sc-site-tools",
+  "private": true,
+  "description": "Ferramentas de build do site (não sobem para a hospedagem)",
+  "scripts": {
+    "css": "tailwindcss -c tailwind.config.cjs -i tailwind.input.css -o ../assets/css/tailwind.css --minify",
+    "publicar": "npm run css && node versionar.mjs"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}

@@ -174,9 +174,45 @@ zero complacência, apontar caminho melhor quando existir, antecipar falhas, ser
 > Selo ("de forma indevida, que possa acarretar", também no e-mail do `enviar-solicitacao.php`) e Eventos ("corretores de
 > seguros"). Todos os links de "Diretoria e Delegados" (menus, rodapé, cartão da Home) levam a `diretoria.html`.
 
-Fase atual: **protótipo da Home** para aprovação, com **duas propostas de layout** que usam o **mesmo texto** (do site
-atual do Sincor SC), a mesma paleta e as mesmas abas. As páginas internas ainda não existem: links internos mostram o
-aviso "disponível na próxima etapa".
+> **CSS compilado, e-mail por SMTP, subpáginas e auditoria (13/11, 2ª parte):**
+> - **Tailwind não vem mais do CDN.** O `cdn.tailwindcss.com` montava o CSS no navegador do visitante a cada visita
+>   (JS pesado, tela sem estilo por um instante, nota baixa no Lighthouse). Agora o CSS é compilado uma vez em
+>   `site/assets/css/tailwind.css` (30 KB, 6 KB com gzip), mesma versão do CDN (3.4.17), linkado **por último** no
+>   `<head>`, na mesma posição em que o CDN injetava. Comparação elemento por elemento em 12 páginas × 2 larguras:
+>   idêntico (só uma borda âmbar com 1/255 de diferença de arredondamento). Lighthouse celular, mediana de 3, servidor
+>   local: Home 71 → 85 (LCP 4,5 → 3,5 s, TBT 284 → 0 ms); Quem somos 90 → 97 (LCP 2,9 → 2,1 s).
+>   **Classe nova do Tailwind no HTML só funciona depois de recompilar:** `cd site/tools && npm install` (uma vez) e
+>   `npm run publicar` (= compila o CSS + `versionar.mjs`). O tema (cores `sincor-*`, fontes, sombras) está em
+>   `site/tools/tailwind.config.cjs`; o antigo `tailwind-config.js` saiu.
+> - **E-mail dos formulários:** `inc/formularios.php` envia por **SMTP autenticado** (PHPMailer 6.12.0 em
+>   `inc/PHPMailer/`) quando existe `sincor-smtp.php` **fora da public_html** (modelo em `site/tools/sincor-smtp.exemplo.php`;
+>   senha nunca no repositório). Sem o arquivo, ou se o SMTP falhar, cai no `mail()` da hospedagem (agora com `Date`,
+>   `Message-ID` e `Auto-Submitted`), sem perder a ficha. Testado: SMTP com TLS verificado, senha errada, certificado
+>   falso e configuração incompleta. **Hoje a conta Hostinger não tem nenhuma caixa de e-mail** e o domínio é temporário:
+>   o `mail()` continua sujeito a spam até existir uma caixa real com SPF/DKIM (no domínio do Sincor, ou um Gmail com
+>   senha de app como solução provisória).
+> - **Subpáginas com acabamento novo (só `paginas.css`; a Home não carrega esse arquivo):** assinatura = a "asa" do logo
+>   do Sincor (as duas curvas, dourada e branca) grande e translúcida no topo de cada página, no lugar do facho de luz
+>   borrado, com filete dourado na base; títulos de seção com losango dourado; princípios com numeral em medalhão
+>   marinho; Missão/Visão com acento dourado e a asa no cartão escuro; "Veja também" com ícone marinho/dourado;
+>   Diretoria em formato de medalhão (faixa creme atrás da foto, aro dourado; presidente com faixa marinho e selo
+>   dourado); ano aberto das Convenções com acento dourado. Conferido em 360 a 1920 px sem rolagem lateral; axe sem
+>   violação nova (o único alerta das subpáginas é o "SC" dourado do logo, isento por ser logotipo).
+> - **Auditoria original × nosso (13/11):** Quem somos, Diretoria (27 nomes), Convenções (45 itens, 35 PDFs conferidos
+>   por tamanho, Estatuto e Regimento por hash), Política, Selo e fichas conferidos; diferenças só de ortografia.
+>   **Achados, não alterados, aguardando o Richard:** (1) o original publicou a **Revista Nº 17, outubro/2026**
+>   (`fliphtml5.com/vhxlb/RevistaSincor_Outubro26_Sepradas/`), que falta em `revistas.html` e na vitrine da Home;
+>   (2) no original, **CNPJ** (ficha PJ) e **CEP, endereço, bairro, cidade e estado** (PF e PJ) são obrigatórios; aqui
+>   estão opcionais; (3) Eventos: o local "Hotel Sibara Spa & Convenções" do Encontro da Mulher não está no original
+>   (a cidade, Balneário Camboriú, a imprensa confirma); a imprensa cita 11 e 12/09, o original só 12/09;
+>   (4) Home, herdado do código recebido: "+ R$ 4,8 Mil"/"+ R$ 9,5 Mil" sem fonte, títulos de vídeos da TV e a lista
+>   "Seguradoras Parceiras" (inclui "HDI / YELUM", "MAPFRE / SULAMÉRICA") não batem com o material do cliente;
+>   (5) "aos nossos filhos" virou "para os nossos filhos" em Quem somos (troca de estilo, não de erro).
+
+Fase atual: **site oficial em construção em `site/`** (HTML + Tailwind compilado + PHP na Hostinger, sem banco de dados
+por enquanto), publicado na prévia `lightcoral-dolphin-948661.hostingersite.com`, que o Richard manda ao cliente a cada
+entrega. O conteúdo chega aos poucos; cada material novo entra quando o cliente envia. As versões abaixo (`prototipo/`)
+são histórico das propostas de Home.
 
 | Versão | Código | Arquivo único para testar | Linguagem |
 |---|---|---|---|
@@ -214,6 +250,16 @@ clínica. Direção de arte única: maquete branca, detalhes dourados, base laqu
 
 ## 4. Estrutura e comandos
 
+**Site oficial (`site/`):**
+- `cd site/tools && npm install` (uma vez por sessão nova) e, **antes de cada publicação**, `npm run publicar`
+  (compila `assets/css/tailwind.css` e versiona CSS/JS com `?v=<hash>`).
+- Cabeçalho/rodapé: `node site/tools/sync-layout.mjs`; revistas: `node site/tools/revistas.mjs`; diretoria e
+  convenções: `node site/tools/institucional.mjs`.
+- Publicar na Hostinger: subir `site/` sem `tools/` nem `.hostinger/` (ver `site/.hostinger/site.json`) para a
+  `public_html` da prévia, depois conferir a prévia no ar. `sincor-smtp.php` fica fora da `public_html` e não é sobrescrito.
+
+**Protótipos (histórico):**
+
 ```
 docs/BRIEFING.md              requisitos vivos e decisões
 prototipo/
@@ -236,6 +282,8 @@ prototipo/
 ## 5. Stack e restrições técnicas
 
 - HTML5 + CSS + JavaScript puro, sem frameworks e sem dependências em runtime. Mobile-first.
+- `site/`: Tailwind **compilado** (nunca voltar ao CDN), PHP só para os formulários (`enviar-*.php` + `inc/`).
+  Fontes ainda pelo Google Fonts (próximo ganho de desempenho: hospedar as fontes no próprio site).
 - Fontes self-hosted (Schibsted Grotesk; Source Serif 4 recortada só para o título do Telão), `font-display: swap`,
   fallback com métricas ajustadas.
 - **CSP por hash** no build: **proibido** atributo `style=""` no HTML (o build falha de propósito) e proibido script

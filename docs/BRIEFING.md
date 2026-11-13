@@ -1,7 +1,7 @@
 # Briefing do projeto — Sincor SC
 
 > Registro vivo dos requisitos. Toda decisão de arquitetura deve rastrear até aqui.
-> Última atualização: 2026-10-15
+> Última atualização: 2026-11-13
 
 ## 1. Contexto
 
@@ -88,6 +88,10 @@ Na versão Telão, só Dólar (AwesomeAPI) e Selic (Banco Central, com a BrasilA
 **Home escolhida pelo cliente (21/10/2026):** `site/index.html` (layout portal, HTML + Tailwind). O presidente pediu a barra
 de cotações correndo no topo, com dados reais: Ibovespa, dólar, Selic e bitcoin (mais Euro, Libra, CDI e IPCA), verde quando
 sobe e vermelho quando cai. Ibovespa depende de token da brapi (grátis); em produção, o JSON próprio via `data-feed`.
+
+**Decisão de 13/11/2026 (Richard):** por enquanto o site fica na **Hostinger com PHP**, sem Vercel, Supabase ou banco de
+dados, do mesmo jeito do site original. O conteúdo entra aos poucos, conforme o cliente envia. A proposta abaixo continua
+valendo para quando entrarem login, votação, carteira e CMS.
 
 **Fase do sistema (propostas, dependem da conversa com o cliente sobre banco de dados e hospedagem):**
 
