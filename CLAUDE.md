@@ -198,6 +198,10 @@ zero complacência, apontar caminho melhor quando existir, antecipar falhas, ser
 >   Diretoria em formato de medalhão (faixa creme atrás da foto, aro dourado; presidente com faixa marinho e selo
 >   dourado); ano aberto das Convenções com acento dourado. Conferido em 360 a 1920 px sem rolagem lateral; axe sem
 >   violação nova (o único alerta das subpáginas é o "SC" dourado do logo, isento por ser logotipo).
+> - **Feito a pedido do Richard (13/11, após a auditoria):** Revista **Nº 17, outubro/2026** entrou como edição mais
+>   recente (capa do original, título e resumo tirados do texto da capa) em `revistas.html` e na vitrine da Home; nas
+>   fichas, **CNPJ (PJ) e CEP, endereço, bairro, cidade e estado (PF e PJ) passaram a obrigatórios**, como no original,
+>   no HTML e no `enviar-adesao.php`. Itens (1) e (2) abaixo resolvidos.
 > - **Auditoria original × nosso (13/11):** Quem somos, Diretoria (27 nomes), Convenções (45 itens, 35 PDFs conferidos
 >   por tamanho, Estatuto e Regimento por hash), Política, Selo e fichas conferidos; diferenças só de ortografia.
 >   **Achados, não alterados, aguardando o Richard:** (1) o original publicou a **Revista Nº 17, outubro/2026**

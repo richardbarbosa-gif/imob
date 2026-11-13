@@ -40,11 +40,11 @@ $filiacao = [
     'mae' => ['Nome da mãe', true, 120, null],
 ];
 $endereco = [
-    'cep'      => ['CEP', false, 9, 'cep'],
-    'endereco' => ['Endereço', false, 150, null],
-    'bairro'   => ['Bairro', false, 80, null],
-    'cidade'   => ['Cidade', false, 80, null],
-    'estado'   => ['Estado', false, 2, 'uf'],
+    'cep'      => ['CEP', true, 9, 'cep'],
+    'endereco' => ['Endereço', true, 150, null],
+    'bairro'   => ['Bairro', true, 80, null],
+    'cidade'   => ['Cidade', true, 80, null],
+    'estado'   => ['Estado', true, 2, 'uf'],
     'telefone' => ['Telefone', true, 15, 'telefone'],
     'email'    => ['E-mail', true, 120, 'email'],
 ];
@@ -72,7 +72,7 @@ if ($tipo === 'pf') {
     $secoes = [
         'Dados da corretora'        => [
             'corretora'  => ['Nome da corretora', true, 150, null],
-            'cnpj'       => ['CNPJ', false, 18, 'cnpj'],
+            'cnpj'       => ['CNPJ', true, 18, 'cnpj'],
             'susep'      => ['Nº SUSEP', true, 30, null],
             'susep_data' => ['Data de concessão SUSEP', true, 10, 'passada'],
         ],

@@ -8,8 +8,9 @@ from PIL import Image
 SRC, OUT = sys.argv[1], sys.argv[2]
 QUALIDADE = 82
 TETO_KB = 150  # orçamento do projeto por imagem: a qualidade desce até caber
-# arquivo baixado do site original -> nome final (ordem da página original: 1.png é a primeira capa)
+# arquivo baixado do site original -> nome final (1.png a 15.png: ordem da página original em 12/11/2026)
 CAPAS = {
+    'revista-17-outubro-2026.png': 'revista-17-outubro-2026',  # publicada no original em 12/11/2026
     '1.png': 'revista-16-junho-2026', '2.png': 'revista-15-maio-2026', '3.png': 'revista-14-dezembro-2025',
     '4.png': 'revista-13-2025', '5.jpg': 'revista-12-2025', '6.jpg': 'revista-11-2025', '7.png': 'revista-10-2024',
     '8.jpg': 'revista-09-2024', '9.jpg': 'revista-08-2024', '10.jpg': 'revista-07-dezembro-2023',
@@ -19,6 +20,8 @@ CAPAS = {
 
 os.makedirs(OUT, exist_ok=True)
 for arquivo, nome in CAPAS.items():
+    if not os.path.exists(os.path.join(SRC, arquivo)):
+        continue  # converte só as capas presentes na pasta (ex.: só a edição nova)
     im = Image.open(os.path.join(SRC, arquivo)).convert('RGB')
     w, h = im.size
     if w / h > 3 / 4:   # mais larga: corta as laterais por igual
