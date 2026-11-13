@@ -202,6 +202,15 @@ zero complacência, apontar caminho melhor quando existir, antecipar falhas, ser
 >   recente (capa do original, título e resumo tirados do texto da capa) em `revistas.html` e na vitrine da Home; nas
 >   fichas, **CNPJ (PJ) e CEP, endereço, bairro, cidade e estado (PF e PJ) passaram a obrigatórios**, como no original,
 >   no HTML e no `enviar-adesao.php`. Itens (1) e (2) abaixo resolvidos.
+> - **Ouvidoria (13/11):** `site/ouvidoria.html` com o texto e o formulário da página original
+>   (https://sincor-sc.com.br/ouvidoria/; só a ortografia corrigida: "junto às seguradoras", "auxílio", "denúncias",
+>   "e-mail"). Campos e obrigatórios iguais aos do original: nome, e-mail, telefone, órgão ou seguradora (24 opções; a
+>   Tokio Marine, repetida no original, aparece uma vez), cidade/estado, data do ocorrido, segurado e descrição;
+>   empresa, protocolo, ramo, demandas e arquivo (só PDF, até 5 MB) opcionais; aceite da Política de Privacidade como nos
+>   demais formulários. Envio por `enviar-solicitacao.php` (tipo `ouvidoria`), com as listas validadas no servidor.
+>   Os links "Ouvidoria" (barra do topo, menu Contato e menu do celular) levam à página nova em todas as páginas;
+>   `ouvidoria.html` entrou na lista do `sync-layout.mjs`. `formulario.js` aceita caixas de marcação opcionais sem
+>   mensagem de erro. Testado: envio completo com PDF, envio vazio, opção fora da lista, data futura e arquivo falso.
 > - **Auditoria original × nosso (13/11):** Quem somos, Diretoria (27 nomes), Convenções (45 itens, 35 PDFs conferidos
 >   por tamanho, Estatuto e Regimento por hash), Política, Selo e fichas conferidos; diferenças só de ortografia.
 >   **Achados, não alterados, aguardando o Richard:** (1) o original publicou a **Revista Nº 17, outubro/2026**

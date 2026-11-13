@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PAGES = [
   'seja-associado.html', 'seja-associado-pessoa-fisica.html', 'seja-associado-pessoa-juridica.html',
-  'selo-corretor-associado.html', 'cartao-do-empresario.html', 'eventos.html', 'politica-de-privacidade.html', 'revistas.html', 'quem-somos.html', 'diretoria.html', 'convencoes-coletivas.html',
+  'selo-corretor-associado.html', 'cartao-do-empresario.html', 'eventos.html', 'politica-de-privacidade.html', 'revistas.html', 'quem-somos.html', 'diretoria.html', 'convencoes-coletivas.html', 'ouvidoria.html',
 ];
 const REGIONS = ['topo', 'rodape'];
 

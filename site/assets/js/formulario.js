@@ -1,4 +1,4 @@
-// Formulários do site (fichas de adesão, selo e cartão do empresário): máscaras, endereço pelo CEP, listas de pessoas,
+// Formulários do site (fichas de adesão, selo, cartão do empresário e ouvidoria): máscaras, endereço pelo CEP, listas de pessoas,
 // validação acessível e envio. O servidor valida tudo de novo: esta validação só existe para ajudar quem preenche.
 // Configuração pelo HTML: data-mask, data-valida, data-label (nome curto no resumo de erros), data-msg (mensagem de
 // obrigatório) e, nas listas, data-repetidor / data-repetidor-modelo / data-repetidor-add.
@@ -132,6 +132,7 @@
     const errorEl = form.querySelector(`#${isRadio ? group.id : el.id}-erro`);
     const targets = isRadio ? [...form.querySelectorAll(`input[name="${CSS.escape(el.name)}"]`)] : [el];
     const box = isRadio ? group : form.querySelector(`#${el.id}-box`);
+    if (!errorEl) return; // caixas de marcação opcionais (ex.: Ramo e Demandas da Ouvidoria) não têm mensagem de erro
     errorEl.textContent = msg;
     errorEl.hidden = !msg;
     targets.forEach(t => {

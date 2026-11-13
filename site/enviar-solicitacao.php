@@ -1,6 +1,6 @@
 <?php
 /**
- * Recebe as solicitações do Selo Corretor Associado e do Cartão do Empresário e envia por e-mail ao Sincor SC.
+ * Recebe as solicitações do Selo Corretor Associado, do Cartão do Empresário e da Ouvidoria e envia por e-mail ao Sincor SC.
  * Validação, proteções e envio ficam em inc/formularios.php (comum a todos os formulários).
  */
 declare(strict_types=1);
@@ -8,7 +8,7 @@ define('SINCOR_FORM', true);
 require __DIR__ . '/inc/formularios.php';
 
 $tipo = $_POST['tipo'] ?? '';
-if (!in_array($tipo, ['selo', 'cartao'], true)) {
+if (!in_array($tipo, ['selo', 'cartao', 'ouvidoria'], true)) {
     responder(400, ['ok' => false, 'mensagem' => 'Formulário inválido.']);
 }
 $envio = iniciar_envio($tipo);
@@ -19,7 +19,56 @@ $anexos = [];
 $blocos = [];
 $aceite = ['aceite' => ['Aceite', true, 3, 'aceite']];
 
-if ($tipo === 'selo') {
+if ($tipo === 'ouvidoria') {
+    // Mesmos campos e listas da página original do Sincor SC (ouvidoria); a Tokio Marine, repetida na lista original, aparece uma vez só
+    $SEGURADORAS = ['Allianz Seguros S/A', 'Azul Seguros S/A', 'Alfa Seguradora S/A', 'Caixa Seguradora S/A', 'Bradesco Seguros S/A', 'RSA Seguros S/A', 'Capemisa Seguradora de Vida e Previdência S/A', 'Liberty Seguros S/A', 'Metropolitan Life Seguros e Previdência Privada S/A', 'Tokio Marine Seguradora S/A', 'Mapfre Vera Cruz Seguradora S/A', 'Generali Brasil Seguros S/A', 'Chubb do Brasil Cia. de Seguros', 'Itaú Seguros S/A', 'J. Malucelli Seguradora S/A', 'Sul América Cia. Nacional de Seguros', 'Icatu Seguros S/A', 'Mongeral Aegon Seguros e Previdência S/A', 'Porto Seguro Companhia de Seguros Gerais', 'Yasuda Marítima Seguros S/A', 'Zurich Brasil Seguros', 'HDI Seguros Brasil', 'Suhai Seguradora', 'Outra'];
+    $RAMOS = ['Auto', 'RE', 'Benefícios', 'Outros'];
+    $DEMANDAS = ['Assistência 24 Horas', 'Vidros', 'Indenização Parcial', 'Indenização Integral', 'Carro Reserva', 'Entrega do Veículo', 'Falta ou atraso de peças', 'Liberação de reparos', 'Vistoria Prévia', 'Vistoria de Sinistro', 'Outras'];
+    $pessoa = [
+        'nome'      => ['Nome', true, 120, null],
+        'corretora' => ['Empresa/Corretora', false, 150, null],
+        'email'     => ['E-mail', true, 120, 'email'],
+        'telefone'  => ['Telefone', true, 15, 'telefone'],
+    ];
+    $ocorrencia = [
+        'seguradora'    => ['Órgão ou Seguradora', true, 80, $SEGURADORAS],
+        'protocolo'     => ['Nº do protocolo/sinistro', false, 60, null],
+        'cidade'        => ['Cidade/Estado', true, 100, null],
+        'data_ocorrido' => ['Data do ocorrido', true, 10, 'passada'],
+        'segurado'      => ['Nome do segurado', true, 120, null],
+    ];
+    $fatos = ['fatos' => ['Descrição dos fatos', true, 5000, null]];
+    validar_campos($pessoa + $ocorrencia + $fatos + $aceite, $valores, $erros);
+
+    // Ramo e demandas: várias opções, nenhuma obrigatória; só valem as da lista
+    $marcados = function (string $campo, array $permitidos): string {
+        $lista = is_array($_POST[$campo] ?? null) ? $_POST[$campo] : [];
+        return implode(', ', array_values(array_intersect($permitidos, array_map('valor_enviado', $lista))));
+    };
+    $ramos = $marcados('ramo', $RAMOS);
+    $demandas = $marcados('demandas', $DEMANDAS);
+
+    $pdf = ['rotulo' => 'Arquivo da ocorrência', 'prefixo' => 'ouvidoria', 'max_mb' => 5, 'obrigatorio' => false,
+            'tipos' => ['application/pdf' => 'pdf']];
+    if ($a = ler_anexo('arquivo', $pdf, $valores['nome'] ?: 'ocorrencia', $erros)) $anexos[] = $a;
+    if ($erros) responder(422, ['ok' => false, 'mensagem' => 'Confira os campos destacados.', 'erros' => $erros]);
+
+    foreach ($pessoa as $nome => [$rotulo]) $blocos['Quem registra'][] = [$rotulo, $valores[$nome]];
+    $blocos['Ocorrência'] = [
+        ['Órgão ou Seguradora', $valores['seguradora']],
+        ['Nº do protocolo/sinistro', $valores['protocolo']],
+        ['Ramo', $ramos],
+        ['Demandas', $demandas],
+        ['Cidade/Estado', $valores['cidade']],
+        ['Data do ocorrido', exibir_data($valores['data_ocorrido'])],
+        ['Nome do segurado', $valores['segurado']],
+    ];
+    $blocos['Descrição dos fatos'] = [
+        ['Fatos', $valores['fatos']],
+        ['Aceite da Política de Privacidade', 'Sim, aceitou'],
+    ];
+    $assunto = ['Ouvidoria', $valores['nome'] . ' · ' . $valores['seguradora']];
+} elseif ($tipo === 'selo') {
     // Mesmos campos da página original do Sincor SC (selo-corretor-associado)
     $campos = [
         'nome'      => ['Nome da corretora (PJ) ou do corretor (PF)', true, 150, null],
