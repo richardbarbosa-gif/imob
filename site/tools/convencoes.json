@@ -1,0 +1,268 @@
+{
+ "_fonte": "Texto e documentos idênticos aos de https://sincor-sc.com.br/convencoes-coletivas/ (copiados em 13/11/2026). Documento sem arquivo = item só de texto no original (ex.: aguardando assinatura). Para atualizar: edite aqui, coloque o PDF em documentos/convencoes/<ano>/ e rode node site/tools/institucional.mjs.",
+ "subtitulo": "Sindicato dos Corretores de Seguros no Estado de Santa Catarina",
+ "anos": [
+  {
+   "ano": "2026",
+   "destaque": "Piso Regional de Santa Catarina, para os securitários, passou a ser de R$ 2.022,00",
+   "documentos": [
+    {
+     "titulo": "Blumenau – Convenção Coletiva 2026",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2026/06/CCT-2026-BNU-11-06-26-CORRETORES.pdf",
+     "arquivo": "documentos/convencoes/2026/CCT-2026-BNU-11-06-26-CORRETORES.pdf"
+    },
+    {
+     "titulo": "Blumenau – Resumo Convenção Coletiva 2026",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2026/06/Resumo-CCT-2026-Corretores.pdf",
+     "arquivo": "documentos/convencoes/2026/Resumo-CCT-2026-Corretores.pdf"
+    },
+    {
+     "titulo": "Florianópolis – Convenção Coletiva 2026",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2026/02/Convencao-Coletiva-2026-Florianopolis.pdf",
+     "arquivo": "documentos/convencoes/2026/Convencao-Coletiva-2026-Florianopolis.pdf"
+    },
+    {
+     "titulo": "Florianópolis – Resumo  Convenção Coletiva 2026",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2026/02/Resumo-Florianopolis.pdf",
+     "arquivo": "documentos/convencoes/2026/Resumo-Florianopolis.pdf"
+    },
+    {
+     "titulo": "Joinville – Convenção Coletiva 2026 - Aguardando Assinatura"
+    },
+    {
+     "titulo": "Joinville – Resumo  Convenção Coletiva 2026 - Aguardando Assinatura"
+    }
+   ]
+  },
+  {
+   "ano": "2025",
+   "destaque": "Piso Regional de Santa Catarina, para os securitários, passou a ser de R$ 1.898,00",
+   "documentos": [
+    {
+     "titulo": "Blumenau – Convenção Coletiva 2025",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2025/01/CCT-2025-BNU-SINCOR-.pdf",
+     "arquivo": "documentos/convencoes/2025/CCT-2025-BNU-SINCOR-.pdf"
+    },
+    {
+     "titulo": "Blumenau – Resumo Convenção Coletiva 2025",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2025/01/CCT-2025-BNU-RESUMO-SINCOR-.pdf",
+     "arquivo": "documentos/convencoes/2025/CCT-2025-BNU-RESUMO-SINCOR-.pdf"
+    },
+    {
+     "titulo": "Florianópolis – Convenção Coletiva 2025",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2025/01/CCT-2025-Florianopolis-Assinada.pdf",
+     "arquivo": "documentos/convencoes/2025/CCT-2025-Florianopolis-Assinada.pdf"
+    },
+    {
+     "titulo": "Florianópolis – Resumo  Convenção Coletiva 2025",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2025/01/Resumo-CCT-2025-Florianopolis-Assinada.pdf",
+     "arquivo": "documentos/convencoes/2025/Resumo-CCT-2025-Florianopolis-Assinada.pdf"
+    },
+    {
+     "titulo": "Joinville – Convenção Coletiva 2025 - Aguardando Assinatura"
+    },
+    {
+     "titulo": "Joinville – Resumo  Convenção Coletiva 2025 - Aguardando Assinatura"
+    }
+   ],
+   "observacao": {
+    "titulo": "Obs. Válida para a CCT de Florianópolis.",
+    "texto": "Conforme acordado entre o Presidente do Sincor-SC, Sr Afonso Luiz Coelho Filho e Presidente do Sindicato Intermunicipal dos Empregados Securitários do Estado de Santa Catarina, Sr Airton Galdino, a carta de oposição ao desconto do imposto sindical poderá ser realizada por manifesto individual e com justificativa de próprio punho contendo nome, CPF, nome da empresa e CNPJ por e-mail:",
+    "email": "sindicato@securitariofpolis.org.br"
+   }
+  },
+  {
+   "ano": "2024",
+   "documentos": [
+    {
+     "titulo": "Blumenau – Convenção Coletiva 2024",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/CCT_2024_BNU_Versao_final.docx-1.pdf",
+     "arquivo": "documentos/convencoes/2024/CCT_2024_BNU_Versao_final.docx-1.pdf"
+    },
+    {
+     "titulo": "Florianópolis – Convenção Coletiva 2024",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/CCT_2024_Fpolis_versao_final_.docx.pdf",
+     "arquivo": "documentos/convencoes/2024/CCT_2024_Fpolis_versao_final_.docx.pdf"
+    },
+    {
+     "titulo": "Joinville – Convenção Coletiva 2024",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/CCT_2024_Joinville__versao_final.docx.pdf",
+     "arquivo": "documentos/convencoes/2024/CCT_2024_Joinville__versao_final.docx.pdf"
+    },
+    {
+     "titulo": "Blumenau – Resumo Convenção Coletiva 2024",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/Resuno-CCT-2024-BNU.pdf",
+     "arquivo": "documentos/convencoes/2024/Resuno-CCT-2024-BNU.pdf"
+    },
+    {
+     "titulo": "Florianópolis – Resumo  Convenção Coletiva 2024",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/Resuno-CCT-2024-FPOLIS.pdf",
+     "arquivo": "documentos/convencoes/2024/Resuno-CCT-2024-FPOLIS.pdf"
+    },
+    {
+     "titulo": "Joinville – Resumo  Convenção Coletiva 2024",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/Resuno-CCT-2024-JOI.pdf",
+     "arquivo": "documentos/convencoes/2024/Resuno-CCT-2024-JOI.pdf"
+    }
+   ]
+  },
+  {
+   "ano": "2023",
+   "documentos": [
+    {
+     "titulo": "Blumenau – Convenção Coletiva 2023",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/CCT-2023-BNU-01.02.2023.pdf",
+     "arquivo": "documentos/convencoes/2023/CCT-2023-BNU-01.02.2023.pdf"
+    },
+    {
+     "titulo": "Florianópolis – Convenção Coletiva 2023",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/CCT_2023_Fpolis__01-02-23_final.docx.pdf",
+     "arquivo": "documentos/convencoes/2023/CCT_2023_Fpolis__01-02-23_final.docx.pdf"
+    },
+    {
+     "titulo": "Joinville – Convenção Coletiva 2023 não assinada pelo sindicato dos Securitários de Joinville"
+    }
+   ]
+  },
+  {
+   "ano": "2022",
+   "documentos": [
+    {
+     "titulo": "Blumenau – Convenção Coletiva 2022",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/CCT-2022-BLUMENAU.pdf",
+     "arquivo": "documentos/convencoes/2022/CCT-2022-BLUMENAU.pdf"
+    },
+    {
+     "titulo": "Florianópolis – Convenção Coletiva 2022",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/CCT-2022-FLORIANOPOLIS.pdf",
+     "arquivo": "documentos/convencoes/2022/CCT-2022-FLORIANOPOLIS.pdf"
+    },
+    {
+     "titulo": "Joinville – Convenção Coletiva 2022",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/CCT-2022-JOINVILLE.pdf",
+     "arquivo": "documentos/convencoes/2022/CCT-2022-JOINVILLE.pdf"
+    }
+   ]
+  },
+  {
+   "ano": "2021",
+   "documentos": [
+    {
+     "titulo": "Blumenau – Convenção Coletiva 2021",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/CCT-2021-ASSINADA.pdf",
+     "arquivo": "documentos/convencoes/2021/CCT-2021-ASSINADA.pdf"
+    },
+    {
+     "titulo": "Florianópolis – Convenção Coletiva 2021 não assinada pelo sindicato dos Securitários de Florianópolis"
+    },
+    {
+     "titulo": "Joinville – Convenção Coletiva 2021 não assinada pelo sindicato dos Securitários de Joinville"
+    }
+   ]
+  },
+  {
+   "ano": "2020",
+   "documentos": [
+    {
+     "titulo": "Blumenau – Convenção Coletiva 2020",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/CCT-2020-Blumenau.pdf",
+     "arquivo": "documentos/convencoes/2020/CCT-2020-Blumenau.pdf"
+    },
+    {
+     "titulo": "Florianópolis – Convenção Coletiva 2020 não assinada pelo sindicato dos Securitários de Florianópolis"
+    },
+    {
+     "titulo": "Joinville – Convenção Coletiva 2020 não assinada pelo sindicato dos Securitários de Joinville"
+    }
+   ]
+  },
+  {
+   "ano": "2019",
+   "documentos": [
+    {
+     "titulo": "Blumenau – Convenção Coletiva aprovada em Assembleia",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/Convencao-2019.pdf",
+     "arquivo": "documentos/convencoes/2019/Convencao-2019.pdf"
+    },
+    {
+     "titulo": "Resumo Convenções Coletiva Blumenau 2019",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/Resumo-Convencao-2019.pdf",
+     "arquivo": "documentos/convencoes/2019/Resumo-Convencao-2019.pdf"
+    },
+    {
+     "titulo": "Florianópolis – Convenção Coletiva 2019 não assinada pelo sindicato dos Securitários de Florianópolis"
+    },
+    {
+     "titulo": "Joinville – Convenção Coletiva 2019",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/CCT-JOINVILLE-2019.pdf",
+     "arquivo": "documentos/convencoes/2019/CCT-JOINVILLE-2019.pdf"
+    },
+    {
+     "titulo": "Resumo Convenções Coletiva Joinville 2019",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/RESUMO-CCT-JOINVILLE-2019.pdf",
+     "arquivo": "documentos/convencoes/2019/RESUMO-CCT-JOINVILLE-2019.pdf"
+    }
+   ]
+  },
+  {
+   "ano": "2018",
+   "documentos": [
+    {
+     "titulo": "Convenção Coletiva Blumenau 2018",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/2018_blumenau.pdf",
+     "arquivo": "documentos/convencoes/2018/2018_blumenau.pdf"
+    },
+    {
+     "titulo": "Resumo Convenção Coletiva Blumenau 2018",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/2018_blumenau_resumo.pdf",
+     "arquivo": "documentos/convencoes/2018/2018_blumenau_resumo.pdf"
+    },
+    {
+     "titulo": "Convenção Coletiva Florianópolis 2018",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/2018_floripa.pdf",
+     "arquivo": "documentos/convencoes/2018/2018_floripa.pdf"
+    },
+    {
+     "titulo": "Resumo Convenção Coletiva Florianópolis 2018",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/2018_floripa_resumo.pdf",
+     "arquivo": "documentos/convencoes/2018/2018_floripa_resumo.pdf"
+    }
+   ]
+  },
+  {
+   "ano": "2017",
+   "documentos": [
+    {
+     "titulo": "Convenção Coletiva Blumenau 2017",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/2017_blumenau.pdf",
+     "arquivo": "documentos/convencoes/2017/2017_blumenau.pdf"
+    },
+    {
+     "titulo": "Resumo Convenção Coletiva Blumenau 2017",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/2017_blumenau_resumo.pdf",
+     "arquivo": "documentos/convencoes/2017/2017_blumenau_resumo.pdf"
+    },
+    {
+     "titulo": "Convenção Coletiva Florianópolis 2017",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/2017_florianopolis.pdf",
+     "arquivo": "documentos/convencoes/2017/2017_florianopolis.pdf"
+    },
+    {
+     "titulo": "Resumo Convenção Coletiva Florianópolis 2017",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/2017_florianopolis_resumo.pdf",
+     "arquivo": "documentos/convencoes/2017/2017_florianopolis_resumo.pdf"
+    },
+    {
+     "titulo": "Convenção Coletiva Joinville 2017",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/2017_joinville.pdf",
+     "arquivo": "documentos/convencoes/2017/2017_joinville.pdf"
+    },
+    {
+     "titulo": "Resumo Convenção Coletiva Joinville 2017",
+     "original": "https://sincor-sc.com.br/wp-content/uploads/2024/08/2017_joinville_resumo.pdf",
+     "arquivo": "documentos/convencoes/2017/2017_joinville_resumo.pdf"
+    }
+   ]
+  }
+ ]
+}

@@ -143,6 +143,31 @@ zero complacência, apontar caminho melhor quando existir, antecipar falhas, ser
 > (referência do BCE; 30 min sem chamar a AwesomeAPI após um 429; Bitcoin só pela AwesomeAPI) e CDI/IPCA com reserva na
 > BrasilAPI. Em produção, o ideal continua sendo o JSON próprio (`data-feed`) publicado pelo servidor.
 
+> **Institucional, SUSEP e limpeza (13/11):**
+> - **Páginas novas com o texto IDÊNTICO ao site original** (só o visual é nosso; nada reescrito nem corrigido):
+>   `quem-somos.html` (história, missão e visão, princípios), `diretoria.html` (Diretoria Executiva, suplentes,
+>   Conselho Fiscal e suplentes, delegados e suplentes junto à Fenacor, Assessoria Jurídica, Diretores Regionais) e
+>   `convencoes-coletivas.html` (2017 a 2026, piso regional, observação da carta de oposição de Florianópolis).
+>   Cada uma termina em "Veja também" (Estatuto, Regimento interno e as outras páginas).
+> - **Dados em JSON, gerados por `node site/tools/institucional.mjs`:** `tools/diretoria.json` (27 entradas, fotos em
+>   `imagens/diretoria/<nome>.webp`, 320 px) e `tools/convencoes.json` (35 PDFs + 10 itens só de texto, como
+>   "Aguardando Assinatura"). O mesmo JSON alimenta o bloco "Diretoria Executiva" da Home (`<!-- inst:home-diretoria -->`),
+>   que substituiu a seção de "delegacias regionais" do código recebido, que era **inventada**.
+> - **Documentos oficiais hospedados no nosso site** (`site/documentos/`, 37 PDFs, 66 MB, cópias exatas conferidas por
+>   hash, nomes originais): convenções em `documentos/convencoes/<ano>/`, `ESTATUTO-SOCIAL-AGE_20190819_Sincor_SC.pdf`
+>   e `Regimento_Interno-Sincor_SC.pdf`. Motivo: na troca de domínio os links do WordPress antigo deixam de existir.
+>   **Nunca editar nem recomprimir esses PDFs.** Nova convenção: PDF na pasta do ano + linha no JSON + gerador.
+> - Menu "Sobre Nós", rodapé, barra superior ("Convenções Coletivas"), cartões da Home e atalho "Circulares & CCT"
+>   apontam para as páginas novas; "Estatuto Social" abre o PDF em nova aba.
+> - **Diretores Regionais:** o original mostra só as 9 regiões, sem nomes. Mostramos só as regiões até o cliente enviar.
+> - **Banner SUSEP refeito em HTML** (texto real, "CLIQUE AQUI E CONSULTE" no padrão das artes do cliente) com a **marca
+>   oficial vigente da SUSEP** (nova marca apresentada pela autarquia em dez/2025, recortada da imagem oficial do gov.br,
+>   `imagens/marcas/susep-*.webp`, sem alteração, sobre o fundo claro original #f7f7f7). A arte com cara de IA saiu.
+> - **Sem setas nos botões** (pedido do cliente: "cara de IA"): removidas de todos os botões/CTAs, do rodapé (›) e dos
+>   geradores. Ficam só as setas de navegação de carrossel e o ▾ dos menus.
+> - Pendências de conteúdo: "Comissões Técnicas" da Home (Automóvel, Vida, Ramos) veio no código recebido e **não existe
+>   no site original**; ainda não confirmado com o cliente. Os cartões "Acesso Rápido" da Home ainda usam fotos de banco.
+
 Fase atual: **protótipo da Home** para aprovação, com **duas propostas de layout** que usam o **mesmo texto** (do site
 atual do Sincor SC), a mesma paleta e as mesmas abas. As páginas internas ainda não existem: links internos mostram o
 aviso "disponível na próxima etapa".
@@ -227,6 +252,8 @@ prototipo/
   hover/foco pensados, microcopy específica.
 - O cliente achou "cara de IA" e "cara de página de vendas" em títulos grandes demais e pesados: prefira tom
   **institucional**.
+- **Nada de setas (→, ↗, ›) em botões e links de ação** (o cliente considera "cara de IA"). Setas só em controles
+  de navegação (anterior/próximo de carrossel) e ▾ de menu.
 
 ### 6.2 UX
 - Mobile-first, testado de 360 a 1920 px, sem rolagem horizontal.
@@ -264,6 +291,8 @@ prototipo/
   visível (WCAG 2.5.3); decoração com `aria-hidden`.
 
 ### 6.6 Conteúdo
+- **Conteúdo copiado do site original vai idêntico, palavra por palavra** (pedido do cliente: "não erre que é grave").
+  Erros de digitação do original não são corrigidos por conta própria: liste-os para o cliente decidir.
 - **Use o texto real do Sincor SC.** Não invente fatos, números, depoimentos, parceiros nem datas. Exemplos provisórios
   (eventos menores, notícias, vídeos) estão marcados no README e devem continuar marcados.
 - Cotações: nada inventado. Sem dado real, o item mostra traço/"indisponível". Dados com atraso e sinalizados como
@@ -297,9 +326,9 @@ prototipo/
 1. Confirmar HEX da paleta e enviar o logo em SVG
 2. Fotos (diretoria, eventos, sede); foto da fachada permitiria uma maquete 3D da sede real
 3. Acesso à hospedagem atual e ao DNS (hoje com a Guerra Comunicação)
-4. URLs oficiais das redes sociais
+4. ~~URLs oficiais das redes sociais~~ (feito em 11/11)
 5. Conteúdo das páginas internas (ou autorização para reaproveitar o atual)
-6. Delegados por região, comissões, seguradoras parceiras
+6. Nomes dos Diretores Regionais (o original só lista as 9 regiões); confirmar se as "Comissões Técnicas" da Home existem; seguradoras parceiras
 7. Regras da votação Melhores do Ano
 8. Base de associados (formato e campos) para importação
 9. Decisão sobre banco de dados e hospedagem do sistema

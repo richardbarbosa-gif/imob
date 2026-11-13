@@ -43,7 +43,7 @@ function renderNews(cat = 'all', q = '') {
         </div>
       </div>
       <div class="px-5 pb-5">
-        <a href="#noticias" class="text-xs font-extrabold text-sincor-goldDark hover:underline">Ler notícia completa →</a>
+        <a href="#noticias" class="text-xs font-extrabold text-sincor-goldDark hover:underline">Ler notícia completa</a>
       </div>
     </article>
   `).join('');
@@ -60,25 +60,6 @@ function filterNews(cat) {
 }
 
 document.getElementById('globalSearchInput')?.addEventListener('input', e => renderNews('all', e.target.value));
-
-// Regiões SC
-const regData = {
-  vale: { label: 'Sede Estadual • Vale do Itajaí', cities: 'Blumenau, Itajaí, Balneário Camboriú, Brusque e Rio do Sul', addr: 'Rua Dr. Luiz de Freitas Melro, 395 - salas 902 à 904 - Centro, Blumenau - SC, 89010-921' },
-  floripa: { label: 'Delegacia Regional • Grande Florianópolis', cities: 'Florianópolis, São José, Palhoça e Biguaçu', addr: 'Representação institucional e eventos técnicos na Capital.' },
-  norte: { label: 'Delegacia Regional • Norte SC', cities: 'Joinville, Jaraguá do Sul, São Francisco do Sul e Mafra', addr: 'Atendimento às corretoras da macrorregião Norte.' },
-  sul: { label: 'Delegacia Regional • Sul SC', cities: 'Criciúma, Tubarão, Araranguá e Laguna', addr: 'Encontros regionais e suporte sindical no Sul catarinense.' },
-  oeste: { label: 'Delegacia Regional • Oeste SC', cities: 'Chapecó, Concórdia, Joaçaba e São Miguel do Oeste', addr: 'Foco em agronegócio, transportes e desenvolvimento regional.' }
-};
-function selectRegion(r) {
-  document.getElementById('regLabel').textContent = regData[r].label;
-  document.getElementById('regCities').textContent = regData[r].cities;
-  document.getElementById('regAddress').textContent = regData[r].addr;
-  document.querySelectorAll('.reg-pill').forEach(b => {
-    b.className = b.dataset.reg === r
-      ? 'reg-pill px-3.5 py-2 rounded-lg text-xs font-extrabold bg-sincor-900 text-white transition'
-      : 'reg-pill px-3.5 py-2 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
-  });
-}
 
 function filterComm(v) {
   document.querySelectorAll('#commContainer > div').forEach(d => {

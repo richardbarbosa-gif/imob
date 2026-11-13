@@ -1,0 +1,217 @@
+{
+ "_fonte": "Texto idêntico ao de https://sincor-sc.com.br/diretoria/ (copiado em 13/11/2026). Fotos em imagens/diretoria/<foto>.webp. Para atualizar: edite aqui e rode node site/tools/institucional.mjs.",
+ "subtitulo": "Sindicato dos Corretores de Seguros no Estado de Santa Catarina",
+ "secoes": [
+  {
+   "titulo": "Diretoria Executiva",
+   "pessoas": [
+    {
+     "nome": "Auri Bertelli",
+     "cidade": "Blumenau",
+     "cargo": "Presidente",
+     "foto": "auri-bertelli"
+    },
+    {
+     "nome": "Claudio Rotava",
+     "cidade": "Chapecó",
+     "cargo": "1º Vice-Presidente",
+     "foto": "claudio-rotava"
+    },
+    {
+     "nome": "Jalmei José Duarte",
+     "cidade": "Joinville",
+     "cargo": "2º Vice-Presidente",
+     "foto": "jalmei-jose-duarte"
+    },
+    {
+     "nome": "Silvana Ap. Tomio da Silva",
+     "cidade": "Blumenau",
+     "cargo": "3º Vice-Presidente",
+     "foto": "silvana-ap-tomio-da-silva"
+    },
+    {
+     "nome": "Nelson A. Reis Simas",
+     "cidade": "Balneário Camboriu",
+     "cargo": "1º Secretário",
+     "foto": "nelson-a-reis-simas"
+    },
+    {
+     "nome": "Mario Cesar Tobias",
+     "cidade": "Blumenau",
+     "cargo": "2º Secretário",
+     "foto": "mario-cesar-tobias"
+    },
+    {
+     "nome": "Alberto Carlos Müller",
+     "cidade": "Blumenau",
+     "cargo": "1º Tesoureiro",
+     "foto": "alberto-carlos-muller"
+    },
+    {
+     "nome": "Álvaro Loes",
+     "cidade": "Timbó",
+     "cargo": "2º Tesoureiro",
+     "foto": "alvaro-loes"
+    }
+   ]
+  },
+  {
+   "titulo": "Suplentes da Diretoria",
+   "pessoas": [
+    {
+     "nome": "Aderbal Humberto Braun Amaro",
+     "cidade": "Blumenau",
+     "cargo": "1º Suplente",
+     "foto": "aderbal-humberto-braun-amaro"
+    },
+    {
+     "nome": "Mirts Piazza Zomer",
+     "cidade": "Orleans",
+     "cargo": "2º Suplente",
+     "foto": "mirts-piazza-zomer"
+    },
+    {
+     "nome": "Fábio Jesseler Gomes",
+     "cidade": "Joinville",
+     "cargo": "3º Suplente",
+     "foto": "fabio-jesseler-gomes"
+    },
+    {
+     "nome": "Valcir Zanella",
+     "cidade": "Itajaí",
+     "cargo": "4º Suplente",
+     "foto": "valcir-zanella"
+    },
+    {
+     "nome": "Claudio Cesar Cavilha",
+     "cidade": "Rio do Sul",
+     "cargo": "5º Suplente",
+     "foto": "claudio-cesar-cavilha"
+    },
+    {
+     "nome": "Nelson Vilson Citton",
+     "cidade": "Itajaí",
+     "cargo": "6º Suplente",
+     "foto": "nelson-vilson-citton"
+    },
+    {
+     "nome": "Carlos Roberto Ricardo",
+     "cidade": "Blumenau",
+     "cargo": "7º Suplente",
+     "foto": "carlos-roberto-ricardo"
+    },
+    {
+     "nome": "Mario Raphael Silvestre Prudencio",
+     "cidade": "Tubarão",
+     "cargo": "8º Suplente",
+     "foto": "mario-raphael-silvestre-prudencio"
+    }
+   ]
+  },
+  {
+   "titulo": "Conselho Fiscal",
+   "pessoas": [
+    {
+     "nome": "Alcides João Pavanello",
+     "cidade": "Jaragua do Sul",
+     "cargo": "Conselheiro Fiscal",
+     "foto": "alcides-joao-pavanello"
+    },
+    {
+     "nome": "Simão Baldoino Weber",
+     "cidade": "Indaial",
+     "cargo": "Conselheiro Fiscal",
+     "foto": "simao-baldoino-weber"
+    },
+    {
+     "nome": "Célio Leite",
+     "cidade": "Blumenau",
+     "cargo": "Conselheiro Fiscal",
+     "foto": "celio-leite"
+    }
+   ]
+  },
+  {
+   "titulo": "Suplentes do Conselho Fiscal",
+   "pessoas": [
+    {
+     "nome": "Renato Ferraz de Oliveira",
+     "cidade": "Blumenau",
+     "cargo": "Suplente",
+     "foto": "renato-ferraz-de-oliveira"
+    },
+    {
+     "nome": "Diego Rocha Alegri",
+     "cidade": "Timbó",
+     "cargo": "Suplente",
+     "foto": "diego-rocha-alegri"
+    },
+    {
+     "nome": "Patrícia Brandt Firmo",
+     "cidade": "Balneário Camboriu",
+     "cargo": "Suplente",
+     "foto": "patricia-brandt-firmo"
+    }
+   ]
+  },
+  {
+   "titulo": "Delegados junto a Fenacor",
+   "pessoas": [
+    {
+     "nome": "Claudio Simão",
+     "cidade": "Blumenau",
+     "cargo": null,
+     "foto": "claudio-simao"
+    },
+    {
+     "nome": "Auri Bertelli",
+     "cidade": "Blumenau",
+     "cargo": null,
+     "foto": "auri-bertelli"
+    }
+   ]
+  },
+  {
+   "titulo": "Delegados Suplentes junto a Fenacor",
+   "pessoas": [
+    {
+     "nome": "Jalmei José Duarte",
+     "cidade": null,
+     "cargo": "Suplente",
+     "foto": "jalmei-jose-duarte"
+    },
+    {
+     "nome": "Alcides João Pavanello",
+     "cidade": null,
+     "cargo": "Suplente",
+     "foto": "alcides-joao-pavanello"
+    }
+   ]
+  },
+  {
+   "titulo": "Assessoria Jurídica",
+   "pessoas": [
+    {
+     "nome": "Dr. Marcelo Roberto Tomaz",
+     "cidade": null,
+     "cargo": null,
+     "foto": "marcelo-roberto-tomaz"
+    }
+   ]
+  },
+  {
+   "titulo": "Diretores Regionais",
+   "regioes": [
+    "Grande Florianópolis",
+    "Sul",
+    "Vale do Itajai",
+    "Alto Vale",
+    "Norte",
+    "Planalto Serrano",
+    "Oeste",
+    "Extremo Oeste",
+    "Meio Oeste"
+   ]
+  }
+ ]
+}

@@ -14,11 +14,9 @@ BANNERS = {
     '22.jpg': ('melhores_do_ano', [800, 1280, 2000]),
     # Mesma arte do banner do site original (Banner_revistas_sincor_1920x600px-scaled.jpg, 2560x800), 16:5
     'revistas_digitais.jpg': ('revistas_digitais', [800, 1280, 2000]),
-    # Arte da SUSEP enviada pelo cliente (1024x572, 16:9): aparece inteira na moldura 16:5, sobre o fundo desfocado
-    'susep_registro.webp': ('susep_registro', [640, 1024]),
 }
 # Artes de outra proporção: ganham um fundo (a própria arte, ampliada e desfocada) para a moldura 16:5
-COM_FUNDO = {'cartao_empresario', 'susep_registro'}
+COM_FUNDO = {'cartao_empresario'}
 EVENTOS = {
     'Captura-de-tela-2026-04-17-154452.png': 'congresso-brasileiro-2026',
     'Captura-de-tela-2026-07-23-145251.png': 'encontro-da-mulher-2026',

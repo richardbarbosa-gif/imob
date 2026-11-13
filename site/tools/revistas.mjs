@@ -14,7 +14,8 @@ const [atual, ...anteriores] = edicoes;
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const num = (n) => `Nº ${String(n).padStart(2, '0')}`;
-const SETA = '<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H8M17 7v9"/></svg>';
+const SETA = ''; // sem seta nos botões (pedido do cliente)
+const _SETA_ANTIGA = '<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H8M17 7v9"/></svg>';
 const NOVA_ABA = '<span class="sr-only"> (abre o leitor digital em nova aba)</span>';
 const externo = (link) => `href="${esc(link)}" target="_blank" rel="noopener noreferrer"`;
 const capa = (nome, { lazy = true, cls = '' } = {}) =>

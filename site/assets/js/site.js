@@ -401,3 +401,13 @@ document.querySelectorAll('.card-3d').forEach(card => {
     card.style.transform = 'rotateX(0deg) rotateY(0deg)';
   });
 });
+
+// Convenções coletivas: o atalho de ano (ou um link #cct-AAAA) abre aquele ano antes de rolar até ele
+(function initAnosCct() {
+  const abrir = (hash) => {
+    const alvo = hash && hash.startsWith('#cct-') ? document.querySelector(hash) : null;
+    if (alvo && alvo.tagName === 'DETAILS') alvo.open = true;
+  };
+  document.querySelectorAll('.cct-anos a').forEach(a => a.addEventListener('click', () => abrir(a.hash)));
+  abrir(location.hash);
+})();
