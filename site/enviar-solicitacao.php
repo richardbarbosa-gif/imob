@@ -32,7 +32,7 @@ if ($tipo === 'selo') {
 
     foreach ($campos as $nome => [$rotulo]) $blocos['Dados do solicitante'][] = [$rotulo, $valores[$nome]];
     $blocos['Autorização de uso do selo'] = [
-        ['Termo', 'Eu, corretor de seguros inscrito na SUSEP, enquanto associado e com obrigações em dia, poderei utilizar o selo eletrônico com a logomarca do Sincor-SC em site, mídias sociais, correspondências, cartão de visita etc. Importante registrar que me comprometo a não usar tal logomarca de forma indevida, onde possa acarretar ônus ou danos à imagem desta instituição, e desde já isento o Sincor-SC de qualquer responsabilidade jurídica que, porventura, venha a ser questionada na Justiça.'],
+        ['Termo', 'Eu, corretor de seguros inscrito na SUSEP, enquanto associado e com obrigações em dia, poderei utilizar o selo eletrônico com a logomarca do Sincor-SC em site, mídias sociais, correspondências, cartão de visita etc. Importante registrar que me comprometo a não usar tal logomarca de forma indevida, que possa acarretar ônus ou danos à imagem desta instituição, e desde já isento o Sincor-SC de qualquer responsabilidade jurídica que, porventura, venha a ser questionada na Justiça.'],
         ['Aceite do termo e da Política de Privacidade', 'Sim, aceitou'],
     ];
     $assunto = ['Solicitação do Selo Corretor Associado', $valores['nome']];

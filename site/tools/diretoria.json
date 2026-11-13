@@ -1,5 +1,5 @@
 {
- "_fonte": "Texto idêntico ao de https://sincor-sc.com.br/diretoria/ (copiado em 13/11/2026). Fotos em imagens/diretoria/<foto>.webp. Para atualizar: edite aqui e rode node site/tools/institucional.mjs.",
+ "_fonte": "Texto do https://sincor-sc.com.br/diretoria/ (copiado em 13/11/2026). Fotos em imagens/diretoria/<foto>.webp. Para atualizar: edite aqui e rode node site/tools/institucional.mjs. Só a ortografia foi corrigida (acentos e crase), sem mudar o sentido.",
  "subtitulo": "Sindicato dos Corretores de Seguros no Estado de Santa Catarina",
  "secoes": [
   {
@@ -31,7 +31,7 @@
     },
     {
      "nome": "Nelson A. Reis Simas",
-     "cidade": "Balneário Camboriu",
+     "cidade": "Balneário Camboriú",
      "cargo": "1º Secretário",
      "foto": "nelson-a-reis-simas"
     },
@@ -113,7 +113,7 @@
    "pessoas": [
     {
      "nome": "Alcides João Pavanello",
-     "cidade": "Jaragua do Sul",
+     "cidade": "Jaraguá do Sul",
      "cargo": "Conselheiro Fiscal",
      "foto": "alcides-joao-pavanello"
     },
@@ -148,14 +148,14 @@
     },
     {
      "nome": "Patrícia Brandt Firmo",
-     "cidade": "Balneário Camboriu",
+     "cidade": "Balneário Camboriú",
      "cargo": "Suplente",
      "foto": "patricia-brandt-firmo"
     }
    ]
   },
   {
-   "titulo": "Delegados junto a Fenacor",
+   "titulo": "Delegados junto à Fenacor",
    "pessoas": [
     {
      "nome": "Claudio Simão",
@@ -172,7 +172,7 @@
    ]
   },
   {
-   "titulo": "Delegados Suplentes junto a Fenacor",
+   "titulo": "Delegados Suplentes junto à Fenacor",
    "pessoas": [
     {
      "nome": "Jalmei José Duarte",
@@ -204,7 +204,7 @@
    "regioes": [
     "Grande Florianópolis",
     "Sul",
-    "Vale do Itajai",
+    "Vale do Itajaí",
     "Alto Vale",
     "Norte",
     "Planalto Serrano",

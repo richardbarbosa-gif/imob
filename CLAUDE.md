@@ -144,7 +144,7 @@ zero complacência, apontar caminho melhor quando existir, antecipar falhas, ser
 > BrasilAPI. Em produção, o ideal continua sendo o JSON próprio (`data-feed`) publicado pelo servidor.
 
 > **Institucional, SUSEP e limpeza (13/11):**
-> - **Páginas novas com o texto IDÊNTICO ao site original** (só o visual é nosso; nada reescrito nem corrigido):
+> - **Páginas novas com o texto do site original** (só o visual é nosso; ortografia corrigida a pedido do cliente, sem mudar o sentido):
 >   `quem-somos.html` (história, missão e visão, princípios), `diretoria.html` (Diretoria Executiva, suplentes,
 >   Conselho Fiscal e suplentes, delegados e suplentes junto à Fenacor, Assessoria Jurídica, Diretores Regionais) e
 >   `convencoes-coletivas.html` (2017 a 2026, piso regional, observação da carta de oposição de Florianópolis).
@@ -167,6 +167,12 @@ zero complacência, apontar caminho melhor quando existir, antecipar falhas, ser
 >   geradores. Ficam só as setas de navegação de carrossel e o ▾ dos menus.
 > - Pendências de conteúdo: "Comissões Técnicas" da Home (Automóvel, Vida, Ramos) veio no código recebido e **não existe
 >   no site original**; ainda não confirmado com o cliente. Os cartões "Acesso Rápido" da Home ainda usam fotos de banco.
+
+> **Revisão de português (13/11):** Quem somos (meses em minúscula, vírgulas, "todo o Estado", "assembleia", "à classe",
+> "defensora do lema", "clientes"), Diretoria (Camboriú, Jaraguá do Sul, Vale do Itajaí, "junto à Fenacor"), Convenções
+> ("Resumo da Convenção", "aguardando assinatura", "Sindicato dos Securitários", "Sr.", vírgulas na observação), termo do
+> Selo ("de forma indevida, que possa acarretar", também no e-mail do `enviar-solicitacao.php`) e Eventos ("corretores de
+> seguros"). Todos os links de "Diretoria e Delegados" (menus, rodapé, cartão da Home) levam a `diretoria.html`.
 
 Fase atual: **protótipo da Home** para aprovação, com **duas propostas de layout** que usam o **mesmo texto** (do site
 atual do Sincor SC), a mesma paleta e as mesmas abas. As páginas internas ainda não existem: links internos mostram o
@@ -291,8 +297,9 @@ prototipo/
   visível (WCAG 2.5.3); decoração com `aria-hidden`.
 
 ### 6.6 Conteúdo
-- **Conteúdo copiado do site original vai idêntico, palavra por palavra** (pedido do cliente: "não erre que é grave").
-  Erros de digitação do original não são corrigidos por conta própria: liste-os para o cliente decidir.
+- **Conteúdo copiado do site original mantém o sentido e as informações exatas** (pedido do cliente: "não erre que é
+  grave"). **Erros de português podem e devem ser corrigidos** (acentos, crase, maiúsculas indevidas, vírgulas, "onde"
+  fora de lugar), autorizado pelo cliente em 13/11, sem mudar o sentido. Nomes de pessoas nunca são alterados.
 - **Use o texto real do Sincor SC.** Não invente fatos, números, depoimentos, parceiros nem datas. Exemplos provisórios
   (eventos menores, notícias, vídeos) estão marcados no README e devem continuar marcados.
 - Cotações: nada inventado. Sem dado real, o item mostra traço/"indisponível". Dados com atraso e sinalizados como
