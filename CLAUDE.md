@@ -41,7 +41,8 @@ zero complacência, apontar caminho melhor quando existir, antecipar falhas, ser
 - **Marca (oficial, PDF do cliente de 24/11):** **PANTONE 282 C** (azul, tela `#041E42`) e **PANTONE 465 C** (dourado,
   tela `#B9975B`), cores especiais do arquivo do Corel. Logo oficial em `site/imagens/logo/`: `sincor-sc.svg` (fundo
   claro), `sincor-sc-negativo.svg` (fundo escuro: azul vira branco) e `favicon.svg` (só a asa). **Nunca redesenhar.**
-  A paleta do site (`sincor-900 #071d49`, `gold #d4962a`) ainda é a estimada; alinhar às Pantone só com aval do Richard.
+  **Decisão do Richard (24/11):** o logo segue sempre as cores oficiais; a paleta do site (`sincor-900 #071d49`,
+  `gold #d4962a`) **fica como está** e só muda se o cliente pedir. Não alinhar por conta própria.
 
 ## 2. Escopo completo do projeto
 
