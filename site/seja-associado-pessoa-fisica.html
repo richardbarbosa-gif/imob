@@ -8,7 +8,7 @@
   <!-- PRÉVIA: não indexar. Trocar por "index, follow" só na publicação oficial no domínio do Sincor SC. -->
   <meta name="robots" content="noindex, nofollow" />
   <link rel="canonical" href="https://sincor-sc.com.br/seja-associado-pessoa-fisica" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2313264a'/%3E%3Cg fill='%23c6a15b' transform='translate(8 15)'%3E%3Cpath d='M2.5 27.5C9.6 13.6 24 5.2 45.5 3.5 33 7.6 21.7 14.7 13.6 27.5Z'/%3E%3Cpath d='M15.4 29.5c5.2-7.6 13.6-13.2 25.2-16-8.3 4-14.4 9.3-18.6 16Z'/%3E%3C/g%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="imagens/logo/favicon.svg" />
 
   <script type="application/ld+json">
   {
@@ -25,10 +25,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.css?v=f7c06aaf60" />
+  <link rel="stylesheet" href="assets/css/site.css?v=9c5f6605a7" />
   <link rel="stylesheet" href="assets/css/paginas.css?v=1a2c7daad7" />
   <!-- Tailwind compilado (tools: npm run css). Fica por último, na mesma posição em que o CDN injetava o CSS -->
-  <link rel="stylesheet" href="assets/css/tailwind.css?v=4544b84e0e" />
+  <link rel="stylesheet" href="assets/css/tailwind.css?v=836320f21d" />
 </head>
 
 <body class="bg-[#F8FAFC] text-slate-800 antialiased selection:bg-sincor-gold selection:text-white">
@@ -107,24 +107,9 @@
 
       <div class="flex items-center justify-between py-4 gap-2 sm:gap-4">
 
-        <!-- LOGO SINCOR SC + SELO 65 ANOS LADO A LADO -->
+        <!-- LOGO OFICIAL SINCOR SC (PDF do cliente, PANTONE 282 C e 465 C) + SELO 65 ANOS LADO A LADO -->
         <a href="index.html" class="flex items-center gap-4 group shrink-0">
-          <div class="flex items-center gap-3">
-            <svg class="w-10 h-9 sm:w-12 sm:h-11 shrink-0" viewBox="0 0 64 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 26C16 11 36 5 58 8" stroke="#c8963e" stroke-width="4" stroke-linecap="round"/>
-              <path d="M12 33C23 19 40 14 56 16" stroke="#071d49" stroke-width="4" stroke-linecap="round"/>
-              <path d="M4 37C17 29 33 27 46 30" stroke="#c8963e" stroke-width="2.5" stroke-linecap="round"/>
-            </svg>
-            <div class="leading-none">
-              <div class="flex items-baseline tracking-tight">
-                <span class="text-[22px] sm:text-[26px] font-extrabold text-sincor-900">Sincor</span>
-                <span class="text-[22px] sm:text-[26px] font-extrabold text-sincor-gold ml-1">SC</span>
-              </div>
-              <span class="block text-[10px] font-semibold uppercase tracking-wider text-slate-500 mt-0.5">
-                Santa Catarina
-              </span>
-            </div>
-          </div>
+          <img class="logo-sincor" src="imagens/logo/sincor-sc.svg" width="324" height="125" alt="Sincor SC">
 
           <div class="h-10 w-px bg-slate-200 hidden sm:block"></div>
 
@@ -640,13 +625,8 @@
 
         <!-- Coluna 1: Marca + Texto Oficial + 4 ÍCONES CIRCULARES PROFISSIONAIS (IMAGEM 3 CORRIGIDA) -->
         <div class="lg:col-span-4 space-y-4">
-          <div class="flex items-center gap-3">
-            <svg class="w-10 h-9 shrink-0" viewBox="0 0 64 52" fill="none">
-              <path d="M6 26C16 11 36 5 58 8" stroke="#f1c266" stroke-width="4" stroke-linecap="round"/>
-              <path d="M12 33C23 19 40 14 56 16" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
-            </svg>
-            <span class="text-2xl font-extrabold text-white">Sincor <span class="text-sincor-gold">SC</span></span>
-          </div>
+          <!-- Logo oficial em negativo (azul vira branco no fundo escuro; o dourado se mantém) -->
+          <img class="logo-sincor-rodape" src="imagens/logo/sincor-sc-negativo.svg" width="324" height="125" alt="Sincor SC" loading="lazy" decoding="async">
           <p class="text-slate-400 leading-relaxed">
             Sindicato dos Corretores de Seguros e de Resseguros e das Empresas Corretoras de Seguros e de Resseguros no Estado de Santa Catarina.
           </p>

@@ -63,6 +63,11 @@
   background-position: right center;
 }
 
+/* Logo oficial (SVG extraído do PDF do cliente): altura fixa, largura pela proporção; margem negativa no desktop para
+   não aumentar o cabeçalho */
+.logo-sincor { display: block; height: 46px; width: auto; flex: none; }
+@media (min-width: 640px) { .logo-sincor { height: 58px; margin-block: -7px; } }
+.logo-sincor-rodape { display: block; height: 54px; width: auto; }
 /* Selo de 65 anos ao lado do logo: mesma altura visual do logo, sem aumentar o cabeçalho */
 .selo-65 { height: 66px; width: auto; margin-block: -11px; flex: none; filter: drop-shadow(0 3px 5px rgba(7, 29, 73, .22)); }
 

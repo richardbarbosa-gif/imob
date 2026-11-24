@@ -38,8 +38,10 @@ zero complacência, apontar caminho melhor quando existir, antecipar falhas, ser
 - **Referência de estrutura:** Sincor SP, https://sincor.org.br/. A meta é **superar o Sincor SP** em estética, UX,
   desempenho e SEO.
 - **Inspiração visual da versão Telão:** onovomercado (parede curva de miniaturas). Inspiração, nunca cópia.
-- **Marca:** azul-marinho `#13264a` e dourado `#c6a15b` (HEX estimados de print; confirmar no manual da marca). Logo
-  atual do protótipo é composição tipográfica provisória.
+- **Marca (oficial, PDF do cliente de 24/11):** **PANTONE 282 C** (azul, tela `#041E42`) e **PANTONE 465 C** (dourado,
+  tela `#B9975B`), cores especiais do arquivo do Corel. Logo oficial em `site/imagens/logo/`: `sincor-sc.svg` (fundo
+  claro), `sincor-sc-negativo.svg` (fundo escuro: azul vira branco) e `favicon.svg` (só a asa). **Nunca redesenhar.**
+  A paleta do site (`sincor-900 #071d49`, `gold #d4962a`) ainda é a estimada; alinhar às Pantone só com aval do Richard.
 
 ## 2. Escopo completo do projeto
 
@@ -211,6 +213,10 @@ zero complacência, apontar caminho melhor quando existir, antecipar falhas, ser
 >   Os links "Ouvidoria" (barra do topo, menu Contato e menu do celular) levam à página nova em todas as páginas;
 >   `ouvidoria.html` entrou na lista do `sync-layout.mjs`. `formulario.js` aceita caixas de marcação opcionais sem
 >   mensagem de erro. Testado: envio completo com PDF, envio vazio, opção fora da lista, data futura e arquivo falso.
+> - **Logo oficial (24/11):** o logo que o projeto usava (curvas em SVG + "Sincor SC" em texto + "Santa Catarina") era
+>   **criação nossa** e saiu. Entrou o logo oficial, extraído em vetor do PDF do cliente (`Sincor-SC_2.pdf`, CorelDRAW,
+>   7 formas, conferido pixel a pixel com o PDF): cabeçalho de todas as páginas (46 px no celular, 58 px no desktop, sem
+>   aumentar o cabeçalho), rodapé em negativo e ícone da aba. Selo de 65 anos e efeitos das páginas mantidos.
 > - **Auditoria original × nosso (13/11):** Quem somos, Diretoria (27 nomes), Convenções (45 itens, 35 PDFs conferidos
 >   por tamanho, Estatuto e Regimento por hash), Política, Selo e fichas conferidos; diferenças só de ortografia.
 >   **Achados, não alterados, aguardando o Richard:** (1) o original publicou a **Revista Nº 17, outubro/2026**
@@ -391,7 +397,7 @@ prototipo/
 
 ## 9. Pendências do cliente
 
-1. Confirmar HEX da paleta e enviar o logo em SVG
+1. ~~Logo oficial e cores~~ (recebido em 24/11: PANTONE 282 C e 465 C); falta o manual da marca, se existir
 2. Fotos (diretoria, eventos, sede); foto da fachada permitiria uma maquete 3D da sede real
 3. Acesso à hospedagem atual e ao DNS (hoje com a Guerra Comunicação)
 4. ~~URLs oficiais das redes sociais~~ (feito em 11/11)
